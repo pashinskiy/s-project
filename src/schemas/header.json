@@ -1,0 +1,20 @@
+{
+  "Main" : {
+    "logo_sport" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Логотип спорт. клуб (svg)"
+      }
+    },
+    "logo_fitnes" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Логотип фитнес клуб"
+      }
+    }
+  }
+}
