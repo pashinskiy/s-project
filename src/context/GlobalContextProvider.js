@@ -1,14 +1,14 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 function reducer(state, action) {
   switch (action.type) {
-    case "SET_ALL_PRODUCTS": {
+    case "SET_VERSION_SITE": {
       return {
         ...state,
+        versionSite: action.payload,
       };
     }
     default:
@@ -17,7 +17,9 @@ function reducer(state, action) {
 }
 
 const GlobalContextProvider = ({ children }) => {
-  const initState = {};
+  const initState = {
+    versionSite: "sport",
+  };
   const [state, dispatch] = React.useReducer(reducer, initState);
 
   return (

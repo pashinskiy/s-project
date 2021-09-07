@@ -2,7 +2,17 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({}));
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../../../context/GlobalContextProvider";
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
 
 /**
  * Шапка сайта
@@ -10,6 +20,8 @@ const useStyles = makeStyles((theme) => ({}));
  */
 export default function Header() {
   const classes = useStyles();
+  const state = React.useContext(GlobalStateContext);
+  const dispatch = React.useContext(GlobalDispatchContext);
 
   const data = useStaticQuery(graphql`
     {
@@ -30,9 +42,20 @@ export default function Header() {
     }
   `);
 
+  const image = (function () {
+    switch (state.versionSite) {
+      case "sport":
+        return data.prismicHeader.data.logo_sport;
+      case "fitnes":
+        return data.prismicHeader.data.logo_fitnes;
+      default:
+        return data.prismicHeader.data.logo_sport;
+    }
+  })();
+
   return (
-    <header>
-      <img src={data.prismicHeader.data.logo_sport.localFile.publicURL} />
+    <header className={classes.wrapper}>
+      <img src={image.localFile.publicURL} alt={image.alt} />
     </header>
   );
 }
