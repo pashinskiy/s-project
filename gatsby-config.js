@@ -64,7 +64,9 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         schemas: {
           header: require("./src/schemas/header.json"),
-          schedule: require("./src/schemas/schedule.json")
+          schedule: require("./src/schemas/schedule.json"),
+          coach: require("./src/schemas/coach.json"),
+          group: require("./src/schemas/group.json"),
         },
         // shouldDownloadImage: () => true,
       },

@@ -1,0 +1,44 @@
+{
+    "Main" : {
+      "first_name" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Имя",
+          "placeholder" : "Имя тренера"
+        }
+      },
+      "second_name" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Фамилия",
+          "placeholder" : "Фамилия тренера"
+        }
+      },
+      "description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Описание",
+          "placeholder" : "О тренере"
+        }
+      },
+      "short_decriprtion" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Короткое описание",
+          "placeholder" : "Коротко о тренере"
+        }
+      },
+      "image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Фотография"
+        }
+      }
+    }
+  }
