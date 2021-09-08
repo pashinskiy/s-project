@@ -11,10 +11,12 @@ import BurgerMenu from "../../../images/svg/burger_menu.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
+    position: "sticky",
+    top: 0,
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
 
     height: "12.01vw",
     padding: "0 2.08vw",
@@ -32,10 +34,6 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     display: "flex",
     alignItems: "center",
-    padding: 0,
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
 
     position: "absolute",
     left: "2.08vw",
@@ -81,15 +79,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   buttonLogo: {
-    padding: 0,
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
     height: "100%",
   },
   imageLogo: {
     width: "auto",
     height: "100%",
+    objectFit: "contain",
   },
   versionSiteWrapper: {
     display: "flex",
@@ -103,11 +98,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   versionSiteButton: {
-    padding: 0,
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-
     marginTop: "0.69vw",
     "@media(min-width: 1440px)": {
       marginTop: "10px",
@@ -130,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Шапка сайта
- * @module src/components/header
+ * @module src/components/layout/header
  */
 export default function Header() {
   const classes = useStyles();
@@ -170,15 +160,9 @@ export default function Header() {
     }
   })();
 
-  const [showMenu, setShowMenu] = React.useState(false);
-
   function openMenu() {
-    setShowMenu(true);
-    document.addEventListener("click", () => setShowMenu(false), {
-      once: true,
-    });
+    dispatch({ type: "SET_SHOW_MENU", payload: true });
   }
-
   function goSportVersion() {
     dispatch({ type: "SET_VERSION_SITE", payload: "sport" });
   }
@@ -189,7 +173,6 @@ export default function Header() {
   return (
     <header className={classes.wrapper}>
       <button
-        id="menu"
         aria-label="menu"
         onClick={openMenu}
         className={classes.menuButton}
@@ -200,7 +183,11 @@ export default function Header() {
         <Typography className={classes.menuTitle}>Меню</Typography>
       </button>
 
-      <button onClick={() => navigate("/")} className={classes.buttonLogo}>
+      <button
+        onClick={() => navigate("/")}
+        aria-label="main page"
+        className={classes.buttonLogo}
+      >
         <img
           src={image.localFile.publicURL}
           alt={image.alt}

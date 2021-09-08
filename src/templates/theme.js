@@ -3,8 +3,8 @@ import { createTheme } from "@material-ui/core/styles";
 const theme = createTheme({
   palette: {
     color: {
-      main: "#ffffff",
-      black: "#070F30",
+      main: "#070F30",
+      white: "#ffffff",
       blue: "#1B46F5",
       orange: "#FF3E00",
       darkBlue: "#08195E",
@@ -64,7 +64,14 @@ const theme = createTheme({
           backgroundClip: "border-box",
           "-webkit-text-fill-color": "none",
           backgroundColor: "#ffffff",
-          color: "#070F30",
+          "& *": { color: "#070F30" },
+          overflowX: "hidden",
+        },
+        button: {
+          padding: 0,
+          border: "none",
+          background: "transparent",
+          cursor: "pointer",
         },
       },
     },

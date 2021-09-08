@@ -2,12 +2,14 @@ import * as React from "react";
 import { makeStyles } from "@material-ui/core";
 import Header from "./header";
 import Footer from "./footer";
+import Menu from "./menu";
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
-    width: "100vw",
+    width: "100%",
     maxWidth: 1440,
     minHeight: "100vh",
+    height: 2000,
   },
 }));
 
@@ -25,6 +27,7 @@ export default function Layout({ children }) {
       <Header />
       <main className={classes.root}>{children}</main>
       <Footer />
+      <Menu />
     </div>
   );
 }
