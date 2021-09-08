@@ -63,7 +63,8 @@ module.exports = {
         repositoryName: `ska-swim`,
         accessToken: `${process.env.API_KEY}`,
         schemas: {
-          header: require("./src/schemas/header.json")
+          header: require("./src/schemas/header.json"),
+          schedule: require("./src/schemas/schedule.json")
         },
         // shouldDownloadImage: () => true,
       },

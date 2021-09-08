@@ -1,16 +1,17 @@
-import React from "react"
-import Logo from './images/svg/logo_sport.svg';
+import React from "react";
+import { Helmet } from "react-helmet";
+import Logo from "./images/svg/logo_sport.svg";
 
 /**
  * Компонент-обертка, позволяет отображать логотип до загрузки основного содержимого
  * @module src/clientOnly
  */
 export default function ClientOnly({ children, ...delegated }) {
-  const [hasMounted, setHasMounted] = React.useState(false)
+  const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
-    setHasMounted(true)
-  }, [])
-  if (!hasMounted) return null
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) return null;
   if (!hasMounted) {
     return (
       <div
@@ -27,7 +28,21 @@ export default function ClientOnly({ children, ...delegated }) {
       >
         <Logo />
       </div>
-    )
+    );
   }
-  return <div {...delegated}>{children}</div>
+  return (
+    <div {...delegated}>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="preconnect"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      {children}
+    </div>
+  );
 }
