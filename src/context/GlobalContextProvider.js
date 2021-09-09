@@ -11,6 +11,12 @@ function reducer(state, action) {
         versionSite: action.payload,
       };
     }
+    case "SET_SHOW_MENU": {
+      return {
+        ...state,
+        showMenu: action.payload,
+      };
+    }
     default:
       throw new Error("Error action");
   }
@@ -19,6 +25,7 @@ function reducer(state, action) {
 const GlobalContextProvider = ({ children }) => {
   const initState = {
     versionSite: "sport",
+    showMenu: false
   };
   const [state, dispatch] = React.useReducer(reducer, initState);
 

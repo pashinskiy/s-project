@@ -1,0 +1,131 @@
+{
+    "Main": {
+      "logo_sport": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Логотип спорт. клуб (svg)"
+        }
+      },
+      "logo_fitnes": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Логотип фитнес клуб"
+        }
+      }
+    },
+    "Спортивный клуб": {
+      "title_sport": {
+        "type": "Text",
+        "config": {
+          "label": "Заголовок",
+          "placeholder": "Заголовок"
+        }
+      },
+      "icon_sport": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Иконка"
+        }
+      },
+      "teams": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "text_link": {
+              "type": "Text",
+              "config": {
+                "label": "Текс ссылки",
+                "placeholder": "по умолчанию заголовок документа"
+              }
+            },
+            "page_team": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": [
+                  "page_constructor"
+                ],
+                "label": "Страница команды",
+                "placeholder": "документ страницы команды"
+              }
+            }
+          },
+          "label": "Команды"
+        }
+      }
+    },
+    "Фитнес клуб": {
+      "title_fitnes": {
+        "type": "Text",
+        "config": {
+          "label": "Заголовок",
+          "placeholder": "Заголовок"
+        }
+      },
+      "icon_fitnes": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Иконка"
+        }
+      },
+      "workouts": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "text_link": {
+              "type": "Text",
+              "config": {
+                "label": "Текс ссылки",
+                "placeholder": "по умолчанию заголовок документа"
+              }
+            },
+            "page_workout": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": [
+                  "page_constructor"
+                ],
+                "label": "Страница тренировки",
+                "placeholder": "документ страницы тренировки"
+              }
+            }
+          },
+          "label": "Тренировки"
+        }
+      }
+    },
+    "Документы": {
+      "documents": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Название документа",
+                "placeholder": "Название документа"
+              }
+            },
+            "document": {
+              "type": "Link",
+              "config": {
+                "select": "media",
+                "label": "Документ",
+                "placeholder": "выберите файл"
+              }
+            }
+          },
+          "label": "Документы для подвала сайта"
+        }
+      }
+    }
+  }

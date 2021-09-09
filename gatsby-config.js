@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -63,11 +63,15 @@ module.exports = {
         repositoryName: `ska-swim`,
         accessToken: `${process.env.API_KEY}`,
         schemas: {
-          header: require("./src/schemas/header.json"),
-          schedule: require("./src/schemas/schedule.json")
+          layout: require("./src/schemas/layout.json"),
+          header: require("./src/schemas/layout.json"),
+          schedule: require("./src/schemas/schedule.json"),
+          coach: require("./src/schemas/coach.json"),
+          group: require("./src/schemas/group.json"),
+          page_constructor: require("./src/schemas/page_constructor.json"),
         },
         // shouldDownloadImage: () => true,
       },
     },
   ],
-}
+};
