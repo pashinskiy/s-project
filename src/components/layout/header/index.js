@@ -121,42 +121,23 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Шапка сайта
  * @module src/components/layout/header
+ * @param {Object} props - объект свойств компонента React
+ * @param {Object} props.data - объект ответа graphql
  */
-export default function Header() {
+export default function Header({data}) {
   const classes = useStyles();
   const state = React.useContext(GlobalStateContext);
   const dispatch = React.useContext(GlobalDispatchContext);
   const mobile = useMediaQuery("(max-width:767px)");
 
-  const data = useStaticQuery(graphql`
-    {
-      prismicHeader {
-        data {
-          logo_fitnes {
-            localFile {
-              publicURL
-            }
-          }
-          logo_sport {
-            localFile {
-              publicURL
-            }
-          }
-          title_fitnes
-          title_sport
-        }
-      }
-    }
-  `);
-
   const image = (function () {
     switch (state.versionSite) {
       case "sport":
-        return data.prismicHeader.data.logo_sport;
+        return data.prismicLayout.data.logo_sport;
       case "fitnes":
-        return data.prismicHeader.data.logo_fitnes;
+        return data.prismicLayout.data.logo_fitnes;
       default:
-        return data.prismicHeader.data.logo_sport;
+        return data.prismicLayout.data.logo_sport;
     }
   })();
 
@@ -205,7 +186,7 @@ export default function Header() {
             className={classes.versionSiteButton}
           >
             <Typography className={classes.versionSiteText}>
-              {data.prismicHeader.data.title_sport}
+              {data.prismicLayout.data.title_sport}
             </Typography>
           </button>
 
@@ -215,7 +196,7 @@ export default function Header() {
             className={classes.versionSiteButton}
           >
             <Typography className={classes.versionSiteText}>
-              {data.prismicHeader.data.title_fitnes}
+              {data.prismicLayout.data.title_fitnes}
             </Typography>
           </button>
         </div>
