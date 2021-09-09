@@ -64,6 +64,7 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         schemas: {
           layout: require("./src/schemas/layout.json"),
+          header: require("./src/schemas/layout.json"),
           schedule: require("./src/schemas/schedule.json"),
           coach: require("./src/schemas/coach.json"),
           group: require("./src/schemas/group.json"),
