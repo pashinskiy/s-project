@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     width: "100%",
     maxWidth: 1440,
+    margin: "0 auto",
     minHeight: "100vh",
-    height: 2000,
   },
 }));
 

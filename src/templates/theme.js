@@ -73,6 +73,9 @@ const theme = createTheme({
           background: "transparent",
           cursor: "pointer",
         },
+        a:{
+          textDecoration:"none",
+        }
       },
     },
     MuiButton: {

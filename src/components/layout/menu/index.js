@@ -18,21 +18,30 @@ import CrossClose from "../../../images/svg/cross_close.svg";
 import ArrowMarker from "../../../images/svg/arrow_marker.svg";
 
 const useStyles = makeStyles((theme) => ({
-  menu_wrapper: {
-    background: theme.palette.background.blue,
+  scrollContainer: {
     height: "100%",
-    "& *": { color: theme.palette.color.white },
+    overflowY: "auto",
 
     width: "46.87vw",
+    "@media(min-width: 1440px)": {
+      width: 675,
+    },
+    "@media(max-width: 767px)": {
+      width: "100%",
+    },
+  },
+  menu_wrapper: {
+    background: theme.palette.background.blue,
+    minHeight: "100%",
+    "& *": { color: theme.palette.color.white },
+
     borderRadius: "0 2.43vw 2.43vw 0",
     padding: "2.77vw",
     "@media(min-width: 1440px)": {
-      width: 675,
       borderRadius: "0 35px 35px 0",
       padding: 40,
     },
     "@media(max-width: 767px)": {
-      width: "100%",
       borderRadius: "8.45vw 0 0 8.45vw ",
       padding: "4.83vw",
     },
@@ -239,6 +248,89 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "5.79vw",
     },
   },
+  contacts_wrapper: {
+    display: "flex",
+    justifyContent: "space-between",
+
+    marginTop: "1.38vw",
+    "@media(min-width: 1440px)": {
+      marginTop: 20,
+    },
+    "@media(max-width: 767px)": {
+      marginTop: "4.83vw",
+      justifyContent: "flex-start",
+    },
+  },
+  buttonPhone: {
+    display: "flex",
+    alignItems: "center",
+
+    "@media(max-width: 767px)": {
+      order: 1,
+      marginLeft: "2.89vw",
+    },
+  },
+  buttonPhone_icon: {
+    objectFit: "contain",
+
+    width: "2.91vw",
+    height: "2.91vw",
+    marginRight: "1.18vw",
+    "@media(min-width: 1440px)": {
+      width: 42,
+      height: 42,
+      marginRight: 17,
+    },
+    "@media(max-width: 767px)": {
+      width: "10.14vw",
+      height: "10.14vw",
+      marginRight: "4.1vw",
+    },
+  },
+  buttonPhone_text: {
+    fontWeight: 400,
+    lineHeight: 1.28,
+
+    fontSize: "1.66vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 24,
+    },
+    "@media(max-width: 767px)": {
+      fontSize: "5.79vw",
+    },
+  },
+  socialNetworks_wrapper: {
+    display: "flex",
+  },
+  buttonSocialNetwork: {
+    display: "flex",
+
+    marginRight: "0.83vw",
+    "@media(min-width: 1440px)": {
+      marginRight: 12,
+    },
+    "@media(max-width: 767px)": {
+      marginRight: "2.89vw",
+    },
+
+    "&:last-child": {
+      marginRight: 0,
+    },
+  },
+  buttonSocialNetwork_icon: {
+    objectFit: "contain",
+
+    width: "2.91vw",
+    height: "2.91vw",
+    "@media(min-width: 1440px)": {
+      width: 42,
+      height: 42,
+    },
+    "@media(max-width: 767px)": {
+      width: "10.14vw",
+      height: "10.14vw",
+    },
+  },
 }));
 
 /**
@@ -256,6 +348,31 @@ export default function Menu({ data }) {
   const imageLogo = data.prismicLayout.data.logo_sport;
   const iconSport = data.prismicLayout.data.icon_sport;
   const iconFitnes = data.prismicLayout.data.icon_fitnes;
+
+  const { prismicContact } = useStaticQuery(graphql`
+    {
+      prismicContact {
+        data {
+          phone_number
+          phone_icon {
+            alt
+            localFile {
+              publicURL
+            }
+          }
+          social_networks {
+            network_link
+            network_icon {
+              alt
+              localFile {
+                publicURL
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
   const separateLinks = [
     {
@@ -275,6 +392,16 @@ export default function Menu({ data }) {
     closeMenu();
     navigate(str);
   }
+  function goLink(str, options) {
+    const anchor = document.createElement("a");
+    anchor.href = str;
+    if (options) {
+      [...Object.keys(options)].forEach((key) => {
+        anchor[key] = options[key];
+      });
+    }
+    anchor.click();
+  }
 
   return (
     <Modal
@@ -289,128 +416,181 @@ export default function Menu({ data }) {
         mountOnEnter
         unmountOnExit
       >
-        <div className={classes.menu_wrapper}>
-          <div className={classes.logoAndClose_wrapper}>
-            {mobile ? (
+        <div className={classes.scrollContainer}>
+          <div className={classes.menu_wrapper}>
+            <div className={classes.logoAndClose_wrapper}>
+              {mobile ? (
+                <button
+                  onClick={() => goPage("/")}
+                  aria-label="main page"
+                  className={classes.logo_button}
+                >
+                  <img
+                    src={imageLogo.localFile.publicURL}
+                    alt={imageLogo.alt}
+                    width={1}
+                    height={1}
+                    className={classes.logo_Image}
+                  />
+                </button>
+              ) : null}
+
               <button
-                onClick={() => goPage("/")}
-                aria-label="main page"
-                className={classes.logo_button}
+                onClick={closeMenu}
+                aria-label="close menu"
+                className={classes.close_wrapper}
               >
+                <div className={classes.close_icon}>
+                  {mobile ? <CrossClose /> : <ArrowClose />}
+                </div>
+
+                <Typography className={classes.close_text}>Закрыть</Typography>
+              </button>
+            </div>
+
+            <div className={classes.workout_wrapper}>
+              <div className={classes.titleWithIcon_wrapper}>
                 <img
-                  src={imageLogo.localFile.publicURL}
-                  alt={imageLogo.alt}
+                  src={iconSport.localFile.publicURL}
+                  alt={iconSport.alt}
                   width={1}
                   height={1}
-                  className={classes.logo_Image}
+                  className={classes.titleWithIcon_icon}
                 />
-              </button>
-            ) : null}
 
-            <button
-              onClick={closeMenu}
-              aria-label="close menu"
-              className={classes.close_wrapper}
-            >
-              <div className={classes.close_icon}>
-                {mobile ? <CrossClose /> : <ArrowClose />}
+                <Typography className={classes.titleWithIcon_text}>
+                  {data.prismicLayout.data.title_sport}
+                </Typography>
               </div>
 
-              <Typography className={classes.close_text}>Закрыть</Typography>
-            </button>
-          </div>
+              <div className={classes.listLinks_wrapper}>
+                {data.prismicLayout.data.teams.map((team) => {
+                  const title =
+                    team.text_link ?? team.page_team?.document?.data.title;
+                  const link = `/${team.page_team?.document?.uid}`;
 
-          <div className={classes.workout_wrapper}>
-            <div className={classes.titleWithIcon_wrapper}>
-              <img
-                src={iconSport.localFile.publicURL}
-                alt={iconSport.alt}
-                width={1}
-                height={1}
-                className={classes.titleWithIcon_icon}
-              />
+                  return title ? (
+                    <button
+                      onClick={() => goPage(link)}
+                      aria-label={title}
+                      key={title}
+                      className={classes.listLinks_button}
+                    >
+                      <div className={classes.listLinks_marker}>
+                        <ArrowMarker />
+                      </div>
 
-              <Typography className={classes.titleWithIcon_text}>
-                {data.prismicLayout.data.title_sport}
-              </Typography>
+                      <Typography className={classes.listLinks_text}>
+                        {title}
+                      </Typography>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+
+              <div className={classes.titleWithIcon_wrapper}>
+                <img
+                  src={iconFitnes.localFile.publicURL}
+                  alt={iconFitnes.alt}
+                  width={1}
+                  height={1}
+                  className={classes.titleWithIcon_icon}
+                />
+
+                <Typography className={classes.titleWithIcon_text}>
+                  {data.prismicLayout.data.title_fitnes}
+                </Typography>
+              </div>
+
+              <div className={classes.listLinks_wrapper}>
+                {data.prismicLayout.data.workouts.map((workout) => {
+                  const title =
+                    workout.text_link ??
+                    workout.page_workout?.document?.data.title;
+                  const link = `/${workout.page_workout?.document?.uid}`;
+
+                  return title ? (
+                    <button
+                      onClick={() => goPage(link)}
+                      aria-label={title}
+                      key={title}
+                      className={classes.listLinks_button}
+                    >
+                      <div className={classes.listLinks_marker}>
+                        <ArrowMarker />
+                      </div>
+
+                      <Typography className={classes.listLinks_text}>
+                        {title}
+                      </Typography>
+                    </button>
+                  ) : null;
+                })}
+              </div>
             </div>
 
-            <div className={classes.listLinks_wrapper}>
-              {data.prismicLayout.data.teams.map((team) => {
-                const title =
-                  team.text_link ?? team.page_team?.document?.data.title;
-                const link = `/${team.page_team?.document?.uid}`;
-
-                return title ? (
-                  <button
-                    onClick={() => goPage(link)}
-                    aria-label={title}
-                    className={classes.listLinks_button}
-                  >
-                    <div className={classes.listLinks_marker}>
-                      <ArrowMarker />
-                    </div>
-
-                    <Typography className={classes.listLinks_text}>
-                      {title}
-                    </Typography>
-                  </button>
-                ) : null;
-              })}
+            <div className={classes.separateLinks_wrapper}>
+              {separateLinks.map((item) => (
+                <button
+                  onClick={() => goPage(item.link)}
+                  aria-label={item.title}
+                  key={item.title}
+                  className={classes.separateLinks_button}
+                >
+                  <Typography className={classes.separateLinks_text}>
+                    {item.title}
+                  </Typography>
+                </button>
+              ))}
             </div>
 
-            <div className={classes.titleWithIcon_wrapper}>
-              <img
-                src={iconFitnes.localFile.publicURL}
-                alt={iconFitnes.alt}
-                width={1}
-                height={1}
-                className={classes.titleWithIcon_icon}
-              />
-
-              <Typography className={classes.titleWithIcon_text}>
-                {data.prismicLayout.data.title_fitnes}
-              </Typography>
-            </div>
-
-            <div className={classes.listLinks_wrapper}>
-              {data.prismicLayout.data.workouts.map((workout) => {
-                const title =
-                  workout.text_link ??
-                  workout.page_workout?.document?.data.title;
-                const link = `/${workout.page_workout?.document?.uid}`;
-
-                return title ? (
-                  <button
-                    onClick={() => goPage(link)}
-                    aria-label={title}
-                    className={classes.listLinks_button}
-                  >
-                    <div className={classes.listLinks_marker}>
-                      <ArrowMarker />
-                    </div>
-
-                    <Typography className={classes.listLinks_text}>
-                      {title}
-                    </Typography>
-                  </button>
-                ) : null;
-              })}
-            </div>
-          </div>
-
-          <div className={classes.separateLinks_wrapper}>
-            {separateLinks.map((item) => (
+            <div className={classes.contacts_wrapper}>
               <button
-                onClick={() => goPage(item.link)}
-                aria-label={item.title}
-                className={classes.separateLinks_button}
+                onClick={() =>
+                  goLink(`tel:${prismicContact.data.phone_number}`)
+                }
+                className={classes.buttonPhone}
               >
-                <Typography className={classes.separateLinks_text}>
-                  {item.title}
+                <img
+                  src={prismicContact.data.phone_icon?.localFile?.publicURL}
+                  alt={prismicContact.data.phone_icon?.alt}
+                  width={1}
+                  height={1}
+                  className={classes.buttonPhone_icon}
+                />
+
+                <Typography className={classes.buttonPhone_text}>
+                  {prismicContact.data.phone_number}
                 </Typography>
               </button>
-            ))}
+
+              <div className={classes.socialNetworks_wrapper}>
+                {prismicContact.data.social_networks.map((network) => {
+                  const iconPath = network.network_icon?.localFile?.publicURL;
+                  const iconAlt = network.network_icon?.alt ?? "social";
+
+                  return iconPath ? (
+                    <button
+                      onClick={() =>
+                        goLink(network.network_link, {
+                          target: "_blank",
+                          rel: "noreferrer",
+                        })
+                      }
+                      className={classes.buttonSocialNetwork}
+                    >
+                      <img
+                        src={iconPath}
+                        alt={iconAlt}
+                        width={1}
+                        height={1}
+                        className={classes.buttonSocialNetwork_icon}
+                      />
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </Slide>

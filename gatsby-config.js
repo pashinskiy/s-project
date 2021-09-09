@@ -69,6 +69,7 @@ module.exports = {
           coach: require("./src/schemas/coach.json"),
           group: require("./src/schemas/group.json"),
           page_constructor: require("./src/schemas/page_constructor.json"),
+          contact: require("./src/schemas/contact.json"),
         },
         // shouldDownloadImage: () => true,
       },

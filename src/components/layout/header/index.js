@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 
 import {
@@ -11,12 +11,13 @@ import BurgerMenu from "../../../images/svg/burger_menu.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    position: "sticky",
-    top: 0,
+    position: "relative",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    background: theme.palette.background.main,
 
     height: "12.01vw",
     padding: "0 2.08vw",
@@ -25,10 +26,13 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 30px",
     },
     "@media(max-width: 767px)": {
-      height: "21.73vw",
-      padding: "0 4.83vw",
+      position: "sticky",
+      zIndex: 999,
+      top: 0,
       flexDirection: "row-reverse",
       justifyContent: "space-between",
+      height: "21.73vw",
+      padding: "2.41vw 4.83vw 1.2vw",
     },
   },
   menuButton: {
@@ -124,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {Object} props - объект свойств компонента React
  * @param {Object} props.data - объект ответа graphql
  */
-export default function Header({data}) {
+export default function Header({ data }) {
   const classes = useStyles();
   const state = React.useContext(GlobalStateContext);
   const dispatch = React.useContext(GlobalDispatchContext);
