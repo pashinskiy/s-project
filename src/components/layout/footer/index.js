@@ -1,6 +1,7 @@
 import * as React from "react";
-import { useStaticQuery, navigate } from "gatsby";
+import { useStaticQuery, graphql, navigate } from "gatsby";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
+import { YMaps, Map, Placemark } from "react-yandex-maps";
 
 import {
   GlobalDispatchContext,
@@ -8,6 +9,7 @@ import {
 } from "../../../context/GlobalContextProvider";
 
 import BurgerMenu from "../../../images/svg/burger_menu.svg";
+import Geo from "../../../images/svg/geo.svg";
 import ArrowMarker from "../../../images/svg/arrow_marker.svg";
 import ArrowGoVersion from "../../../images/svg/arrow_go_version.svg";
 
@@ -144,6 +146,112 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "18px",
     },
   },
+
+  map: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
+    padding: "3.47vw",
+    "@media(min-width: 1440px)": {
+      padding: 50,
+    },
+    "@media(max-width: 767px)": {
+      padding: 0,
+    },
+  },
+  address: {
+    display: "flex",
+    alignItems: "center",
+    margin: "0 auto",
+    background: theme.palette.background.orange,
+
+    borderRadius: "1.73vw 1.73vw 0 0",
+    padding: "1.38vw 2.77vw 1.38vw 4.16vw",
+    "@media(min-width: 1440px)": {
+      borderRadius: "25px 25px 0 0",
+      padding: "20px 40px 20px 65px",
+    },
+    "@media(max-width: 767px)": {
+      width: "100%",
+      padding: "2.89vw 4.34vw",
+      borderRadius: 0,
+    },
+  },
+  address_icon: {
+    display: "flex",
+
+    width: "3.05vw",
+    height: "3.61vw",
+    marginRight: "1.45vw",
+    "@media(min-width: 1440px)": {
+      width: 44,
+      height: 52,
+      marginRight: 21,
+    },
+    "@media(max-width: 767px)": {
+      width: "10.62vw",
+      height: "12.56vw",
+      marginRight: "3.62vw",
+    },
+  },
+  address_textBold: {
+    fontWeight: 700,
+    lineHeight: 1.28,
+
+    fontSize: "1.25vw",
+    marginBottom: "0.34vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+      marginBottom: 5,
+    },
+    "@media(max-width: 767px)": {
+      marginBottom: "1.2vw",
+      fontSize: "4.34vw",
+    },
+  },
+  address_textNormal: {
+    fontWeight: 400,
+    lineHeight: 1.28,
+
+    display: "inline-block",
+    marginRight: "2.08vw",
+    fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      marginRight: 30,
+      fontSize: 18,
+    },
+    "@media(max-width: 767px)": {
+      marginRight: 0,
+      marginBottom: "1.2vw",
+      fontSize: "4.34vw",
+
+      width: "100%",
+      textAlign: "center",
+    },
+
+    "&:last-child": {
+      marginRight: 0,
+      marginBottom: 0,
+    },
+  },
+  yandexMap_wraper: {
+    width: "100%",
+    overflow: "hidden",
+
+    height: "34.09vw",
+    borderRadius: "2.43vw",
+    "@media(min-width: 1440px)": {
+      height: 491,
+      borderRadius: 35,
+    },
+    "@media(max-width: 767px)": {
+      height: "65.21vw",
+      borderRadius: 0,
+    },
+  },
+
   footerMenu: {
     display: "flex",
     justifyContent: "space-between",
@@ -531,10 +639,20 @@ export default function Footer({ data }) {
               }
             }
           }
+          address
+          metro
+          bus
+          coordinate_x
+          coordinate_y
         }
       }
     }
   `);
+
+  const coordinate = [
+    prismicContact.data.coordinate_x,
+    prismicContact.data.coordinate_y,
+  ];
 
   const image = (function () {
     switch (state.versionSite) {
@@ -642,6 +760,53 @@ export default function Footer({ data }) {
             )}
           </div>
         )}
+      </div>
+
+      <div className={classes.map}>
+        <div className={classes.address}>
+          <div className={classes.address_icon}>
+            <Geo />
+          </div>
+
+          <div>
+            <Typography className={classes.address_textBold}>
+              {prismicContact.data.address}
+            </Typography>
+
+            <Typography className={classes.address_textNormal}>
+              {`Метро: “${prismicContact.data.metro}”`}
+            </Typography>
+            <Typography className={classes.address_textNormal}>
+              {`Автобус: “${prismicContact.data.bus}”`}
+            </Typography>
+          </div>
+        </div>
+
+        <div className={classes.yandexMap_wraper}>
+          <YMaps>
+            <Map
+              defaultState={{
+                center: coordinate,
+                zoom: 15,
+                controls: ["zoomControl", "fullscreenControl"],
+              }}
+              modules={["control.ZoomControl", "control.FullscreenControl"]}
+              width={"100%"}
+              height={"100%"}
+            >
+              <Placemark
+                modules={["geoObject.addon.balloon"]}
+                defaultGeometry={coordinate}
+                options={{
+                  iconLayout: "default#image",
+                  iconImageHref: "/svg/logo_on_map.svg",
+                  iconImageSize: [66, 66],
+                  iconImageOffset: [-33, -33],
+                }}
+              />
+            </Map>
+          </YMaps>
+        </div>
       </div>
 
       <div className={classes.footerMenu}>
@@ -814,7 +979,7 @@ export default function Footer({ data }) {
           </Typography>
 
           <Typography className={classes.orangeRoundedBlock_variant}>
-            {state.versionSite === "sport" ? "Фитнес клуб" : "Спортивный клуб"}
+            {state.versionSite === "sport" ? "Фитнес клуб" : "Спорт клуб"}
           </Typography>
         </div>
 
