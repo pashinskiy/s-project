@@ -22,27 +22,34 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     overflowY: "auto",
 
-    width: "46.87vw",
+    width: "25.65vw",
     "@media(min-width: 1440px)": {
-      width: 675,
+      width: 427,
     },
     "@media(max-width: 767px)": {
       width: "100%",
     },
   },
   menu_wrapper: {
+    position: "relative",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+
     background: theme.palette.background.blue,
     minHeight: "100%",
     "& *": { color: theme.palette.color.white },
 
     borderRadius: "0 2.43vw 2.43vw 0",
-    padding: "2.77vw",
+    padding: "4.37vw 2.77vw 0",
     "@media(min-width: 1440px)": {
       borderRadius: "0 35px 35px 0",
-      padding: 40,
+      padding: "63px 40px 0",
     },
     "@media(max-width: 767px)": {
-      borderRadius: "8.45vw 0 0 8.45vw ",
+      justifyContent: "space-between",
+      borderRadius: 0,
       padding: "4.83vw",
     },
   },
@@ -50,6 +57,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+
+    position: "absolute",
+    top: "2.77vw",
+    left: "2.77vw",
+    "@media(min-width: 1440px)": {
+      top: 40,
+      left: 40,
+    },
+    "@media(max-width: 767px)": {
+      position: "static",
+    },
   },
   logo_button: {
     height: "16.9vw",
@@ -95,13 +113,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   workout_wrapper: {
-    marginTop: "4.16vw",
-    "@media(min-width: 1440px)": {
-      marginTop: 60,
-    },
-    "@media(max-width: 767px)": {
-      marginTop: "9.17vw",
-    },
+    // marginTop: "4.16vw",
+    // "@media(min-width: 1440px)": {
+    //   marginTop: 60,
+    // },
+    // "@media(max-width: 767px)": {
+    //   marginTop: "9.17vw",
+    // },
   },
   titleWithIcon_wrapper: {
     display: "flex",
@@ -207,15 +225,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   separateLinks_wrapper: {
-    marginTop: "5.76vw",
-    borderTop: `0.13vw solid ${theme.palette.color.white}`,
+    marginTop: "2.77vw",
     "@media(min-width: 1440px)": {
-      marginTop: 83,
-      borderWidth: "2px",
+      marginTop: 40,
     },
     "@media(max-width: 767px)": {
       marginTop: "9.17vw",
-      borderWidth: "0.48vw",
     },
   },
   separateLinks_button: {
@@ -223,17 +238,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
 
     marginTop: "1.38vw",
-    paddingBottom: "1.38vw",
-    borderBottom: `0.13vw solid ${theme.palette.color.white}`,
     "@media(min-width: 1440px)": {
       marginTop: 20,
-      paddingBottom: 20,
-      borderWidth: "2px",
     },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
-      paddingBottom: "4.83vw",
-      borderWidth: "0.48vw",
+    },
+
+    "&:first-child": {
+      marginTop: 0,
     },
   },
   separateLinks_text: {
@@ -250,7 +263,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contacts_wrapper: {
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: "column",
 
     marginTop: "1.38vw",
     "@media(min-width: 1440px)": {
@@ -258,6 +271,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
+      flexDirection: "row",
       justifyContent: "flex-start",
     },
   },
@@ -301,6 +315,14 @@ const useStyles = makeStyles((theme) => ({
   },
   socialNetworks_wrapper: {
     display: "flex",
+
+    marginTop: "1.18vw",
+    "@media(min-width: 1440px)": {
+      marginTop: 17,
+    },
+    "@media(max-width: 767px)": {
+      marginTop: 0,
+    },
   },
   buttonSocialNetwork: {
     display: "flex",
@@ -450,13 +472,15 @@ export default function Menu({ data }) {
 
             <div className={classes.workout_wrapper}>
               <div className={classes.titleWithIcon_wrapper}>
-                <img
-                  src={iconSport.localFile.publicURL}
-                  alt={iconSport.alt}
-                  width={1}
-                  height={1}
-                  className={classes.titleWithIcon_icon}
-                />
+                {mobile ? null : (
+                  <img
+                    src={iconSport.localFile.publicURL}
+                    alt={iconSport.alt}
+                    width={1}
+                    height={1}
+                    className={classes.titleWithIcon_icon}
+                  />
+                )}
 
                 <Typography className={classes.titleWithIcon_text}>
                   {data.prismicLayout.data.title_sport}
@@ -489,13 +513,15 @@ export default function Menu({ data }) {
               </div>
 
               <div className={classes.titleWithIcon_wrapper}>
-                <img
-                  src={iconFitnes.localFile.publicURL}
-                  alt={iconFitnes.alt}
-                  width={1}
-                  height={1}
-                  className={classes.titleWithIcon_icon}
-                />
+                {mobile ? null : (
+                  <img
+                    src={iconFitnes.localFile.publicURL}
+                    alt={iconFitnes.alt}
+                    width={1}
+                    height={1}
+                    className={classes.titleWithIcon_icon}
+                  />
+                )}
 
                 <Typography className={classes.titleWithIcon_text}>
                   {data.prismicLayout.data.title_fitnes}
@@ -542,53 +568,53 @@ export default function Menu({ data }) {
                   </Typography>
                 </button>
               ))}
-            </div>
 
-            <div className={classes.contacts_wrapper}>
-              <button
-                onClick={() =>
-                  goLink(`tel:${prismicContact.data.phone_number}`)
-                }
-                className={classes.buttonPhone}
-              >
-                <img
-                  src={prismicContact.data.phone_icon?.localFile?.publicURL}
-                  alt={prismicContact.data.phone_icon?.alt}
-                  width={1}
-                  height={1}
-                  className={classes.buttonPhone_icon}
-                />
+              <div className={classes.contacts_wrapper}>
+                <button
+                  onClick={() =>
+                    goLink(`tel:${prismicContact.data.phone_number}`)
+                  }
+                  className={classes.buttonPhone}
+                >
+                  <img
+                    src={prismicContact.data.phone_icon?.localFile?.publicURL}
+                    alt={prismicContact.data.phone_icon?.alt}
+                    width={1}
+                    height={1}
+                    className={classes.buttonPhone_icon}
+                  />
 
-                <Typography className={classes.buttonPhone_text}>
-                  {prismicContact.data.phone_number}
-                </Typography>
-              </button>
+                  <Typography className={classes.buttonPhone_text}>
+                    {prismicContact.data.phone_number}
+                  </Typography>
+                </button>
 
-              <div className={classes.socialNetworks_wrapper}>
-                {prismicContact.data.social_networks.map((network) => {
-                  const iconPath = network.network_icon?.localFile?.publicURL;
-                  const iconAlt = network.network_icon?.alt ?? "social";
+                <div className={classes.socialNetworks_wrapper}>
+                  {prismicContact.data.social_networks.map((network) => {
+                    const iconPath = network.network_icon?.localFile?.publicURL;
+                    const iconAlt = network.network_icon?.alt ?? "social";
 
-                  return iconPath ? (
-                    <button
-                      onClick={() =>
-                        goLink(network.network_link, {
-                          target: "_blank",
-                          rel: "noreferrer",
-                        })
-                      }
-                      className={classes.buttonSocialNetwork}
-                    >
-                      <img
-                        src={iconPath}
-                        alt={iconAlt}
-                        width={1}
-                        height={1}
-                        className={classes.buttonSocialNetwork_icon}
-                      />
-                    </button>
-                  ) : null;
-                })}
+                    return iconPath ? (
+                      <button
+                        onClick={() =>
+                          goLink(network.network_link, {
+                            target: "_blank",
+                            rel: "noreferrer",
+                          })
+                        }
+                        className={classes.buttonSocialNetwork}
+                      >
+                        <img
+                          src={iconPath}
+                          alt={iconAlt}
+                          width={1}
+                          height={1}
+                          className={classes.buttonSocialNetwork_icon}
+                        />
+                      </button>
+                    ) : null;
+                  })}
+                </div>
               </div>
             </div>
           </div>
