@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
 
     marginTop: "1.94vw",
     padding: "0 6.25vw",
-    "@media(min-width: 1440px)": {
-      marginTop: 28,
-      padding: "0 90px",
-    },
+    // "@media(min-width: 1440px)": {
+    //   marginTop: 28,
+    //   padding: "0 90px",
+    // },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
       padding: "0 8.45vw",
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.background.blue,
 
     padding: "0.69vw",
-    "@media(min-width: 1440px)": {
-      padding: 10,
-    },
+    // "@media(min-width: 1440px)": {
+    //   padding: 10,
+    // },
     "@media(max-width: 767px)": {
       width: "70.53vw",
       padding: "1.2vw",
@@ -46,9 +46,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "1.66vw",
-    "@media(min-width: 1440px)": {
-      fontSize: 24,
-    },
+    // "@media(min-width: 1440px)": {
+    //   fontSize: 24,
+    // },
     "@media(max-width: 767px)": {
       fontSize: "2.89vw",
     },
@@ -60,9 +60,9 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
 
     fontSize: "9.72vw",
-    "@media(min-width: 1440px)": {
-      fontSize: 140,
-    },
+    // "@media(min-width: 1440px)": {
+    //   fontSize: 140,
+    // },
     "@media(max-width: 767px)": {
       marginTop: "2.41vw",
       fontSize: "9.42vw",
@@ -74,9 +74,9 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "contain",
 
     marginTop: "1.38vw",
-    "@media(min-width: 1440px)": {
-      marginTop: 20,
-    },
+    // "@media(min-width: 1440px)": {
+    //   marginTop: 20,
+    // },
     "@media(max-width: 767px)": {
       marginTop: "2.41vw",
     },
@@ -93,10 +93,10 @@ const useStyles = makeStyles((theme) => ({
 
     marginTop: "1.38vw",
     padding: "1.04vw 4.86vw",
-    "@media(min-width: 1440px)": {
-      marginTop: 20,
-      padding: "15px 70px",
-    },
+    // "@media(min-width: 1440px)": {
+    //   marginTop: 20,
+    //   padding: "15px 70px",
+    // },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
       padding: "2.41vw 10.86vw",
@@ -108,9 +108,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.color.white,
 
     fontSize: "1.66vw",
-    "@media(min-width: 1440px)": {
-      fontSize: 24,
-    },
+    // "@media(min-width: 1440px)": {
+    //   fontSize: 24,
+    // },
     "@media(max-width: 767px)": {
       fontSize: "3.86vw",
     },
