@@ -11,7 +11,7 @@ import {
 import BurgerMenu from "../../../images/svg/burger_menu.svg";
 import Geo from "../../../images/svg/geo.svg";
 import ArrowMarker from "../../../images/svg/arrow_marker.svg";
-import ArrowGoVersion from "../../../images/svg/arrow_go_version.svg";
+import ArrowRight from "../../../images/svg/arrow_right.svg";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -789,10 +789,14 @@ export default function Footer({ data }) {
                 center: coordinate,
                 zoom: 15,
                 controls: ["zoomControl", "fullscreenControl"],
+                behaviors: ["drag", "dblClickZoom", "multiTouch"],
               }}
               modules={["control.ZoomControl", "control.FullscreenControl"]}
               width={"100%"}
               height={"100%"}
+              options={{
+                suppressMapOpenBlock: true,
+              }}
             >
               <Placemark
                 modules={["geoObject.addon.balloon"]}
@@ -915,7 +919,12 @@ export default function Footer({ data }) {
           {data.prismicLayout.data.documents.map((item) => {
             const url = item.document?.url;
             return (
-              <a href={url} target="_blank" className={classes.documents_link}>
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className={classes.documents_link}
+              >
                 {item.name}
               </a>
             );
@@ -984,7 +993,7 @@ export default function Footer({ data }) {
         </div>
 
         <div className={classes.orangeRoundedBlock_icon}>
-          <ArrowGoVersion />
+          <ArrowRight />
         </div>
       </button>
     </footer>

@@ -1,0 +1,32 @@
+{
+  "Main": {
+    "subtitle": {
+      "type": "Text",
+      "config": {
+        "label": "Подзаголовок",
+        "placeholder": "Подзаголовок"
+      }
+    },
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок",
+        "placeholder": "Заголовок"
+      }
+    },
+    "button_text": {
+      "type": "Text",
+      "config": {
+        "label": "Текст кнопки",
+        "placeholder": "Текст кнопки"
+      }
+    },
+    "button_link": {
+      "type": "Text",
+      "config": {
+        "label": "Ссылка кнопки",
+        "placeholder": "Ссылка кнопки"
+      }
+    }
+  }
+}
