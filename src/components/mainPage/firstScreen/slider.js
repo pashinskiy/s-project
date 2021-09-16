@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Слайдер на главной странице
- * @module src/components/mainPage/slider
+ * @module src/components/mainPage/firstScreen/slider
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.children - массив дочерних компонентов
  * @param {Number} props.delay - задержка в мс

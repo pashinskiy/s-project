@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Компонент первого экрана (слайдер с заголовком)
- * @module src/components/mainPage
+ * @module src/components/mainPage/firstScreen
  */
 export default function FirstScreen() {
   const classes = useStyles();
@@ -146,7 +146,7 @@ export default function FirstScreen() {
               alt
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(width: 750)
                 }
               }
             }

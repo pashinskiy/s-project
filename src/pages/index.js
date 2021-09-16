@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import FirstScreen from "../components/mainPage/firstScreen";
+import SwitchingBlock from "../components/mainPage/switchingBlock";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -15,6 +16,7 @@ const IndexPage = () => {
     <Layout>
       <Seo title="СКА Swim" />
       <FirstScreen />
+      <SwitchingBlock />
     </Layout>
   );
 };

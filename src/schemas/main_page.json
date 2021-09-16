@@ -28,5 +28,111 @@
         "placeholder": "Ссылка кнопки"
       }
     }
+  },
+  "Спорт клуб": {
+    "button_text_sport": {
+      "type": "Text",
+      "config": {
+        "label": "Текст кнопки",
+        "placeholder": "Текст кнопки"
+      }
+    },
+    "main_title_sport": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок на фото (не обязательно)",
+        "placeholder": "Заголовок на фото"
+      }
+    },
+    "image_sport": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Изображение"
+      }
+    },
+    "title_sport": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок",
+        "placeholder": "Заголовок"
+      }
+    },
+    "text_sport": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Текст",
+        "placeholder": "Текст"
+      }
+    },
+    "quote_sport": {
+      "type": "Text",
+      "config": {
+        "label": "Цитата",
+        "placeholder": "Цитата"
+      }
+    },
+    "author_quote_sport": {
+      "type": "Text",
+      "config": {
+        "label": "Автор цитаты",
+        "placeholder": "Автор цитаты"
+      }
+    }
+  },
+  "Фитнес клуб": {
+    "button_text_fitnes": {
+      "type": "Text",
+      "config": {
+        "label": "Текст кнопки",
+        "placeholder": "Текст кнопки"
+      }
+    },
+    "main_title_fitnes": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок на фото (не обязательно)",
+        "placeholder": "Заголовок на фото"
+      }
+    },
+    "image_fitnes": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Изображение"
+      }
+    },
+    "title_fitnes": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок",
+        "placeholder": "Заголовок"
+      }
+    },
+    "text_fitnes": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Текст",
+        "placeholder": "Текст"
+      }
+    },
+    "quote_fitnes": {
+      "type": "Text",
+      "config": {
+        "label": "Цитата",
+        "placeholder": "Цитата"
+      }
+    },
+    "author_quote_fitnes": {
+      "type": "Text",
+      "config": {
+        "label": "Автор цитаты",
+        "placeholder": "Автор цитаты"
+      }
+    }
   }
 }

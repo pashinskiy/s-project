@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * Карточка главного слайдера
- * @module src/components/mainPage/cardSlider
+ * @module src/components/mainPage/firstScreen/cardSlider
  * @param {Object} props - объект свойств компонента React
  * @param {Object} props.image - объект изображения полученый из prismic
  * @param {String} [props.title] - заголовок карточки
