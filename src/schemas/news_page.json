@@ -1,0 +1,40 @@
+{
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Уникальный ID",
+          "placeholder": "uid"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Заголовок",
+          "placeholder": "название новости"
+        }
+      },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "Подзаголовок",
+          "placeholder": "подзаголовок"
+        }
+      },
+      "order": {
+        "type": "Number",
+        "config": {
+          "label": "Порядок следования",
+          "placeholder": "место в слайдере и в сетке (не обязательно)"
+        }
+      },
+      "main_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Главное изображение"
+        }
+      }
+    }
+  }

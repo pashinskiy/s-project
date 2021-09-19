@@ -65,12 +65,17 @@ module.exports = {
         schemas: {
           layout: require("./src/schemas/layout.json"),
           header: require("./src/schemas/layout.json"),
+          main_page: require("./src/schemas/main_page.json"),
           schedule: require("./src/schemas/schedule.json"),
           coach: require("./src/schemas/coach.json"),
           group: require("./src/schemas/group.json"),
           page_constructor: require("./src/schemas/page_constructor.json"),
           contact: require("./src/schemas/contact.json"),
+<<<<<<< HEAD
           main_page: require("./src/schemas/main_page.json"),
+=======
+          news_page: require("./src/schemas/news_page.json"),
+>>>>>>> master
         },
         // shouldDownloadImage: () => true,
       },

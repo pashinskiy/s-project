@@ -15,9 +15,6 @@ const theme = createTheme({
       blue: "#1B46F5",
       orange: "#FF3E00",
     },
-    width: {
-      limit: "1440px",
-    },
   },
   typography: {
     fontFamily: ["Futura PT", "'Exo 2'"].join(","),
@@ -73,6 +70,9 @@ const theme = createTheme({
           background: "transparent",
           cursor: "pointer",
         },
+        a:{
+          textDecoration:"none",
+        }
       },
     },
     MuiButton: {
