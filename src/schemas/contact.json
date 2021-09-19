@@ -1,47 +1,4 @@
 {
-<<<<<<< HEAD
-    "Main" : {
-      "phone_number" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Номер телефона",
-          "placeholder" : "номер телефона"
-        }
-      },
-      "phone_icon" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "Иконка телефона(svg)"
-        }
-      },
-      "social_networks" : {
-        "type" : "Group",
-        "config" : {
-          "fields" : {
-            "network_icon" : {
-              "type" : "Image",
-              "config" : {
-                "constraint" : { },
-                "thumbnails" : [ ],
-                "label" : "Иконка (svg)"
-              }
-            },
-            "network_link" : {
-              "type" : "Text",
-              "config" : {
-                "label" : "Ссылка",
-                "placeholder" : "ссылка"
-              }
-            }
-          },
-          "label" : "Социальные сети"
-        }
-      }
-    }
-  }
-=======
   "Main": {
     "phone_number": {
       "type": "Text",
@@ -120,4 +77,3 @@
     }
   }
 }
->>>>>>> master
