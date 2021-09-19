@@ -1,7 +1,8 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 // import { makeStyles } from "@material-ui/core"
-import ScheduleScroll from "../components/schedule/scheduleScroll"
+import ScrollBar from "../components/schedule/scrollBar"
+import ScheduleCard from "../components/schedule/scheduleCard"
 
 // const useStyles = makeStyles(theme => ({
  
@@ -42,10 +43,16 @@ const TestPage = () => {
     }
   }`)
 
+  const schedules = data.allPrismicSchedule.edges[0].node.data.body.map(item => item)
+
   return (
     <div>
       {/* <Seo title="СКА Swim" /> */}
-      <ScheduleScroll data={data} />
+      <ScrollBar>
+      {schedules.map(schedule => (
+            <ScheduleCard schedule={schedule}/>
+        ))}
+      </ScrollBar>
     </div>
   )
 }

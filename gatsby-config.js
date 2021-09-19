@@ -70,6 +70,7 @@ module.exports = {
           group: require("./src/schemas/group.json"),
           page_constructor: require("./src/schemas/page_constructor.json"),
           contact: require("./src/schemas/contact.json"),
+          main_page: require("./src/schemas/main_page.json"),
         },
         // shouldDownloadImage: () => true,
       },

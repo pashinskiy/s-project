@@ -1,0 +1,56 @@
+{
+    "Main" : {
+      "subtitle" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Подзаголовок",
+          "placeholder" : "Подзаголовок"
+        }
+      },
+      "title" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Заголовок (svg)"
+        }
+      },
+      "button_text" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Текст кнопки",
+          "placeholder" : "Текст кнопки"
+        }
+      },
+      "slider" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "slide_image" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : { },
+                "thumbnails" : [ ],
+                "label" : "Изображение (обязательно)"
+              }
+            },
+            "slide_title" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Заголовок (не обязательно)",
+                "placeholder" : "Заголовок (не обязательно)"
+              }
+            },
+            "slide_subtitle" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Подзаголовок (не обязательно)",
+                "placeholder" : "Подзаголовок (не обязательно)"
+              }
+            }
+          },
+          "label" : "Слайдер"
+        }
+      }
+    }
+  }

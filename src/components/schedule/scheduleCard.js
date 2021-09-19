@@ -5,21 +5,25 @@ import palette from "../../templates/colors.json"
 const useStyle = makeStyles(theme => ({
     root: {
         // height: "200px",
-        margin: "20px",
-
+        // margin: "20px",
+        display: "flex",
+        flexDirection: "column",
 
         boxShadow: "none",
         borderRadius: 0,
         backgroundColor: "#F3F6FF",
         padding: "2.77vw",
         width: "20.97vw",
+        marginRight: "1.6vw",
         "@media(min-width: 1440px)": {
           width: "302px",
           padding: "40px",
+          marginRight: "24px",
         },
         "@media(max-width: 767px)": {
           width: "30.1vw",
           padding: "3.25vw",
+          marginRight: "3.12vw",
         },
     },
 
@@ -27,6 +31,7 @@ const useStyle = makeStyles(theme => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        alignSelf: "center",
 
         width: "15.41vw",
         height: "3.54vw",
