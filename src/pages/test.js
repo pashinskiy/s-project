@@ -2,7 +2,8 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 // import { makeStyles } from "@material-ui/core"
 import ScrollBar from "../components/schedule/scrollBar"
-import ScheduleCard from "../components/schedule/scheduleCard"
+import ScheduleCard from "../components/schedule/sheduleCard"
+import BlockHeaderText from "../components/blockHeaderText"
 
 // const useStyles = makeStyles(theme => ({
  
@@ -48,9 +49,10 @@ const TestPage = () => {
   return (
     <div>
       {/* <Seo title="СКА Swim" /> */}
+      <BlockHeaderText text="Расписание" />
       <ScrollBar>
-      {schedules.map(schedule => (
-            <ScheduleCard schedule={schedule}/>
+      {schedules.map((schedule, i) => (
+            <ScheduleCard key={"child-" + i} schedule={schedule}/>
         ))}
       </ScrollBar>
     </div>
