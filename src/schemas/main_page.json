@@ -80,6 +80,297 @@
         "label": "Автор цитаты",
         "placeholder": "Автор цитаты"
       }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text-on-image": {
+            "type": "Slice",
+            "fieldset": "text-on-image",
+            "description": "текст на изображении",
+            "icon": "picture_in_picture_alt",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "accent_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "order_link": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_side_text": {
+            "type": "Slice",
+            "fieldset": "image_side_text",
+            "description": "текст сбоку изображения",
+            "icon": "art_track",
+            "non-repeat": {
+              "position": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "справа",
+                  "placeholder_true": "слева",
+                  "default_value": true,
+                  "label": "Позиция изображения"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_logo": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция логотипа (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Логотип (svg)"
+                }
+              },
+              "order_icon": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция иконки (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Иконка (волны)"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "accent_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "order_link": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
     }
   },
   "Фитнес клуб": {
@@ -132,6 +423,298 @@
       "config": {
         "label": "Автор цитаты",
         "placeholder": "Автор цитаты"
+      }
+    },
+    "body1": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text-on-image": {
+            "type": "Slice",
+            "fieldset": "text-on-image",
+            "description": "текст на изображении",
+            "icon": "picture_in_picture_alt",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "accent_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "order_link": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_side_text": {
+            "type": "Slice",
+            "fieldset": "image_side_text",
+            "description": "текст сбоку изображения",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "position": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_false": "справа",
+                  "placeholder_true": "слева",
+                  "default_value": true,
+                  "label": "Позиция изображения"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_logo": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция логотипа (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Логотип (svg)"
+                }
+              },
+              "order_icon": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция иконки (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Иконка (волны)"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "accent_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "order_link": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
       }
     }
   }
