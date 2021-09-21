@@ -145,8 +145,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * выезжающий блок
+ * Выезжающий блок
  * @module src/components/mainPage/slidingBlock
+ * @param {Object} props - объект свойств компонента React
+ * @param {String} [props.variant=left] - вариант отображения
+ * @param {String} [props.title] - заголовок
+ * @param {String} [props.text] - текст
+ * @param {String} [props.quote] - цитата
+ * @param {String} [props.authorQuote] - автор цитаты
  */
 export default function SlidingBlock({
   variant,
@@ -169,7 +175,7 @@ export default function SlidingBlock({
   const classMirror =
     variant === "right" ? classes.slideBlock_button_mirror : "";
 
-  return (
+  return title ?? text ?? quote ?? authorQuote ?? false ? (
     <div className={classes.wrapper} style={{ ...positionWrapper }}>
       <div
         className={classes.slideBlock + " " + classColor}
@@ -191,21 +197,33 @@ export default function SlidingBlock({
           )}
         </button>
 
-        <Typography className={classes.title}>{title}</Typography>
+        {title ?? false ? (
+          <Typography className={classes.title}>{title}</Typography>
+        ) : null}
 
-        <div
-          className={classes.text}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
+        {text ?? false ? (
+          <div
+            className={classes.text}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        ) : null}
 
-        <div className={classes.quoteBlock}>
-          <Typography className={classes.quoteBlock_quote}>{quote}</Typography>
+        {quote ?? authorQuote ?? false ? (
+          <div className={classes.quoteBlock}>
+            {quote ?? false ? (
+              <Typography className={classes.quoteBlock_quote}>
+                {quote}
+              </Typography>
+            ) : null}
 
-          <Typography className={classes.quoteBlock_authorQuote}>
-            {authorQuote}
-          </Typography>
-        </div>
+            {authorQuote ?? false ? (
+              <Typography className={classes.quoteBlock_authorQuote}>
+                {authorQuote}
+              </Typography>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </div>
-  );
+  ) : null;
 }

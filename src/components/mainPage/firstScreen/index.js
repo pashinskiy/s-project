@@ -168,6 +168,7 @@ export default function FirstScreen() {
   });
 
   function goLink(str) {
+    if (!(str ?? false)) return
     if (str.slice(-1) !== "/") str += "/";
     
     if (str.slice(0, 4) === "http") {

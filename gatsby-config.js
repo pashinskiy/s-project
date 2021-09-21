@@ -72,6 +72,7 @@ module.exports = {
           page_constructor: require("./src/schemas/page_constructor.json"),
           contact: require("./src/schemas/contact.json"),
           news_page: require("./src/schemas/news_page.json"),
+          heading_block: require("./src/schemas/heading_block.json"),
         },
         // shouldDownloadImage: () => true,
       },

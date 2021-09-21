@@ -693,6 +693,8 @@ export default function Footer({ data }) {
   ];
 
   function goLink(str, options) {
+    if (!(str ?? false)) return
+
     const anchor = document.createElement("a");
     anchor.href = str;
     if (options) {

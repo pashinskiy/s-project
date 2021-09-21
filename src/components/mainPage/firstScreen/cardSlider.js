@@ -89,6 +89,9 @@ export default function CardSlider({ image, title, subtitle, link, active }) {
   const classes = useStyles({ fon });
 
   function goLink(str) {
+    if (!(str ?? false)) return
+    if (str.slice(-1) !== "/") str += "/";
+    
     if (str.slice(0, 4) === "http") {
       const anchor = document.createElement("a");
       anchor.href = str;

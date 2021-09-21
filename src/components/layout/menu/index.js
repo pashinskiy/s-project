@@ -415,6 +415,8 @@ export default function Menu({ data }) {
     navigate(str);
   }
   function goLink(str, options) {
+    if (!(str ?? false)) return
+    
     const anchor = document.createElement("a");
     anchor.href = str;
     if (options) {

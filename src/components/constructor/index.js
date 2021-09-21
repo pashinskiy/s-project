@@ -1,0 +1,64 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core";
+import TextOnImage from "./textOnImage";
+import ImageSideText from "./imageSideText";
+import ImageUnderText from "./imageUnderText";
+import TwoImagesUnderText from "./twoImagesUnderText";
+import TwoImagesAndTextInRow from "./twoImagesAndTextInRow";
+import ImageAndText41 from "./imageAndText41";
+import TextOnImageBlueBg from "./textOnImageBlueBg";
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    marginTop: "8.33vw",
+    "@media(max-width: 767px)": {
+      marginTop: "14.49vw",
+    },
+
+    "& > *": {
+      marginTop: "8.33vw",
+      "@media(max-width: 767px)": {
+        marginTop: "14.49vw",
+      },
+
+      "&:first-child": {
+        marginTop: 0,
+      },
+    },
+  },
+}));
+
+/**
+ * Конструктор блоков
+ * @module src/components/constructor
+ * @param {Object} props - объект свойств компонента React
+ * @param {Object[]} props.slices - массив слайсов полученный из prismic
+ */
+export default function Constructor({ slices }) {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.wrapper}>
+      {slices.map((slice) => {
+        switch (slice.slice_type) {
+          case "text_on_image":
+            return <TextOnImage slice={slice} />;
+          case "image_side_text":
+            return <ImageSideText slice={slice} />;
+          case "image_under_text":
+            return <ImageUnderText slice={slice} />;
+          case "two_images_under_text":
+            return <TwoImagesUnderText slice={slice} />;
+          case "two_images_and_text_in_row":
+            return <TwoImagesAndTextInRow slice={slice} />;
+          case "image_and_text_4_1":
+            return <ImageAndText41 slice={slice} />;
+          case "text_on_image_blue_bg":
+            return <TextOnImageBlueBg slice={slice} />;
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
+}
