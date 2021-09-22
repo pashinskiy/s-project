@@ -1,15 +1,20 @@
 import React from "react";
-import { makeStyles, useMediaQuery } from "@material-ui/core";
+import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 
-import ArrowRight from "../../images/svg/arrow_right.svg";
+import ArrowRight from "../../images/svg/button_arrow.svg";
 
 const useStyles = makeStyles((theme) => ({
   slider_wrapper: {
     width: "100%",
     overflowX: "hidden",
     position: "relative",
+
+    display: "flex",
+    flexDirection: "column",
   },
   slider_track: {
+    width: "100%",
+
     display: "flex",
     alignItems: "center",
     flexWrap: "nowrap",
@@ -22,36 +27,50 @@ const useStyles = makeStyles((theme) => ({
       flexShrink: 0,
     },
   },
+  addPadding: {
+    padding: "0 3.47vw",
+    "@media(max-width: 767px)": {
+      padding: 0,
+    },
+  },
 
   nav: {
-    width: "100%",
-    pointerEvents: "none",
-
-    position: "absolute",
-    top: "50%",
-    left: 0,
-    transform: "translateY(-50%)",
+    alignSelf: "flex-end",
 
     display: "flex",
-    justifyContent: "space-between",
+
+    marginTop: "1.73vw",
+    marginRight: "3.47vw",
+    paddingBottom: "1px",
   },
   nav_button: {
-    background: theme.palette.background.blue,
-    pointerEvents: "auto",
-
-    width: "4.16vw",
-    height: "12.91vw",
-    padding: "4.58vw 1.25vw",
-    borderRadius: "1.73vw 0 0 1.73vw",
+    display: "flex",
+    alignItems: "center",
+    height: "3.47vw",
+    padding: "0 2.74vw",
+    border: `1px solid ${theme.palette.background.blue}`,
+    borderRadius: "100px",
     // "@media(min-width: 1440px)": {
     //   width: 60,
     //   height: 186,
     //   padding: "66px 18px",
     //   borderRadius: "25px 0px 0px 25px",
     // },
+
+    "&:first-child": {
+      marginRight: "0.55vw",
+    },
   },
   mirror: {
     transform: "scaleX(-1)",
+  },
+  nav_button_text: {
+    marginRight: "0.69vw",
+
+    fontWeight: 700,
+    lineHeight: 1.28,
+    color: theme.palette.color.black,
+    fontSize: "1.25vw",
   },
 }));
 
@@ -60,10 +79,12 @@ const useStyles = makeStyles((theme) => ({
  * @module src/components/slider
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.children - массив дочерних компонентов
+ * @param {Boolean} props.padding - наличие отступов у слайдера
  */
-export default function Slider({ children }) {
+export default function Slider({ children, padding }) {
   const classes = useStyles();
   const mobile = useMediaQuery("(max-width: 767px)");
+  const classAddPadding = padding ? classes.addPadding : "";
 
   const [track, setTrack] = React.useState(null);
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -90,8 +111,13 @@ export default function Slider({ children }) {
         newIndex = index;
     }
 
-    track.style.left = -track.children[newIndex].offsetLeft + "px";
-    console.log(-track.children[newIndex].offsetLeft + "px")
+    const maxLeft =
+      track.offsetWidth -
+      track.children[0].offsetWidth * length -
+      (track.children[1].offsetLeft - track.children[0].offsetWidth) *
+        (length - 1);
+    const newLeft = -track.children[newIndex].offsetLeft;
+    track.style.left = (newLeft <= maxLeft ? maxLeft : newLeft) + "px";
     setActiveIndex(newIndex);
   }
 
@@ -142,7 +168,7 @@ export default function Slider({ children }) {
   }
 
   return (
-    <div className={classes.slider_wrapper}>
+    <div className={classes.slider_wrapper + " " + classAddPadding}>
       <div
         ref={ref}
         style={{ transition: `left 1s` }}
@@ -157,6 +183,7 @@ export default function Slider({ children }) {
           <button
             onClick={() => goSlide(activeIndex - 1)}
             className={classes.nav_button + " " + classes.mirror}
+            aria-label="назад"
           >
             <ArrowRight />
           </button>
@@ -164,7 +191,9 @@ export default function Slider({ children }) {
           <button
             onClick={() => goSlide(activeIndex + 1)}
             className={classes.nav_button}
+            aria-label="далее"
           >
+            <Typography className={classes.nav_button_text}>Далее</Typography>
             <ArrowRight />
           </button>
         </div>

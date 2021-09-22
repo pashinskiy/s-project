@@ -10,6 +10,7 @@ import TextOnImageBlueBg from "./textOnImageBlueBg";
 import Text from "./text";
 import SmallSliderBigCard from "./smallSliderBigCard";
 import Slider from "./slider";
+import SmallSliderCard from "./smallSliderCard";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -60,6 +61,14 @@ export default function Constructor({ slices }) {
             return <TextOnImageBlueBg slice={slice} />;
           case "text":
             return <Text slice={slice} />;
+          case "small_slider":
+            return (
+              <Slider padding>
+                {slice.items.map((item) => (
+                  <SmallSliderCard card={item} />
+                ))}
+              </Slider>
+            );
           case "small_slider_big_photo":
             return (
               <Slider>

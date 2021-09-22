@@ -221,6 +221,7 @@ export default function Slider({ children, delay }) {
           <button
             onClick={() => goSlide(activeIndex - 1)}
             className={classes.nav_button + " " + classes.mirror}
+            aria-label="назад"
           >
             <ArrowRight />
           </button>
@@ -228,6 +229,7 @@ export default function Slider({ children, delay }) {
           <button
             onClick={() => goSlide(activeIndex + 1)}
             className={classes.nav_button}
+            aria-label="дальше"
           >
             <ArrowRight />
           </button>

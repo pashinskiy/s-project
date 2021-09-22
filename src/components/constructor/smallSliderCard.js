@@ -6,54 +6,53 @@ import colors from "../../templates/colors.json";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    width: "100%",
     position: "relative",
 
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-start",
+    alignItems: "flex-end",
 
-    height: "36.11vw",
+    marginRight: "3.73%",
+    width: "48.13%",
+    height: "41.66vw",
+    padding: "3.12vw 1.73vw",
     "@media(max-width: 767px)": {
-      height: "80.43vw",
+      marginRight: "4.83%",
+      width: "84.78%",
+      height: "120.77vw",
+      padding: "10.86vw 6.03vw",
+    },
+
+    "&:last-child": {
+      marginRight: 0,
     },
   },
   image: {
     width: "100%",
+    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: "50%",
-    transform: "translateY(-50%)",
+    top: 0,
     zIndex: -1,
-
-    height: "36.11vw",
-    "@media(max-width: 767px)": {
-      height: "80.43vw",
-    },
   },
   gradient: {
     width: "100%",
+    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: "50%",
-    transform: "translateY(-50%)",
+    top: 0,
     zIndex: -1,
 
     background:
-      "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
-
-    height: "36.11vw",
-    "@media(max-width: 767px)": {
-      height: "80.43vw",
-    },
+      "linear-gradient(180deg, rgba(28, 70, 246, 0) 40.5%, #1C46F6 77.83%)",
   },
   content: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
 
     width: "54.93vw",
     "@media(max-width: 767px)": {
@@ -110,7 +109,6 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 300,
     lineHeight: 1.28,
-    textAlign: "center",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -120,20 +118,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "большая карточка маленького слайдера"
- * @module src/components/constructor/smallSliderBigCard
+ * Блок конструктора "карточка маленького слайдера"
+ * @module src/components/constructor/smallSliderCard
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.card - объект карточки полученный из prismic
  */
-export default function SmallSliderBigCard({ card }) {
+export default function SmallSliderCard({ card }) {
   const classes = useStyles();
 
   const image = card.image;
-  const logo = card.logo;
   const subtitle = card.accent_subtitle ?? false;
   const title = card.main_title ?? false;
   const text = card.text ?? false;
-  const content = (logo.localFile ?? false) || subtitle || title || text;
+  const content = subtitle || title || text;
 
   return (
     <div className={classes.wrapper}>
@@ -146,21 +143,10 @@ export default function SmallSliderBigCard({ card }) {
         />
       ) : null}
 
-      {card.blue_bg ? <div className={classes.gradient} /> : null}
+      {content ? <div className={classes.gradient} /> : null}
 
       {content ? (
         <div className={classes.content}>
-          {logo.localFile ?? false ? (
-            <img
-              src={logo.localFile.publicURL}
-              alt={logo.alt}
-              width={1}
-              height={1}
-              className={classes.logo}
-              style={{ order: card.order_logo ?? 1 }}
-            />
-          ) : null}
-
           {subtitle ? (
             <Typography
               className={classes.subtitle}

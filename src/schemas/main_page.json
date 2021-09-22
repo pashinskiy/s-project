@@ -1323,6 +1323,82 @@
                 }
               }
             }
+          },
+          "small_slider": {
+            "type": "Slice",
+            "fieldset": "small_slider",
+            "description": "маленький слайдер",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "main_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              }
+            }
           }
         }
       }
@@ -2622,6 +2698,81 @@
               }
             },
             "repeat": {}
+          },
+          "small_slider": {
+            "type": "Slice",
+            "fieldset": "small_slider",
+            "description": "маленький слайдер",
+            "icon": "view_column",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "main_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              }
+            }
           }
         }
       }

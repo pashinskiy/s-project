@@ -325,6 +325,27 @@ export const query = graphql`
               text
             }
           }
+          ... on PrismicMainPageDataBodySmallSlider {
+            id
+            slice_type
+            items {
+              image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+              order_subtitle
+              accent_subtitle
+              bg_subtitle
+              order_title
+              main_title
+              order_text
+              text
+            }
+          }
         }
         body1 {
           ... on PrismicMainPageDataBody1TextOnImage {
@@ -600,6 +621,27 @@ export const query = graphql`
                 alt
                 localFile {
                   publicURL
+                }
+              }
+              order_subtitle
+              accent_subtitle
+              bg_subtitle
+              order_title
+              main_title
+              order_text
+              text
+            }
+          }
+          ... on PrismicMainPageDataBody1SmallSlider {
+            id
+            slice_type
+            items {
+              image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
               order_subtitle
