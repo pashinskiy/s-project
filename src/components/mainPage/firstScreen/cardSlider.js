@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     //   fontSize: 72,
     // },
     "@media(max-width: 767px)": {
+      whiteSpace: "break-spaces",
       fontSize: "8.69vw",
     },
   },

@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -7,6 +6,7 @@ import colors from "../../templates/colors.json";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
+    width: "100vw",
     position: "relative",
 
     display: "flex",
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     transform: "translateY(-50%)",
     zIndex: -1,
-    
+
     background:
       "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
 
@@ -120,19 +120,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "текст на изображении с синим фоном"
- * @module src/components/constructor/textOnImageBlueBg
+ * Блок конструктора "большая карточка маленького слайдера"
+ * @module src/components/constructor/smallSliderBigCard
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object[]} props.card - объект карточки полученный из prismic
  */
-export default function TextOnImageBlueBg({ slice }) {
+export default function SmallSliderBigCard({ card }) {
   const classes = useStyles();
 
-  const image = slice.primary.image;
-  const logo = slice.primary.logo;
-  const subtitle = slice.primary.accent_subtitle ?? false;
-  const title = slice.primary.main_title ?? false;
-  const text = slice.primary.text ?? false;
+  const image = card.image;
+  const logo = card.logo;
+  const subtitle = card.accent_subtitle ?? false;
+  const title = card.main_title ?? false;
+  const text = card.text ?? false;
   const content = (logo.localFile ?? false) || subtitle || title || text;
 
   return (
@@ -146,7 +146,7 @@ export default function TextOnImageBlueBg({ slice }) {
         />
       ) : null}
 
-      <div className={classes.gradient} />
+      {card.blue_bg ? <div className={classes.gradient} /> : null}
 
       {content ? (
         <div className={classes.content}>
@@ -157,7 +157,7 @@ export default function TextOnImageBlueBg({ slice }) {
               width={1}
               height={1}
               className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 1 }}
+              style={{ order: card.order_logo ?? 1 }}
             />
           ) : null}
 
@@ -165,8 +165,8 @@ export default function TextOnImageBlueBg({ slice }) {
             <Typography
               className={classes.subtitle}
               style={{
-                background: colors[slice.primary.bg_subtitle],
-                order: slice.primary.order_subtitle ?? 1,
+                background: colors[card.bg_subtitle],
+                order: card.order_subtitle ?? 1,
               }}
             >
               {subtitle}
@@ -176,7 +176,7 @@ export default function TextOnImageBlueBg({ slice }) {
           {title ? (
             <Typography
               className={classes.title}
-              style={{ order: slice.primary.order_title ?? 2 }}
+              style={{ order: card.order_title ?? 2 }}
             >
               {title}
             </Typography>
@@ -185,7 +185,7 @@ export default function TextOnImageBlueBg({ slice }) {
           {text ? (
             <Typography
               className={classes.text}
-              style={{ order: slice.primary.order_text ?? 3 }}
+              style={{ order: card.order_text ?? 3 }}
             >
               {text}
             </Typography>

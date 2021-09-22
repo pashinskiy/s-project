@@ -220,14 +220,14 @@ export default function ImageSideText({ slice }) {
               width={1}
               height={1}
               className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 0 }}
+              style={{ order: slice.primary.order_logo ?? 1 }}
             />
           ) : null}
 
           {icon_color ? (
             <div
               className={classes.icon}
-              style={{ order: slice.primary.order_icon ?? 0 }}
+              style={{ order: slice.primary.order_icon ?? 1 }}
             >
               <Water />
             </div>
@@ -238,7 +238,7 @@ export default function ImageSideText({ slice }) {
               className={classes.subtitle}
               style={{
                 background: colors[slice.primary.bg_subtitle],
-                order: slice.primary.order_subtitle ?? 0,
+                order: slice.primary.order_subtitle ?? 1,
               }}
             >
               {subtitle}
@@ -248,7 +248,7 @@ export default function ImageSideText({ slice }) {
           {title ? (
             <Typography
               className={classes.title}
-              style={{ order: slice.primary.order_title ?? 0 }}
+              style={{ order: slice.primary.order_title ?? 2 }}
             >
               {title}
             </Typography>
@@ -257,7 +257,7 @@ export default function ImageSideText({ slice }) {
           {text ? (
             <Typography
               className={classes.text}
-              style={{ order: slice.primary.order_text ?? 0 }}
+              style={{ order: slice.primary.order_text ?? 3 }}
             >
               {text}
             </Typography>
@@ -267,7 +267,7 @@ export default function ImageSideText({ slice }) {
             <button
               onClick={() => goLink(slice.primary.link)}
               className={classes.link}
-              style={{ order: slice.primary.order_link ?? 0 }}
+              style={{ order: slice.primary.order_link ?? 4 }}
             >
               <Typography className={classes.link_text}>{link_text}</Typography>
 
@@ -281,7 +281,7 @@ export default function ImageSideText({ slice }) {
             <button
               onClick={() => goLink(slice.primary.link_button)}
               className={classes.button}
-              style={{ order: slice.primary.order_button ?? 0 }}
+              style={{ order: slice.primary.order_button ?? 5 }}
             >
               <Typography className={classes.button_text}>
                 {text_button}

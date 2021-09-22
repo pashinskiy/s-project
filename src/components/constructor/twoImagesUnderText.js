@@ -244,14 +244,14 @@ export default function TwoImagesUnderText({ slice }) {
               width={1}
               height={1}
               className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 0 }}
+              style={{ order: slice.primary.order_logo ?? 1 }}
             />
           ) : null}
 
           {icon_color ? (
             <div
               className={classes.icon}
-              style={{ order: slice.primary.order_icon ?? 0 }}
+              style={{ order: slice.primary.order_icon ?? 1 }}
             >
               <Water />
             </div>
@@ -260,7 +260,7 @@ export default function TwoImagesUnderText({ slice }) {
           {subtitle_1 || subtitle_2 ? (
             <div
               className={classes.subtitles}
-              style={{ order: slice.primary.order_subtitles ?? 0 }}
+              style={{ order: slice.primary.order_subtitles ?? 1 }}
             >
               {subtitle_1 ? (
                 <Typography
@@ -289,7 +289,7 @@ export default function TwoImagesUnderText({ slice }) {
           {title ? (
             <Typography
               className={classes.title}
-              style={{ order: slice.primary.order_title ?? 0 }}
+              style={{ order: slice.primary.order_title ?? 2 }}
             >
               {title}
             </Typography>
@@ -298,7 +298,7 @@ export default function TwoImagesUnderText({ slice }) {
           {text ? (
             <Typography
               className={classes.text}
-              style={{ order: slice.primary.order_text ?? 0 }}
+              style={{ order: slice.primary.order_text ?? 3 }}
             >
               {text}
             </Typography>
@@ -308,7 +308,7 @@ export default function TwoImagesUnderText({ slice }) {
             <button
               onClick={() => goLink(slice.primary.link)}
               className={classes.link}
-              style={{ order: slice.primary.order_link ?? 0 }}
+              style={{ order: slice.primary.order_link ?? 4 }}
             >
               <Typography className={classes.link_text}>{link_text}</Typography>
 
@@ -322,7 +322,7 @@ export default function TwoImagesUnderText({ slice }) {
             <button
               onClick={() => goLink(slice.primary.link_button)}
               className={classes.button}
-              style={{ order: slice.primary.order_button ?? 0 }}
+              style={{ order: slice.primary.order_button ?? 5 }}
             >
               <Typography className={classes.button_text}>
                 {text_button}

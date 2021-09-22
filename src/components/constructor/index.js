@@ -7,6 +7,9 @@ import TwoImagesUnderText from "./twoImagesUnderText";
 import TwoImagesAndTextInRow from "./twoImagesAndTextInRow";
 import ImageAndText41 from "./imageAndText41";
 import TextOnImageBlueBg from "./textOnImageBlueBg";
+import Text from "./text";
+import SmallSliderBigCard from "./smallSliderBigCard";
+import Slider from "./slider";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -55,6 +58,16 @@ export default function Constructor({ slices }) {
             return <ImageAndText41 slice={slice} />;
           case "text_on_image_blue_bg":
             return <TextOnImageBlueBg slice={slice} />;
+          case "text":
+            return <Text slice={slice} />;
+          case "small_slider_big_photo":
+            return (
+              <Slider>
+                {slice.items.map((item) => (
+                  <SmallSliderBigCard card={item} />
+                ))}
+              </Slider>
+            );
           default:
             return null;
         }

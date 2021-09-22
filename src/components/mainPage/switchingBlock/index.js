@@ -10,6 +10,9 @@ import SlidingBlock from "./slidingBlock";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
+    width: "100%",
+    overflowX: "hidden",
+
     marginTop: "8.33vw",
     "@media(max-width: 767px)": {
       marginTop: "14.49vw",
@@ -36,14 +39,15 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     zIndex: -1,
   },
-  shadow:{
+  shadow: {
     position: "absolute",
     left: 0,
     top: 0,
     width: "100%",
     height: "100%",
     zIndex: -1,
-    background:"linear-gradient(0deg, rgba(37, 40, 49, 0.35), rgba(37, 40, 49, 0.35))"
+    background:
+      "linear-gradient(0deg, rgba(37, 40, 49, 0.35), rgba(37, 40, 49, 0.35))",
   },
   content_title: {
     fontFamily: "'Exo 2'",
@@ -130,7 +134,7 @@ export default function SwitchingBlock() {
           imgStyle={{ width: "100%", height: "100%", ojectFit: "cover" }}
         />
 
-        <div className={classes.shadow}/>
+        <div className={classes.shadow} />
 
         <Typography align="center" className={classes.content_title}>
           {title}

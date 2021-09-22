@@ -1,7 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 import colors from "../../templates/colors.json";
 
@@ -11,13 +10,7 @@ import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-
-    padding: (props) => (props.padding ? "0 3.47vw" : 0),
-    "@media(max-width: 767px)": {
-      padding: "0 !important",
-    },
+    justifyContent: "center",
   },
   content: {
     display: "flex",
@@ -27,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
     background: theme.palette.background.main,
 
-    width: "43.05%",
+    width: "55.55%",
     "@media(max-width: 767px)": {
       width: "100%",
       padding: "0 6.03vw",
@@ -62,15 +55,6 @@ const useStyles = makeStyles((theme) => ({
 
     "& path": {
       fill: (props) => colors[props.icon_color] ?? "",
-    },
-  },
-  subtitles: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    "@media(max-width: 767px)": {
-      flexDirection: "column",
     },
   },
   subtitle: {
@@ -168,26 +152,15 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3.86vw",
     },
   },
-  image: {
-    width: "100%",
-
-    marginTop: "1.73vw",
-    height: (props) => (props.padding ? "34.72vw" : "41.66vw"),
-    "@media(max-width: 767px)": {
-      marginTop: "4.83vw",
-      height: "120.77vw !important",
-    },
-  },
 }));
 
 /**
- * Блок конструктора "изображение под текстом"
- * @module src/components/constructor/imageUnderText
+ * Блок конструктора "Текст"
+ * @module src/components/constructor/text
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.slice - объект слайса полученный из prismic
  */
-export default function ImageUnderText({ slice }) {
-  const image = slice.primary.image;
+export default function Text({ slice }) {
   const logo = slice.primary.logo;
   const icon_color = slice.primary.icon ?? false;
   const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
@@ -206,7 +179,7 @@ export default function ImageUnderText({ slice }) {
     link_text ||
     text_button;
 
-  const classes = useStyles({ icon_color, padding: slice.primary.padding });
+  const classes = useStyles({ icon_color });
 
   function goLink(str) {
     if (!(str ?? false)) return;
@@ -318,15 +291,6 @@ export default function ImageUnderText({ slice }) {
             </button>
           ) : null}
         </div>
-      ) : null}
-
-      {image?.localFile ?? false ? (
-        <GatsbyImage
-          image={image.localFile.childImageSharp?.gatsbyImageData}
-          alt={image.alt}
-          className={classes.image}
-          imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
       ) : null}
     </div>
   );

@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   scrollContainer: {
     height: "100%",
     overflowY: "auto",
+    outline: "none",
 
     width: "26.65vw",
     // "@media(min-width: 1440px)": {
@@ -415,8 +416,8 @@ export default function Menu({ data }) {
     navigate(str);
   }
   function goLink(str, options) {
-    if (!(str ?? false)) return
-    
+    if (!(str ?? false)) return;
+
     const anchor = document.createElement("a");
     anchor.href = str;
     if (options) {

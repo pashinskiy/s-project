@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     height: "100%",
 
-    width: "51.04vw",
+    width: "50%",
     "@media(max-width: 767px)": {
-      width: "90.82vw",
+      width: "90.82%",
     },
   },
   slideBlock: {
