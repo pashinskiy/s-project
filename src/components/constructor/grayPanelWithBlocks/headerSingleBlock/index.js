@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from "@material-ui/core"
 import WavesSVG from './wavesSVG'
-import palette from "../../../templates/colors.json"
+import palette from "../../../../templates/colors.json"
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -40,7 +40,10 @@ const useStyle = makeStyles(theme => ({
 
     descriptionText: {
         color: theme.palette.color.lightBlue,
-        fontSize: "3.38vw",
+        fontSize: "1.25vw",
+        "@media(max-width: 767px)": {
+            fontSize: "3.38vw",
+        },
     },
 }))
 
@@ -54,7 +57,7 @@ export default function HeaderSingleBlock({ headerBlock }){
                 <WavesSVG color={colorWave}/>
             </div>
             <Typography className={classes.headerText}>
-                {headerBlock.text.text}
+                {headerBlock.header_text.text}
             </Typography>
 
             <Typography className={classes.descriptionText}>

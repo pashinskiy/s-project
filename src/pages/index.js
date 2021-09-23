@@ -41,6 +41,90 @@ export const query = graphql`
     prismicMainPage {
       data {
         body {
+          ... on PrismicMainPageDataBodySchedule {
+            id
+            slice_type
+            primary {
+              schedule {
+                document {
+                  ... on PrismicSchedule {
+                    id
+                    data {
+                      body {
+                        ... on PrismicScheduleDataBody {
+                          id
+                          items {
+                            coach {
+                              text
+                            }
+                            group {
+                              text
+                            }
+                            time_from
+                            time_to
+                          }
+                          primary {
+                            color_weekday
+                            week_day {
+                              text
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicMainPageDataBodyGrayPanelWithBlocksText {
+            id
+            slice_type
+            items {
+              description_text {
+                text
+              }
+              svg_color
+              header_text {
+                text
+              }
+            }
+          }
+          ... on PrismicMainPageDataBodyOurTeam {
+            id
+            slice_type
+            items {
+              coach {
+                document {
+                  ... on PrismicCoach {
+                    id
+                    data {
+                      description {
+                        text
+                      }
+                      first_name {
+                        text
+                      }
+                      image {
+                        alt
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData
+                          }
+                        }
+                      }
+                      second_name {
+                        text
+                      }
+                      short_decriprtion {
+                        text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicMainPageDataBodyTextOnImage {
             id
             slice_type

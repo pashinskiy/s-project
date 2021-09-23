@@ -1,8 +1,6 @@
-import { Typography } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from "@material-ui/core"
 import HeaderSingleBlock from './headerSingleBlock'
-import { graphql, useStaticQuery } from 'gatsby'
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -28,31 +26,9 @@ const useStyle = makeStyles(theme => ({
 }))
 
 
-export default function BlockHeaderContent(){
-    const headingBlocks = useStaticQuery(graphql`
-        {
-            allPrismicHeadingBlock {
-                edges {
-                node {
-                    data {
-                    heading_blocks_group {
-                        description_text {
-                        text
-                        }
-                        svg_color
-                        text {
-                        text
-                        }
-                    }
-                    }
-                }
-                }
-            }
-        }
-    `)
+export default function GrayPanelWithBlocks( {slice} ){
     const classes = useStyle()
-    const blocks = headingBlocks.allPrismicHeadingBlock.edges[0].node.data.heading_blocks_group.map(item => item)
-    console.log(blocks)
+    const blocks = slice.items.map(item => item)
     return(
         <div className={classes.root}>
             {blocks.map((block, i) => (

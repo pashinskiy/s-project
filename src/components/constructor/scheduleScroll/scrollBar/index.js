@@ -1,13 +1,15 @@
 import React from "react"
 import { makeStyles, Grid, useMediaQuery, Button } from "@material-ui/core"
-import ScrollBarButton from "../../buttons/scrollBarButton"
+import ScrollBarButton from "../../../buttons/scrollBarButton"
 
 const useStyle = makeStyles(theme => ({
-    root: {
-      marginBottom: "8.33vw",
+    rootSchedule: {
+      marginBottom: "4.16vw",
       marginLeft: "3.47vw",
+      marginTop: 0,
+      marginRight: 0,
       "@media(max-width: 767px)": {
-        marginBottom: "14.49vw",
+        marginBottom: "4,83vw",
         marginLeft: "6.03vw"
       },
     },
@@ -213,7 +215,7 @@ export default function ScrollBar({ children }){
 
 
     return (
-        <div className={classes.root}>
+        <div className={classes.rootSchedule}>
             <Grid container className={classes.wrapper}>
                 <Grid
                     container

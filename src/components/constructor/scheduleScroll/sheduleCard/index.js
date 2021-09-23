@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles, Typography, Card } from "@material-ui/core"
-import palette from "../../../templates/colors.json"
+import palette from "../../../../templates/colors.json"
 
 const useStyle = makeStyles(theme => ({
     root: {

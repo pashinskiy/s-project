@@ -20,7 +20,6 @@ const useStyle = makeStyles(theme => ({
 
 export default function BlockHeaderText({ text }) {
     const classes = useStyle()
-    console.log(text)
     return(
         <Typography className={classes.rootText}>
             {text}

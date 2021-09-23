@@ -36,6 +36,7 @@ export default function ScrollBarButton({ onClick, text, left }) {
   const classes = useStyle();
   return (
     <Button
+      aria-label={"scroll-" + left ? "left" : "right"}
       className={
         text ? classes.button + " " + classes.arrowAndText : classes.button
       }
