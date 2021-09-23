@@ -10,7 +10,7 @@ import Card from "./card";
  */
 export default function SmallSliderNormalCard({ slice }) {
   return (
-    <Slider padding>
+    <Slider padding mobileScrollBar>
       {slice.items.map((item) => (
         <Card card={item} />
       ))}
