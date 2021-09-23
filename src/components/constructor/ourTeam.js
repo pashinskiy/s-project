@@ -128,7 +128,7 @@ const useStyle = makeStyles((theme) => ({
       width: "100%",
       height: "44.3vh",
       marginRight: 0,
-      marginBottom: "8.45vw"
+      marginBottom: "8.45vw",
     },
   },
   dialogCoachName: {
@@ -148,7 +148,7 @@ const useStyle = makeStyles((theme) => ({
     color: theme.palette.color.lightBlue,
     fontSize: "1.11vw",
     "@media(max-width: 767px)": {
-        fontSize: "3.38vw",
+      fontSize: "3.38vw",
     },
   },
   dialogTextContainer: {
@@ -159,8 +159,8 @@ const useStyle = makeStyles((theme) => ({
     width: "36.52vw",
     height: "100%",
     "@media(max-width: 767px)": {
-        width: "100%",
-        padding: "0px 6.03vw 7.24vw 6.03vw"
+      width: "100%",
+      padding: "0px 6.03vw 7.24vw 6.03vw",
     },
   },
 }));
@@ -190,6 +190,9 @@ export default function OurTeam({ slice }) {
             <div
               className={classes.coachContainer}
               onClick={(e) => {
+                handleClickOpen(i);
+              }}
+              onKeyDown={(e) => {
                 handleClickOpen(i);
               }}
             >
@@ -242,10 +245,6 @@ export default function OurTeam({ slice }) {
             onClick={handleClose}
           />
           <div className={classes.dialogContainer}>
-            {console.log(
-              coachData.coach.document.data.image.localFile.childImageSharp
-                .gatsbyImageData
-            )}
             <GatsbyImage
               image={
                 coachData.coach.document.data.image.localFile.childImageSharp

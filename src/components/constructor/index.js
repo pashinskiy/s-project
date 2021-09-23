@@ -48,38 +48,38 @@ export default function Constructor({ slices }) {
     <div className={classes.wrapper}>
       {slices.map((slice) => {
         switch (slice.slice_type) {
-          // case "text_on_image":
-          //   return <TextOnImage slice={slice} />;
-          // case "image_side_text":
-          //   return <ImageSideText slice={slice} />;
-          // case "image_under_text":
-          //   return <ImageUnderText slice={slice} />;
-          // case "two_images_under_text":
-          //   return <TwoImagesUnderText slice={slice} />;
-          // case "two_images_and_text_in_row":
-          //   return <TwoImagesAndTextInRow slice={slice} />;
-          // case "image_and_text_4_1":
-          //   return <ImageAndText41 slice={slice} />;
-          // case "text_on_image_blue_bg":
-          //   return <TextOnImageBlueBg slice={slice} />;
-          // case "text":
-          //   return <Text slice={slice} />;
-          // case "small_slider":
-          //   return (
-          //     <Slider padding>
-          //       {slice.items.map((item) => (
-          //         <SmallSliderCard card={item} />
-          //       ))}
-          //     </Slider>
-          //   );
-          // case "small_slider_big_photo":
-          //   return (
-          //     <Slider>
-          //       {slice.items.map((item) => (
-          //         <SmallSliderBigCard card={item} />
-          //       ))}
-          //     </Slider>
-          //   );
+          case "text_on_image":
+            return <TextOnImage slice={slice} />;
+          case "image_side_text":
+            return <ImageSideText slice={slice} />;
+          case "image_under_text":
+            return <ImageUnderText slice={slice} />;
+          case "two_images_under_text":
+            return <TwoImagesUnderText slice={slice} />;
+          case "two_images_and_text_in_row":
+            return <TwoImagesAndTextInRow slice={slice} />;
+          case "image_and_text_4_1":
+            return <ImageAndText41 slice={slice} />;
+          case "text_on_image_blue_bg":
+            return <TextOnImageBlueBg slice={slice} />;
+          case "text":
+            return <Text slice={slice} />;
+          case "small_slider":
+            return (
+              <Slider padding>
+                {slice.items.map((item) => (
+                  <SmallSliderCard card={item} />
+                ))}
+              </Slider>
+            );
+          case "small_slider_big_photo":
+            return (
+              <Slider>
+                {slice.items.map((item) => (
+                  <SmallSliderBigCard card={item} />
+                ))}
+              </Slider>
+            );
           case "schedule":
             return <ScheduleScroll slice={slice} />;
           case "gray_panel_with_blocks_text":
