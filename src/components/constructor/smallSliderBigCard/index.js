@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
  * Блок конструктора "большая карточка маленького слайдера"
  * @module src/components/constructor/smallSliderBigCard
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.card - объект карточки полученный из prismic
+ * @param {Object} props.card - объект карточки полученный из prismic
  */
 export default function SmallSliderBigCard({ card }) {
   const classes = useStyles();

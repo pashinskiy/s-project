@@ -1,23 +1,16 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { makeStyles, Typography } from "@material-ui/core";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
-import Water from "../../images/svg/water.svg";
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import Water from "../../../images/svg/water.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-
-    padding: "0 3.47vw",
-    "@media(max-width: 767px)": {
-      padding: 0,
-    },
+    justifyContent: "center",
   },
   content: {
     display: "flex",
@@ -27,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
     background: theme.palette.background.main,
 
-    width: "43.05%",
+    width: "55.55%",
     "@media(max-width: 767px)": {
       width: "100%",
       padding: "0 6.03vw",
@@ -62,15 +55,6 @@ const useStyles = makeStyles((theme) => ({
 
     "& path": {
       fill: (props) => colors[props.icon_color] ?? "",
-    },
-  },
-  subtitles: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    "@media(max-width: 767px)": {
-      flexDirection: "column",
     },
   },
   subtitle: {
@@ -168,38 +152,15 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3.86vw",
     },
   },
-  images: {
-    display: "flex",
-    justifyContent: "space-between",
-
-    marginTop: "1.73vw",
-    "@media(max-width: 767px)": {
-      flexDirection: "column",
-      marginTop: "4.83vw",
-    },
-  },
-  image: {
-    width: "48.13%",
-    height: "39.3vw",
-    "@media(max-width: 767px)": {
-      width: "100%",
-      height: "120.77vw",
-      "&:last-child": {
-        marginTop: "4.83vw",
-      },
-    },
-  },
 }));
 
 /**
- * Блок конструктора "два изображения под текстом"
- * @module src/components/constructor/twoImagesUnderText
+ * Блок конструктора "Текст"
+ * @module src/components/constructor/text
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
-export default function TwoImagesUnderText({ slice }) {
-  const image_1 = slice.primary.image_1;
-  const image_2 = slice.primary.image_2;
+export default function Text({ slice }) {
   const logo = slice.primary.logo;
   const icon_color = slice.primary.icon ?? false;
   const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
@@ -328,28 +289,6 @@ export default function TwoImagesUnderText({ slice }) {
                 {text_button}
               </Typography>
             </button>
-          ) : null}
-        </div>
-      ) : null}
-
-      {image_1?.localFile ?? image_2?.localFile ?? false ? (
-        <div className={classes.images}>
-          {image_1?.localFile ?? false ? (
-            <GatsbyImage
-              image={image_1.localFile.childImageSharp?.gatsbyImageData}
-              alt={image_1.alt}
-              className={classes.image}
-              imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          ) : null}
-
-          {image_2?.localFile ?? false ? (
-            <GatsbyImage
-              image={image_2.localFile.childImageSharp?.gatsbyImageData}
-              alt={image_2.alt}
-              className={classes.image}
-              imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
           ) : null}
         </div>
       ) : null}

@@ -3,10 +3,10 @@ import { navigate } from "gatsby";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
-import Pattern from "../../images/svg/pattern.svg";
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import Pattern from "../../../images/svg/pattern.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
  * Блок конструктора "изображение и текст (4:1)"
  * @module src/components/constructor/imageAndText41
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
 export default function ImageAndText41({ slice }) {
   const classes = useStyles({ position: slice.primary.position_text });

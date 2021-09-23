@@ -8,12 +8,12 @@ import TwoImagesAndTextInRow from "./twoImagesAndTextInRow";
 import ImageAndText41 from "./imageAndText41";
 import TextOnImageBlueBg from "./textOnImageBlueBg";
 import Text from "./text";
+import SmallSliderNormalCard from "./smallSliderNormalCard";
 import SmallSliderBigCard from "./smallSliderBigCard";
 import Slider from "./slider";
-import SmallSliderCard from "./smallSliderCard";
-import ScheduleScroll from "./scheduleScroll"
-import GrayPanelWithBlocks from "./grayPanelWithBlocks"
-import OurTeam from "./ourTeam"
+import ScheduleScroll from "./scheduleScroll";
+import GrayPanelWithBlocks from "./grayPanelWithBlocks";
+import OurTeam from "./ourTeam";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -47,6 +47,7 @@ export default function Constructor({ slices }) {
   return (
     <div className={classes.wrapper}>
       {slices.map((slice) => {
+        if (slice === null) return null;
         switch (slice.slice_type) {
           case "text_on_image":
             return <TextOnImage slice={slice} />;
@@ -65,13 +66,7 @@ export default function Constructor({ slices }) {
           case "text":
             return <Text slice={slice} />;
           case "small_slider":
-            return (
-              <Slider padding>
-                {slice.items.map((item) => (
-                  <SmallSliderCard card={item} />
-                ))}
-              </Slider>
-            );
+            return <SmallSliderNormalCard slice={slice} />;
           case "small_slider_big_photo":
             return (
               <Slider>

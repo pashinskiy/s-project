@@ -1,48 +1,36 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
-import Water from "../../images/svg/water.svg";
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import Water from "../../../images/svg/water.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: "column",
     alignItems: "center",
 
-    padding: "0 3.47vw",
+    padding: (props) => (props.padding ? "0 3.47vw" : 0),
     "@media(max-width: 767px)": {
-      flexDirection: "column",
-      padding: 0,
-    },
-  },
-  image: {
-    width: "53.73%",
-    height: "34.72vw",
-    "@media(max-width: 767px)": {
-      order: 1,
-      width: "100%",
-      height: "120.77vw",
-      marginTop: "4.83vw",
+      padding: "0 !important",
     },
   },
   content: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "center",
 
     background: theme.palette.background.main,
 
-    width: "42.53%",
+    width: "43.05%",
     "@media(max-width: 767px)": {
       width: "100%",
       padding: "0 6.03vw",
-      order: -1,
     },
 
     "& > *": {
@@ -76,11 +64,21 @@ const useStyles = makeStyles((theme) => ({
       fill: (props) => colors[props.icon_color] ?? "",
     },
   },
+  subtitles: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "@media(max-width: 767px)": {
+      flexDirection: "column",
+    },
+  },
   subtitle: {
     fontWeight: 700,
     lineHeight: 1.28,
     color: theme.palette.color.white,
     textTransform: "lowercase",
+    textAlign: "center",
 
     padding: "0.48vw 0.76vw",
     fontSize: "1.66vw",
@@ -88,12 +86,21 @@ const useStyles = makeStyles((theme) => ({
       padding: "1.2vw 2.41vw",
       fontSize: "4.34vw",
     },
+
+    "&:nth-child(2)": {
+      marginLeft: "1.73vw",
+      "@media(max-width: 767px)": {
+        marginLeft: 0,
+        marginTop: "4.83vw",
+      },
+    },
   },
   title: {
     fontFamily: "'Exo 2'",
     fontWeight: 700,
     lineHeight: 1.2,
     color: theme.palette.color.blue,
+    textAlign: "center",
 
     fontSize: "4.44vw",
     "@media(max-width: 767px)": {
@@ -104,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 300,
     lineHeight: 1.28,
     color: theme.palette.color.lightBlue,
+    textAlign: "center",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -123,6 +131,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     lineHeight: 1.28,
     color: theme.palette.color.darkBlue,
+    textAlign: "center",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -152,25 +161,37 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     lineHeight: 1.28,
     color: theme.palette.color.white,
+    textAlign: "center",
 
     fontSize: "1.66vw",
     "@media(max-width: 767px)": {
       fontSize: "3.86vw",
     },
   },
+  image: {
+    width: "100%",
+
+    marginTop: "1.73vw",
+    height: (props) => (props.padding ? "34.72vw" : "41.66vw"),
+    "@media(max-width: 767px)": {
+      marginTop: "4.83vw",
+      height: "120.77vw !important",
+    },
+  },
 }));
 
 /**
- * Блок конструктора "изображение сбоку текста"
- * @module src/components/constructor/imageSideText
+ * Блок конструктора "изображение под текстом"
+ * @module src/components/constructor/imageUnderText
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
-export default function ImageSideText({ slice }) {
+export default function ImageUnderText({ slice }) {
   const image = slice.primary.image;
   const logo = slice.primary.logo;
   const icon_color = slice.primary.icon ?? false;
-  const subtitle = slice.primary.accent_subtitle ?? false;
+  const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
+  const subtitle_2 = slice.primary.accent_subtitle_2 ?? false;
   const title = slice.primary.accent_title ?? false;
   const text = slice.primary.text ?? false;
   const link_text = slice.primary.link_text ?? false;
@@ -178,13 +199,14 @@ export default function ImageSideText({ slice }) {
   const content =
     (logo.localFile ?? false) ||
     icon_color ||
-    subtitle ||
+    subtitle_1 ||
+    subtitle_2 ||
     title ||
     text ||
     link_text ||
     text_button;
 
-  const classes = useStyles({ icon_color });
+  const classes = useStyles({ icon_color, padding: slice.primary.padding });
 
   function goLink(str) {
     if (!(str ?? false)) return;
@@ -201,16 +223,6 @@ export default function ImageSideText({ slice }) {
 
   return (
     <div className={classes.wrapper}>
-      {image?.localFile ?? false ? (
-        <GatsbyImage
-          image={image.localFile.childImageSharp?.gatsbyImageData}
-          alt={image.alt}
-          className={classes.image}
-          imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-          style={{ order: slice.primary.position ? 0 : 1 }}
-        />
-      ) : null}
-
       {content ? (
         <div className={classes.content}>
           {logo.localFile ?? false ? (
@@ -233,16 +245,33 @@ export default function ImageSideText({ slice }) {
             </div>
           ) : null}
 
-          {subtitle ? (
-            <Typography
-              className={classes.subtitle}
-              style={{
-                background: colors[slice.primary.bg_subtitle],
-                order: slice.primary.order_subtitle ?? 1,
-              }}
+          {subtitle_1 || subtitle_2 ? (
+            <div
+              className={classes.subtitles}
+              style={{ order: slice.primary.order_subtitles ?? 1 }}
             >
-              {subtitle}
-            </Typography>
+              {subtitle_1 ? (
+                <Typography
+                  className={classes.subtitle}
+                  style={{
+                    background: colors[slice.primary.bg_subtitle_1],
+                  }}
+                >
+                  {subtitle_1}
+                </Typography>
+              ) : null}
+
+              {subtitle_2 ? (
+                <Typography
+                  className={classes.subtitle}
+                  style={{
+                    background: colors[slice.primary.bg_subtitle_2],
+                  }}
+                >
+                  {subtitle_2}
+                </Typography>
+              ) : null}
+            </div>
           ) : null}
 
           {title ? (
@@ -289,6 +318,15 @@ export default function ImageSideText({ slice }) {
             </button>
           ) : null}
         </div>
+      ) : null}
+
+      {image?.localFile ?? false ? (
+        <GatsbyImage
+          image={image.localFile.childImageSharp?.gatsbyImageData}
+          alt={image.alt}
+          className={classes.image}
+          imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
       ) : null}
     </div>
   );
