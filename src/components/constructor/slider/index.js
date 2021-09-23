@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 
-import ArrowRight from "../../images/svg/button_arrow.svg";
+import ArrowRight from "../../../images/svg/button_arrow.svg";
 
 const useStyles = makeStyles((theme) => ({
   slider_wrapper: {

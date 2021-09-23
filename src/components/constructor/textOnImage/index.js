@@ -3,9 +3,9 @@ import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -153,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
  * Блок конструктора "текст на изображении"
  * @module src/components/constructor/textOnImage
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
 export default function TextOnImage({ slice }) {
   const classes = useStyles();

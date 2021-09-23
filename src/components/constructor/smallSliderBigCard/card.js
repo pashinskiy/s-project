@@ -2,57 +2,58 @@ import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
+    width: "100%",
     position: "relative",
 
     display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
 
-    marginRight: "3.73%",
-    width: "48.13%",
-    height: "41.66vw",
-    padding: "3.12vw 1.73vw",
+    height: "36.11vw",
     "@media(max-width: 767px)": {
-      marginRight: "4.83%",
-      width: "84.78%",
-      height: "120.77vw",
-      padding: "10.86vw 6.03vw",
-    },
-
-    "&:last-child": {
-      marginRight: 0,
+      height: "80.43vw",
     },
   },
   image: {
     width: "100%",
-    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: -1,
+
+    height: "36.11vw",
+    "@media(max-width: 767px)": {
+      height: "80.43vw",
+    },
   },
   gradient: {
     width: "100%",
-    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: -1,
 
     background:
-      "linear-gradient(180deg, rgba(28, 70, 246, 0) 40.5%, #1C46F6 77.83%)",
+      "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
+
+    height: "36.11vw",
+    "@media(max-width: 767px)": {
+      height: "80.43vw",
+    },
   },
   content: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
+    justifyContent: "center",
+    alignItems: "center",
 
     width: "54.93vw",
     "@media(max-width: 767px)": {
@@ -109,6 +110,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 300,
     lineHeight: 1.28,
+    textAlign: "center",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -118,19 +120,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "карточка маленького слайдера"
- * @module src/components/constructor/smallSliderCard
+ * Блок конструктора "большая карточка маленького слайдера"
+ * @module src/components/constructor/smallSliderBigCard
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.card - объект карточки полученный из prismic
  */
-export default function SmallSliderCard({ card }) {
+export default function SmallSliderBigCard({ card }) {
   const classes = useStyles();
 
   const image = card.image;
+  const logo = card.logo;
   const subtitle = card.accent_subtitle ?? false;
   const title = card.main_title ?? false;
   const text = card.text ?? false;
-  const content = subtitle || title || text;
+  const content = (logo.localFile ?? false) || subtitle || title || text;
 
   return (
     <div className={classes.wrapper}>
@@ -143,10 +146,21 @@ export default function SmallSliderCard({ card }) {
         />
       ) : null}
 
-      {content ? <div className={classes.gradient} /> : null}
+      {card.blue_bg ? <div className={classes.gradient} /> : null}
 
       {content ? (
         <div className={classes.content}>
+          {logo.localFile ?? false ? (
+            <img
+              src={logo.localFile.publicURL}
+              alt={logo.alt}
+              width={1}
+              height={1}
+              className={classes.logo}
+              style={{ order: card.order_logo ?? 1 }}
+            />
+          ) : null}
+
           {subtitle ? (
             <Typography
               className={classes.subtitle}
