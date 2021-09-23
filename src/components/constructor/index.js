@@ -68,13 +68,7 @@ export default function Constructor({ slices }) {
           case "small_slider":
             return <SmallSliderNormalCard slice={slice} />;
           case "small_slider_big_photo":
-            return (
-              <Slider>
-                {slice.items.map((item) => (
-                  <SmallSliderBigCard card={item} />
-                ))}
-              </Slider>
-            );
+            return <SmallSliderBigCard slice={slice} />;
           case "schedule":
             return <ScheduleScroll slice={slice} />;
           case "gray_panel_with_blocks_text":
