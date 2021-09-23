@@ -10,7 +10,6 @@ import TextOnImageBlueBg from "./textOnImageBlueBg";
 import Text from "./text";
 import SmallSliderNormalCard from "./smallSliderNormalCard";
 import SmallSliderBigCard from "./smallSliderBigCard";
-import Slider from "./slider";
 import ScheduleScroll from "./scheduleScroll";
 import GrayPanelWithBlocks from "./grayPanelWithBlocks";
 import OurTeam from "./ourTeam";
