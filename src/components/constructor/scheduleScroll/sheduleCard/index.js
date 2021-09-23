@@ -4,8 +4,6 @@ import palette from "../../../../templates/colors.json"
 
 const useStyle = makeStyles(theme => ({
     root: {
-        // height: "200px",
-        // margin: "20px",
         display: "flex",
         flexDirection: "column",
 
@@ -15,6 +13,7 @@ const useStyle = makeStyles(theme => ({
         padding: "2.77vw",
         width: "20.97vw",
         marginRight: "1.6vw",
+        marginTop: 0,
         // "@media(min-width: 1440px)": {
         //   width: "302px",
         //   padding: "40px",

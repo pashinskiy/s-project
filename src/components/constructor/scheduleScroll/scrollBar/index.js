@@ -10,7 +10,9 @@ const useStyle = makeStyles(theme => ({
       marginRight: 0,
       "@media(max-width: 767px)": {
         marginBottom: "4,83vw",
-        marginLeft: "6.03vw"
+        marginLeft: "6.03vw",
+        marginTop: 0,
+        marginRight: 0,
       },
     },
     wrapper: {
