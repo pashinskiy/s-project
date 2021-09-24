@@ -1287,13 +1287,12 @@
             "fieldset": "gray_panel_with_blocks_text",
             "description": "серая панель с блоками текста",
             "icon": "list",
-            "display": "list",
             "non-repeat": {},
             "repeat": {
               "header_text": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                   "label": "Текст заголовка",
                   "placeholder": "Текст заголовка"
                 }
@@ -1410,7 +1409,7 @@
               "header_text": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                   "label": "Заголовок",
                   "placeholder": "Наша команда"
                 }
@@ -1426,6 +1425,187 @@
                   ],
                   "label": "Тренер",
                   "placeholder": "Выберите документ тренера"
+                }
+              }
+            }
+          },
+          "big_slider": {
+            "type": "Slice",
+            "fieldset": "big_slider",
+            "description": "большой слайдер",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "order_logo": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция логотипа (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Логотип (svg)"
+                }
+              },
+              "order_icon": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция иконки (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Иконка (волны)"
+                }
+              },
+              "order_subtitles": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle_1": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок - 1",
+                  "placeholder": "Акцентный подзаголовок - 1"
+                }
+              },
+              "bg_subtitle_1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка - 1"
+                }
+              },
+              "accent_subtitle_2": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок - 2",
+                  "placeholder": "Акцентный подзаголовок - 2"
+                }
+              },
+              "bg_subtitle_2": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка - 2"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "accent_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "order_link": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
+                }
+              }
+            },
+            "repeat": {
+              "photo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Фото"
                 }
               }
             }
@@ -2140,47 +2320,6 @@
             },
             "repeat": {}
           },
-          "gray_panel_with_blocks_text": {
-            "type": "Slice",
-            "fieldset": "gray_panel_with_blocks_text",
-            "description": "серая панель с блоками текста",
-            "icon": "list",
-            "non-repeat": {},
-            "repeat": {
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label": "Текст заголовка",
-                  "placeholder": "Текст заголовка"
-                }
-              },
-              "svg_color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Синий",
-                    "Оранжевый",
-                    "Зеленый",
-                    "Голубой",
-                    "Фиолетовый",
-                    "Желтый",
-                    "Темно-синий"
-                  ],
-                  "default_value": "Синий",
-                  "label": "Цвет картинки"
-                }
-              },
-              "description_text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                  "label": "Текст описания",
-                  "placeholder": "Текст описания"
-                }
-              }
-            }
-          },
           "image_under_text": {
             "type": "Slice",
             "fieldset": "image_under_text",
@@ -2557,6 +2696,110 @@
             },
             "repeat": {}
           },
+          "small_slider": {
+            "type": "Slice",
+            "fieldset": "small_slider",
+            "description": "маленький слайдер",
+            "icon": "view_column",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "order_subtitle": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция подзаголовка (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "accent_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок",
+                  "placeholder": "Акцентный подзаголовок"
+                }
+              },
+              "bg_subtitle": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка"
+                }
+              },
+              "order_title": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция заголовка (сверху)",
+                  "placeholder": "по умолчанию - 2"
+                }
+              },
+              "main_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              },
+              "order_text": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция текста (сверху)",
+                  "placeholder": "по умолчанию - 3"
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              }
+            }
+          },
+          "our_team": {
+            "type": "Slice",
+            "fieldset": "our_team",
+            "description": "наша команда",
+            "icon": "recent_actors",
+            "non-repeat": {
+              "header_text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Заголовок",
+                  "placeholder": "Наша команда"
+                }
+              }
+            },
+            "repeat": {
+              "coach": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "coach"
+                  ],
+                  "label": "Тренер",
+                  "placeholder": "Выберите документ тренера"
+                }
+              }
+            }
+          },
           "text": {
             "type": "Slice",
             "fieldset": "text",
@@ -2729,36 +2972,67 @@
             },
             "repeat": {}
           },
-          "small_slider": {
+          "big_slider": {
             "type": "Slice",
-            "fieldset": "small_slider",
-            "description": "маленький слайдер",
+            "fieldset": "big_slider",
+            "description": "большой слайдер",
             "icon": "view_column",
-            "non-repeat": {},
-            "repeat": {
-              "image": {
+            "display": "list",
+            "non-repeat": {
+              "order_logo": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция логотипа (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "logo": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "Изображение"
+                  "label": "Логотип (svg)"
                 }
               },
-              "order_subtitle": {
+              "order_icon": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция иконки (сверху)",
+                  "placeholder": "по умолчанию - 1"
+                }
+              },
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Иконка (волны)"
+                }
+              },
+              "order_subtitles": {
                 "type": "Number",
                 "config": {
                   "label": "Позиция подзаголовка (сверху)",
                   "placeholder": "по умолчанию - 1"
                 }
               },
-              "accent_subtitle": {
+              "accent_subtitle_1": {
                 "type": "Text",
                 "config": {
-                  "label": "Акцентный подзаголовок",
-                  "placeholder": "Акцентный подзаголовок"
+                  "label": "Акцентный подзаголовок - 1",
+                  "placeholder": "Акцентный подзаголовок - 1"
                 }
               },
-              "bg_subtitle": {
+              "bg_subtitle_1": {
                 "type": "Select",
                 "config": {
                   "options": [
@@ -2771,7 +3045,30 @@
                     "Темно-синий"
                   ],
                   "default_value": "Синий",
-                  "label": "Фон подзаголовка"
+                  "label": "Фон подзаголовка - 1"
+                }
+              },
+              "accent_subtitle_2": {
+                "type": "Text",
+                "config": {
+                  "label": "Акцентный подзаголовок - 2",
+                  "placeholder": "Акцентный подзаголовок - 2"
+                }
+              },
+              "bg_subtitle_2": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Фон подзаголовка - 2"
                 }
               },
               "order_title": {
@@ -2781,11 +3078,11 @@
                   "placeholder": "по умолчанию - 2"
                 }
               },
-              "main_title": {
+              "accent_title": {
                 "type": "Text",
                 "config": {
-                  "label": "Заголовок",
-                  "placeholder": "Заголовок"
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Акцентный заголовок"
                 }
               },
               "order_text": {
@@ -2801,34 +3098,99 @@
                   "label": "Текст",
                   "placeholder": "Текст"
                 }
-              }
-            }
-          },
-          "our_team": {
-            "type": "Slice",
-            "fieldset": "our_team",
-            "description": "наша команда",
-            "icon": "recent_actors",
-            "non-repeat": {
-              "header_text": {
-                "type": "StructuredText",
+              },
+              "order_link": {
+                "type": "Number",
                 "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Заголовок",
-                  "placeholder": "Наша команда"
+                  "label": "Позиция ссылки (сверху)",
+                  "placeholder": "по умолчанию - 4"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст ссылки",
+                  "placeholder": "Текст ссылки"
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка",
+                  "placeholder": "Ссылка"
+                }
+              },
+              "order_button": {
+                "type": "Number",
+                "config": {
+                  "label": "Позиция кнопки (сверху)",
+                  "placeholder": "по умолчанию - 5"
+                }
+              },
+              "text_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст кнопки",
+                  "placeholder": "Текст кнопки"
+                }
+              },
+              "link_button": {
+                "type": "Text",
+                "config": {
+                  "label": "Ссылка кнопки",
+                  "placeholder": "Ссылка кнопки"
                 }
               }
             },
             "repeat": {
-              "coach": {
-                "type": "Link",
+              "photo": {
+                "type": "Image",
                 "config": {
-                  "select": "document",
-                  "customtypes": [
-                    "coach"
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Фото"
+                }
+              }
+            }
+          },
+          "gray_panel_with_blocks_text": {
+            "type": "Slice",
+            "fieldset": "gray_panel_with_blocks_text",
+            "description": "серая панель с блоками текста",
+            "icon": "list",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "header_text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Текст заголовка",
+                  "placeholder": "Текст заголовка"
+                }
+              },
+              "svg_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
                   ],
-                  "label": "Тренер",
-                  "placeholder": "Выберите документ тренера"
+                  "default_value": "Синий",
+                  "label": "Цвет картинки"
+                }
+              },
+              "description_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Текст описания",
+                  "placeholder": "Текст описания"
                 }
               }
             }

@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     minHeight: "100vh",
   },
+  root: {
+    paddingBottom: "1px",
+  },
 }));
 
 /**

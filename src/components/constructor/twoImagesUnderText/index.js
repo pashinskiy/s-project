@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import colors from "../../../templates/colors.json";
@@ -201,7 +201,7 @@ export default function TwoImagesUnderText({ slice }) {
   const image_1 = slice.primary.image_1;
   const image_2 = slice.primary.image_2;
   const logo = slice.primary.logo;
-  const icon_color = slice.primary.icon ?? false;
+  const icon_color = slice.primary.icon !== "none" ? slice.primary.icon : false;
   const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
   const subtitle_2 = slice.primary.accent_subtitle_2 ?? false;
   const title = slice.primary.accent_title ?? false;

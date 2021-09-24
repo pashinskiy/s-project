@@ -120,8 +120,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "большая карточка маленького слайдера"
- * @module src/components/constructor/smallSliderBigCard
+ * Карточка маленького слайдера больших карточек
+ * @module src/components/constructor/smallSliderBigCard/card
  * @param {Object} props - объект свойств компонента React
  * @param {Object} props.card - объект карточки полученный из prismic
  */

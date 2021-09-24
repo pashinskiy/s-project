@@ -13,6 +13,7 @@ import SmallSliderBigCard from "./smallSliderBigCard";
 import ScheduleScroll from "./scheduleScroll";
 import GrayPanelWithBlocks from "./grayPanelWithBlocks";
 import OurTeam from "./ourTeam";
+import BigSlider from "./bigSlider";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -68,6 +69,8 @@ export default function Constructor({ slices }) {
             return <SmallSliderNormalCard slice={slice} />;
           case "small_slider_big_photo":
             return <SmallSliderBigCard slice={slice} />;
+          case "big_slider":
+            return <BigSlider slice={slice} />;
           case "schedule":
             return <ScheduleScroll slice={slice} />;
           case "gray_panel_with_blocks_text":

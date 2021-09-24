@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles, Grid, useMediaQuery, Button } from "@material-ui/core"
+import { makeStyles, Grid, useMediaQuery } from "@material-ui/core"
 import ScrollBarButton from "../../../buttons/scrollBarButton"
 
 const useStyle = makeStyles(theme => ({

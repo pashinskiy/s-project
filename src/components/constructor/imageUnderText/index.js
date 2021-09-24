@@ -189,7 +189,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ImageUnderText({ slice }) {
   const image = slice.primary.image;
   const logo = slice.primary.logo;
-  const icon_color = slice.primary.icon ?? false;
+  const icon_color = slice.primary.icon !== "none" ? slice.primary.icon : false;
   const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
   const subtitle_2 = slice.primary.accent_subtitle_2 ?? false;
   const title = slice.primary.accent_title ?? false;
