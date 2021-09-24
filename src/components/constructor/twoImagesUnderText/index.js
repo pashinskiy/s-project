@@ -169,6 +169,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   images: {
+    width: "100%",
+
     display: "flex",
     justifyContent: "space-between",
 
