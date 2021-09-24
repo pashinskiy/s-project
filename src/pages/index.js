@@ -901,6 +901,26 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicMainPageDataBody1SliderWithTitleAndDescription {
+            id
+            slice_type
+            primary {
+              title_block
+            }
+            items {
+              image_item {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+              subtitle_item
+              title_item
+              text_item
+            }
+          }
         }
       }
     }

@@ -1609,6 +1609,53 @@
                 }
               }
             }
+          },
+          "slider_with_title_and_description": {
+            "type": "Slice",
+            "fieldset": "slider_with_title_and_description",
+            "description": "слайдер с заголовком и описанием",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "title_block": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок блока",
+                  "placeholder": "Заголовок блока"
+                }
+              }
+            },
+            "repeat": {
+              "image_item": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "subtitle_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Подзаголовок",
+                  "placeholder": "Подзаголовок"
+                }
+              },
+              "title_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              },
+              "text_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              }
+            }
           }
         }
       }
@@ -3191,6 +3238,52 @@
                   "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Текст описания",
                   "placeholder": "Текст описания"
+                }
+              }
+            }
+          },
+          "slider_with_title_and_description": {
+            "type": "Slice",
+            "fieldset": "slider_with_title_and_description",
+            "description": "слайдер с заголовком и описанием",
+            "icon": "view_column",
+            "non-repeat": {
+              "title_block": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок блока",
+                  "placeholder": "Заголовок блока"
+                }
+              }
+            },
+            "repeat": {
+              "image_item": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              },
+              "subtitle_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Подзаголовок",
+                  "placeholder": "Подзаголовок"
+                }
+              },
+              "title_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              },
+              "text_item": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
                 }
               }
             }
