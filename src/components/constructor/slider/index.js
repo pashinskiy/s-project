@@ -94,6 +94,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.color.black,
     fontSize: "1.25vw",
   },
+  nav_button_icon: {
+    width: "2.63vw",
+    height: "0.97vw",
+  },
 
   pagination: {
     display: "flex",
@@ -244,7 +248,9 @@ export default function Slider({ children, padding, mobileScrollBar }) {
             className={classes.nav_button + " " + classes.mirror}
             aria-label="назад"
           >
-            <ArrowRight />
+            <p className={classes.nav_button_icon}>
+              <ArrowRight />
+            </p>
           </button>
 
           <button
@@ -253,7 +259,9 @@ export default function Slider({ children, padding, mobileScrollBar }) {
             aria-label="далее"
           >
             <Typography className={classes.nav_button_text}>Далее</Typography>
-            <ArrowRight />
+            <p className={classes.nav_button_icon}>
+              <ArrowRight />
+            </p>
           </button>
         </div>
       )}

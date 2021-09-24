@@ -167,6 +167,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrapperSlider: {
+    width: "100%",
+
     marginTop: "1.73vw",
     "@media(max-width: 767px)": {
       marginTop: "6.03vw",
