@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -7,86 +8,85 @@ import colors from "../../../templates/colors.json";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
+    overflow: "hidden",
 
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "flex-end",
     alignItems: "flex-end",
 
-    marginRight: "3.73%",
     width: "48.13%",
     height: "41.66vw",
-    padding: "3.12vw 1.73vw",
     "@media(max-width: 767px)": {
-      marginRight: "4.83%",
-      width: "84.78%",
+      width: "100%",
       height: "120.77vw",
-      padding: "10.86vw 6.03vw",
+      marginTop: "6.03vw",
     },
 
-    "&:last-child": {
-      marginRight: 0,
+    "&:nth-child(n + 3)": {
+      marginTop: "3.47vw",
+      "@media(max-width: 767px)": {
+        marginTop: "6.03vw",
+      },
+    },
+
+    "&:first-child": {
+      marginTop: 0,
     },
   },
   image: {
     width: "100%",
-    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: -1,
+
+    height: "44.44vw",
+    "@media(max-width: 767px)": {
+      height: "124.39vw",
+    },
   },
-  gradient: {
+  background: {
+    position: "absolute",
     width: "100%",
     height: "100%",
-
-    position: "absolute",
-    left: 0,
-    top: 0,
-    zIndex: -1,
-
     background:
       "linear-gradient(180deg, rgba(28, 70, 246, 0) 40.5%, #1C46F6 77.83%)",
   },
   content: {
+    position: "relative",
+    transform: "translateY(1px)",
+    width: "100%",
+
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "flex-start",
 
-    width: "54.93vw",
+    padding: "3.12vw 1.73vw",
     "@media(max-width: 767px)": {
-      width: "87.92vw",
+      padding: "3.62vw 2.41vw",
     },
 
     "& > *": {
+      color: theme.palette.color.white,
+
       marginTop: "1.73vw",
       "@media(max-width: 767px)": {
-        marginTop: "3.62vw",
+        marginTop: "4.83vw",
       },
 
       "&:first-child": {
         marginTop: 0,
       },
     },
-
-    "& *": {
-      color: theme.palette.color.white,
-    },
-  },
-  logo: {
-    width: "auto",
-
-    height: "9.02vw",
-    "@media(max-width: 767px)": {
-      height: "16.9vw",
-    },
   },
   subtitle: {
     fontWeight: 700,
     lineHeight: 1.28,
-    textAlign: "center",
     textTransform: "lowercase",
+    textAlign: "left",
 
     padding: "0.48vw 0.76vw",
     fontSize: "1.66vw",
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Exo 2'",
     fontWeight: 700,
     lineHeight: 1.2,
-    textAlign: "center",
+    textAlign: "left",
 
     fontSize: "4.44vw",
     "@media(max-width: 767px)": {
@@ -109,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 300,
     lineHeight: 1.28,
+    textAlign: "left",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -118,22 +119,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Карточка маленького слайдера нормальных карточек
- * @module src/components/constructor/smallSliderNormalCard/card
+ * Карточка новостей
+ * @module src/components/listNews/card
  * @param {Object} props - объект свойств компонента React
- * @param {Object} props.card - объект карточки полученный из prismic
+ * @param {Object} props.news - объект новости полученный из prismic
  */
-export default function Card({ card }) {
+export default function Card({ news }) {
   const classes = useStyles();
 
-  const image = card.image;
-  const subtitle = card.accent_subtitle ?? false;
-  const title = card.main_title ?? false;
-  const text = card.text ?? false;
+  const image = news.data.main_image;
+  const subtitle = news.data.subtitle ?? false;
+  const title = news.data.title ?? false;
+  const text = news.data.text ?? false;
   const content = subtitle || title || text;
 
+  function goNews() {
+    navigate(`/news/${news.uid}`);
+  }
+
   return (
-    <div className={classes.wrapper}>
+    <button onClick={goNews} className={classes.wrapper}>
       {image?.localFile ?? false ? (
         <GatsbyImage
           image={image.localFile.childImageSharp?.gatsbyImageData}
@@ -143,7 +148,7 @@ export default function Card({ card }) {
         />
       ) : null}
 
-      {content ? <div className={classes.gradient} /> : null}
+      {content ? <div className={classes.background} /> : null}
 
       {content ? (
         <div className={classes.content}>
@@ -151,8 +156,7 @@ export default function Card({ card }) {
             <Typography
               className={classes.subtitle}
               style={{
-                background: colors[card.bg_subtitle],
-                order: card.order_subtitle ?? 1,
+                background: colors[news.data.subtitle_bg],
               }}
             >
               {subtitle}
@@ -160,24 +164,14 @@ export default function Card({ card }) {
           ) : null}
 
           {title ? (
-            <Typography
-              className={classes.title}
-              style={{ order: card.order_title ?? 2 }}
-            >
-              {title}
-            </Typography>
+            <Typography className={classes.title}>{title}</Typography>
           ) : null}
 
           {text ? (
-            <Typography
-              className={classes.text}
-              style={{ order: card.order_text ?? 3 }}
-            >
-              {text}
-            </Typography>
+            <Typography className={classes.text}>{text}</Typography>
           ) : null}
         </div>
       ) : null}
-    </div>
+    </button>
   );
 }

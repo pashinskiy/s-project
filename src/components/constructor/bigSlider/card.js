@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "100%",
-    
+
     overflow: "hidden",
     WebkitBackfaceVisibility: "hidden",
     MozBackfaceVisibility: "hidden",
     WebkitTransform: "translate3d(0, 0, 0)",
     MozTransform: "translate3d(0, 0, 0)",
-    
+
     borderRadius: "2.08vw",
     "@media(max-width: 767px)": {
       borderRadius: "7.24vw",
@@ -45,7 +45,7 @@ export default function Card({ card }) {
     <div className={classes.wrapper}>
       <GatsbyImage
         image={image.localFile.childImageSharp?.gatsbyImageData}
-        alt={image.alt}
+        alt={image.alt ?? "photo"}
         className={classes.image}
         imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
       />

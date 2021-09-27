@@ -140,7 +140,7 @@ export default function FirstScreen() {
           uid
           data {
             title
-            subtitle
+            text
             order
             main_image {
               alt
@@ -168,9 +168,9 @@ export default function FirstScreen() {
   });
 
   function goLink(str) {
-    if (!(str ?? false)) return
+    if (!(str ?? false)) return;
     if (str.slice(-1) !== "/") str += "/";
-    
+
     if (str.slice(0, 4) === "http") {
       const anchor = document.createElement("a");
       anchor.href = str;
@@ -200,8 +200,9 @@ export default function FirstScreen() {
             <CardSlider
               image={news.data.main_image}
               title={news.data.title}
-              subtitle={news.data.subtitle}
+              text={news.data.text}
               link={`/news/${news.uid}/`}
+              key={news.uid}
             />
           ))}
         </Slider>
@@ -212,6 +213,7 @@ export default function FirstScreen() {
           goLink(prismicMainPage.data.button_link);
         }}
         className={classes.button}
+        aria-label={prismicMainPage.data.button_text}
       >
         <Typography className={classes.button_text}>
           {prismicMainPage.data.button_text}

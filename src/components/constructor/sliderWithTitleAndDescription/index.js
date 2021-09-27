@@ -53,19 +53,20 @@ export default function SliderWithTitleAndDescription({ slice }) {
           text={text}
         >
           {slice.items
-            .map((item) => {
+            .map((item, i) => {
               const image = item.image_item;
 
               return image?.localFile ?? false ? (
                 <GatsbyImage
                   image={image.localFile.childImageSharp?.gatsbyImageData}
-                  alt={image.alt}
+                  alt={image.alt ?? "photo"}
                   className={classes.image}
                   imgStyle={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
                   }}
+                  key={`photo_${i}`}
                 />
               ) : null;
             })

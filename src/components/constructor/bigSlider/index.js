@@ -223,7 +223,7 @@ export default function BigSlider({ slice }) {
           {logo.localFile ?? false ? (
             <img
               src={logo.localFile.publicURL}
-              alt={logo.alt}
+              alt={logo.alt ?? "logo"}
               width={1}
               height={1}
               className={classes.logo}
@@ -317,8 +317,8 @@ export default function BigSlider({ slice }) {
 
       <div className={classes.wrapperSlider}>
         <Slider>
-          {slice.items.map((item) => (
-            <Card card={item} />
+          {slice.items.map((item, i) => (
+            <Card card={item} key={`photo_${i}`} />
           ))}
         </Slider>
       </div>

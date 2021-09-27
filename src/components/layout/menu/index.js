@@ -452,7 +452,7 @@ export default function Menu({ data }) {
                 >
                   <img
                     src={imageLogo.localFile.publicURL}
-                    alt={imageLogo.alt}
+                    alt={imageLogo.alt ?? "photo"}
                     width={1}
                     height={1}
                     className={classes.logo_Image}
@@ -478,7 +478,7 @@ export default function Menu({ data }) {
                 {mobile ? null : (
                   <img
                     src={iconSport.localFile.publicURL}
-                    alt={iconSport.alt}
+                    alt={iconSport.alt ?? "photo"}
                     width={1}
                     height={1}
                     className={classes.titleWithIcon_icon}
@@ -519,7 +519,7 @@ export default function Menu({ data }) {
                 {mobile ? null : (
                   <img
                     src={iconFitnes.localFile.publicURL}
-                    alt={iconFitnes.alt}
+                    alt={iconFitnes.alt ?? "photo"}
                     width={1}
                     height={1}
                     className={classes.titleWithIcon_icon}
@@ -581,7 +581,7 @@ export default function Menu({ data }) {
                 >
                   <img
                     src={prismicContact.data.phone_icon?.localFile?.publicURL}
-                    alt={prismicContact.data.phone_icon?.alt}
+                    alt={prismicContact.data.phone_icon?.alt ?? "photo"}
                     width={1}
                     height={1}
                     className={classes.buttonPhone_icon}
@@ -593,7 +593,7 @@ export default function Menu({ data }) {
                 </button>
 
                 <div className={classes.socialNetworks_wrapper}>
-                  {prismicContact.data.social_networks.map((network) => {
+                  {prismicContact.data.social_networks.map((network, i) => {
                     const iconPath = network.network_icon?.localFile?.publicURL;
                     const iconAlt = network.network_icon?.alt ?? "social";
 
@@ -605,11 +605,13 @@ export default function Menu({ data }) {
                             rel: "noreferrer",
                           })
                         }
+                        aria-label={iconAlt ?? "social"}
+                        key={`social_${i}`}
                         className={classes.buttonSocialNetwork}
                       >
                         <img
                           src={iconPath}
-                          alt={iconAlt}
+                          alt={iconAlt ?? "photo"}
                           width={1}
                           height={1}
                           className={classes.buttonSocialNetwork_icon}

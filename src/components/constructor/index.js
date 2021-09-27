@@ -15,6 +15,7 @@ import GrayPanelWithBlocks from "./grayPanelWithBlocks";
 import OurTeam from "./ourTeam";
 import BigSlider from "./bigSlider";
 import SliderWithTitleAndDescription from "./sliderWithTitleAndDescription";
+import Ticker from "./ticker";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -51,33 +52,39 @@ export default function Constructor({ slices }) {
         if (slice === null) return null;
         switch (slice.slice_type) {
           case "text_on_image":
-            return <TextOnImage slice={slice} />;
+            return <TextOnImage slice={slice} key={slice.id} />;
           case "image_side_text":
-            return <ImageSideText slice={slice} />;
+            return <ImageSideText slice={slice} key={slice.id} />;
           case "image_under_text":
-            return <ImageUnderText slice={slice} />;
+            return <ImageUnderText slice={slice} key={slice.id} />;
           case "two_images_under_text":
-            return <TwoImagesUnderText slice={slice} />;
+            return <TwoImagesUnderText slice={slice} key={slice.id} />;
           case "two_images_and_text_in_row":
-            return <TwoImagesAndTextInRow slice={slice} />;
+            return <TwoImagesAndTextInRow slice={slice} key={slice.id} />;
           case "image_and_text_4_1":
-            return <ImageAndText41 slice={slice} />;
+            return <ImageAndText41 slice={slice} key={slice.id} />;
           case "text_on_image_blue_bg":
-            return <TextOnImageBlueBg slice={slice} />;
+            return <TextOnImageBlueBg slice={slice} key={slice.id} />;
           case "text":
-            return <Text slice={slice} />;
+            return <Text slice={slice} key={slice.id} />;
           case "small_slider":
-            return <SmallSliderNormalCard slice={slice} />;
+            return <SmallSliderNormalCard slice={slice} key={slice.id} />;
           case "small_slider_big_photo":
-            return <SmallSliderBigCard slice={slice} />;
+            return <SmallSliderBigCard slice={slice} key={slice.id} />;
           case "big_slider":
-            return <BigSlider slice={slice} />;
+            return <BigSlider slice={slice} key={slice.id} />;
+          case "slider_with_title_and_description":
+            return (
+              <SliderWithTitleAndDescription slice={slice} key={slice.id} />
+            );
           case "schedule":
-            return <ScheduleScroll slice={slice} />;
+            return <ScheduleScroll slice={slice} key={slice.id} />;
           case "gray_panel_with_blocks_text":
-            return <GrayPanelWithBlocks slice={slice} />;
+            return <GrayPanelWithBlocks slice={slice} key={slice.id} />;
           case "our_team":
-            return <OurTeam slice={slice} />;
+            return <OurTeam slice={slice} key={slice.id} />;
+          case "ticker":
+            return <Ticker slice={slice} key={slice.id} />;
           default:
             return null;
         }

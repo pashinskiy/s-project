@@ -1656,6 +1656,64 @@
                 }
               }
             }
+          },
+          "ticker": {
+            "type": "Slice",
+            "fieldset": "ticker",
+            "description": "бегущая строка",
+            "icon": "power_input",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "color_text": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Белый",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Белый",
+                  "label": "Цвет текста"
+                }
+              },
+              "color_bg": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Цвет фона"
+                }
+              },
+              "time": {
+                "type": "Number",
+                "config": {
+                  "label": "Время анимации (мс)",
+                  "placeholder": "по умолчанию 1000"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
@@ -3287,6 +3345,64 @@
                 }
               }
             }
+          },
+          "ticker": {
+            "type": "Slice",
+            "fieldset": "ticker",
+            "description": "бегущая строка",
+            "icon": "power_input",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Текст",
+                  "placeholder": "Текст"
+                }
+              },
+              "color_text": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Белый",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Белый",
+                  "label": "Цвет текста"
+                }
+              },
+              "color_bg": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "none",
+                  "label": "Цвет фона"
+                }
+              },
+              "time": {
+                "type": "Number",
+                "config": {
+                  "label": "Время анимации (мс)",
+                  "placeholder": "по умолчанию 1000"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

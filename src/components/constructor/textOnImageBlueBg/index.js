@@ -139,7 +139,7 @@ export default function TextOnImageBlueBg({ slice }) {
       {image?.localFile ?? false ? (
         <GatsbyImage
           image={image.localFile.childImageSharp?.gatsbyImageData}
-          alt={image.alt}
+          alt={image.alt ?? "photo"}
           className={classes.image}
           imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
@@ -152,7 +152,7 @@ export default function TextOnImageBlueBg({ slice }) {
           {logo.localFile ?? false ? (
             <img
               src={logo.localFile.publicURL}
-              alt={logo.alt}
+              alt={logo.alt ?? "photo"}
               width={1}
               height={1}
               className={classes.logo}

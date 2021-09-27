@@ -184,7 +184,6 @@ const useStyle = makeStyles((theme) => ({
 export default function OurTeam({ slice }) {
   const classes = useStyle();
   const data = slice.items.map((coach) => coach);
-  console.log(data);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [coachData, setCoachData] = useState(data[0]);
 
@@ -213,6 +212,7 @@ export default function OurTeam({ slice }) {
               onKeyDown={(e) => {
                 handleClickOpen(i);
               }}
+              key={`card_${i}`}
             >
               <GatsbyImage
                 image={

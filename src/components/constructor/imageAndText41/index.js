@@ -185,7 +185,7 @@ export default function ImageAndText41({ slice }) {
       {image?.localFile ?? false ? (
         <GatsbyImage
           image={image.localFile.childImageSharp?.gatsbyImageData}
-          alt={image.alt}
+          alt={image.alt ?? "photo"}
           className={classes.image}
           imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
         />

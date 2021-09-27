@@ -175,7 +175,7 @@ export default function Header({ data }) {
       >
         <img
           src={image.localFile.publicURL}
-          alt={image.alt}
+          alt={image.alt ?? "photo"}
           width={1}
           height={1}
           className={classes.imageLogo}

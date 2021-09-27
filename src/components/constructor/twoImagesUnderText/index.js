@@ -242,7 +242,7 @@ export default function TwoImagesUnderText({ slice }) {
           {logo.localFile ?? false ? (
             <img
               src={logo.localFile.publicURL}
-              alt={logo.alt}
+              alt={logo.alt ?? "photo"}
               width={1}
               height={1}
               className={classes.logo}
@@ -339,7 +339,7 @@ export default function TwoImagesUnderText({ slice }) {
           {image_1?.localFile ?? false ? (
             <GatsbyImage
               image={image_1.localFile.childImageSharp?.gatsbyImageData}
-              alt={image_1.alt}
+              alt={image_1.alt ?? "photo"}
               className={classes.image}
               imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
@@ -348,7 +348,7 @@ export default function TwoImagesUnderText({ slice }) {
           {image_2?.localFile ?? false ? (
             <GatsbyImage
               image={image_2.localFile.childImageSharp?.gatsbyImageData}
-              alt={image_2.alt}
+              alt={image_2.alt ?? "photo"}
               className={classes.image}
               imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
             />

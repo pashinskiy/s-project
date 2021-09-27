@@ -921,6 +921,16 @@ export const query = graphql`
               text_item
             }
           }
+          ... on PrismicMainPageDataBody1Ticker {
+            id
+            slice_type
+            primary {
+              text
+              color_text
+              color_bg
+              time
+            }
+          }
         }
       }
     }

@@ -201,7 +201,7 @@ export default function Text({ slice }) {
           {logo.localFile ?? false ? (
             <img
               src={logo.localFile.publicURL}
-              alt={logo.alt}
+              alt={logo.alt ?? "photo"}
               width={1}
               height={1}
               className={classes.logo}

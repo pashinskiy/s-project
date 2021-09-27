@@ -204,7 +204,7 @@ export default function ImageSideText({ slice }) {
       {image?.localFile ?? false ? (
         <GatsbyImage
           image={image.localFile.childImageSharp?.gatsbyImageData}
-          alt={image.alt}
+          alt={image.alt ?? "photo"}
           className={classes.image}
           imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
           style={{ order: slice.primary.position ? 0 : 1 }}
@@ -216,7 +216,7 @@ export default function ImageSideText({ slice }) {
           {logo.localFile ?? false ? (
             <img
               src={logo.localFile.publicURL}
-              alt={logo.alt}
+              alt={logo.alt ?? "photo"}
               width={1}
               height={1}
               className={classes.logo}

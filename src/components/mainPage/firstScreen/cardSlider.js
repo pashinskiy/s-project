@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "8.69vw",
     },
   },
-  subtitle: {
+  text: {
     fontWeight: 300,
     lineHeight: 1.28,
     color: theme.palette.color.white,
@@ -79,20 +79,27 @@ const useStyles = makeStyles((theme) => ({
  * @param {Object} props - объект свойств компонента React
  * @param {Object} props.image - объект изображения полученый из prismic
  * @param {String} [props.title] - заголовок карточки
- * @param {String} [props.subtitle] - подзаголовок карточки
+ * @param {String} [props.text] - подзаголовок карточки
  * @param {String} [props.link] - ссылка на страницу
  * @param {Boolean} [props.active=true] - флаг активной карточки
  */
-export default function CardSlider({ image, title, subtitle, link, active }) {
+export default function CardSlider({
+  image,
+  title,
+  text,
+  link,
+  active,
+  ...other
+}) {
   active = active ?? true;
 
-  const fon = active && (title || subtitle);
+  const fon = active && (title || text);
   const classes = useStyles({ fon });
 
   function goLink(str) {
-    if (!(str ?? false)) return
+    if (!(str ?? false)) return;
     if (str.slice(-1) !== "/") str += "/";
-    
+
     if (str.slice(0, 4) === "http") {
       const anchor = document.createElement("a");
       anchor.href = str;
@@ -103,10 +110,15 @@ export default function CardSlider({ image, title, subtitle, link, active }) {
   }
 
   return (
-    <button onClick={() => goLink(link)} className={classes.wrapper}>
+    <button
+      onClick={() => goLink(link)}
+      aria-label={`news ${title}`}
+      {...other}
+      className={classes.wrapper}
+    >
       <GatsbyImage
         image={image.localFile.childImageSharp.gatsbyImageData}
-        alt={image.alt}
+        alt={image.alt ?? "photo"}
         className={classes.img}
         imgStyle={{
           width: "100%",
@@ -120,8 +132,8 @@ export default function CardSlider({ image, title, subtitle, link, active }) {
           {title ? (
             <Typography className={classes.title}>{title}</Typography>
           ) : null}
-          {subtitle ? (
-            <Typography className={classes.subtitle}>{subtitle}</Typography>
+          {text ? (
+            <Typography className={classes.text}>{text}</Typography>
           ) : null}
         </>
       ) : null}
