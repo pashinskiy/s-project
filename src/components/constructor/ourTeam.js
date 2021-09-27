@@ -92,6 +92,7 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   dialogContainer: {
+    height: "inherit",
     display: "flex",
     flexDirection: "row",
     "@media(max-width: 767px)": {
@@ -120,6 +121,7 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   iconCloseDialog: {
+    cursor: "pointer",
     zIndex: 1,
     position: "absolute",
     top: "0.48vw",
