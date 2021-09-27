@@ -2,15 +2,19 @@ import React from "react";
 import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
 
-import colors from "../../templates/colors.json";
+import Slider from "../slider";
+import Card from "./card";
 
-import Water from "../../images/svg/water.svg";
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import colors from "../../../templates/colors.json";
+
+import Water from "../../../images/svg/water.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   },
   content: {
     display: "flex",
@@ -20,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
     background: theme.palette.background.main,
 
-    width: "55.55%",
+    width: "43.05%",
+    padding: "0 3.47vw",
     "@media(max-width: 767px)": {
       width: "100%",
       padding: "0 6.03vw",
@@ -55,6 +60,15 @@ const useStyles = makeStyles((theme) => ({
 
     "& path": {
       fill: (props) => colors[props.icon_color] ?? "",
+    },
+  },
+  subtitles: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "@media(max-width: 767px)": {
+      flexDirection: "column",
     },
   },
   subtitle: {
@@ -152,17 +166,25 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3.86vw",
     },
   },
+  wrapperSlider: {
+    width: "100%",
+
+    marginTop: "1.73vw",
+    "@media(max-width: 767px)": {
+      marginTop: "6.03vw",
+    },
+  },
 }));
 
 /**
- * Блок конструктора "Текст"
- * @module src/components/constructor/text
+ * Блок конструктора "большой слайдер"
+ * @module src/components/constructor/bigSlider
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
-export default function Text({ slice }) {
+export default function BigSlider({ slice }) {
   const logo = slice.primary.logo;
-  const icon_color = slice.primary.icon ?? false;
+  const icon_color = slice.primary.icon !== "none" ? slice.primary.icon : false;
   const subtitle_1 = slice.primary.accent_subtitle_1 ?? false;
   const subtitle_2 = slice.primary.accent_subtitle_2 ?? false;
   const title = slice.primary.accent_title ?? false;
@@ -292,6 +314,14 @@ export default function Text({ slice }) {
           ) : null}
         </div>
       ) : null}
+
+      <div className={classes.wrapperSlider}>
+        <Slider>
+          {slice.items.map((item) => (
+            <Card card={item} />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 }

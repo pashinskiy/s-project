@@ -430,8 +430,132 @@ export const query = graphql`
               text
             }
           }
+          ... on PrismicMainPageDataBodyBigSlider {
+            id
+            slice_type
+            primary {
+              order_logo
+              logo {
+                alt
+                localFile {
+                  publicURL
+                }
+              }
+              order_icon
+              icon
+              order_subtitles
+              accent_subtitle_1
+              bg_subtitle_1
+              accent_subtitle_2
+              bg_subtitle_2
+              order_title
+              accent_title
+              order_text
+              text
+              order_link
+              link_text
+              link
+              order_button
+              text_button
+              link_button
+            }
+            items {
+              photo {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
         }
         body1 {
+          ... on PrismicMainPageDataBody1Schedule {
+            id
+            slice_type
+            primary {
+              schedule {
+                document {
+                  ... on PrismicSchedule {
+                    id
+                    data {
+                      body {
+                        ... on PrismicScheduleDataBody {
+                          id
+                          items {
+                            coach {
+                              text
+                            }
+                            group {
+                              text
+                            }
+                            time_from
+                            time_to
+                          }
+                          primary {
+                            color_weekday
+                            week_day {
+                              text
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicMainPageDataBody1GrayPanelWithBlocksText {
+            id
+            slice_type
+            items {
+              description_text {
+                text
+              }
+              svg_color
+              header_text {
+                text
+              }
+            }
+          }
+          ... on PrismicMainPageDataBody1OurTeam {
+            id
+            slice_type
+            items {
+              coach {
+                document {
+                  ... on PrismicCoach {
+                    id
+                    data {
+                      description {
+                        text
+                      }
+                      first_name {
+                        text
+                      }
+                      image {
+                        alt
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData
+                          }
+                        }
+                      }
+                      second_name {
+                        text
+                      }
+                      short_decriprtion {
+                        text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicMainPageDataBody1TextOnImage {
             id
             slice_type
@@ -735,6 +859,66 @@ export const query = graphql`
               main_title
               order_text
               text
+            }
+          }
+          ... on PrismicMainPageDataBody1BigSlider {
+            id
+            slice_type
+            primary {
+              order_logo
+              logo {
+                alt
+                localFile {
+                  publicURL
+                }
+              }
+              order_icon
+              icon
+              order_subtitles
+              accent_subtitle_1
+              bg_subtitle_1
+              accent_subtitle_2
+              bg_subtitle_2
+              order_title
+              accent_title
+              order_text
+              text
+              order_link
+              link_text
+              link
+              order_button
+              text_button
+              link_button
+            }
+            items {
+              photo {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicMainPageDataBody1SliderWithTitleAndDescription {
+            id
+            slice_type
+            primary {
+              title_block
+            }
+            items {
+              image_item {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+              subtitle_item
+              title_item
+              text_item
             }
           }
         }

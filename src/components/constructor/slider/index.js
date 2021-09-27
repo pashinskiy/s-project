@@ -1,9 +1,31 @@
 import React from "react";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 
-import ArrowRight from "../../images/svg/button_arrow.svg";
+import ArrowRight from "../../../images/svg/button_arrow.svg";
 
 const useStyles = makeStyles((theme) => ({
+  slider_wrapper_scrollBar: {
+    width: "100%",
+    overflowX: "hidden",
+  },
+  slider_track_scrollBar: {
+    width: "100%",
+
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "nowrap",
+
+    overflowX: "scroll",
+    scrollbarWidth: "none",
+    "-ms-overflow-style": "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+
+    "& > *": {
+      flexShrink: 0,
+    },
+  },
   slider_wrapper: {
     width: "100%",
     overflowX: "hidden",
@@ -72,6 +94,42 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.color.black,
     fontSize: "1.25vw",
   },
+  nav_button_icon: {
+    width: "2.63vw",
+    height: "0.97vw",
+  },
+
+  pagination: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    marginTop: "6.03vw",
+
+    "& > *": {
+      flexShrink: 0,
+    },
+  },
+  pagination_item: {
+    width: "1.93vw",
+    height: "1.93vw",
+    background: "#F3F6FF",
+    borderRadius: "100px",
+    marginRight: "4.83vw",
+
+    "&:nth-child(15n)": {
+      marginRight: 0,
+    },
+    "&:nth-child(n + 16)": {
+      marginTop: "4.83vw",
+    },
+    "&:last-child": {
+      marginRight: 0,
+    },
+  },
+  pagination_item_active: {
+    background: theme.palette.background.blue,
+  },
 }));
 
 /**
@@ -79,9 +137,10 @@ const useStyles = makeStyles((theme) => ({
  * @module src/components/slider
  * @param {Object} props - объект свойств компонента React
  * @param {Object[]} props.children - массив дочерних компонентов
- * @param {Boolean} props.padding - наличие отступов у слайдера
+ * @param {Boolean} [props.padding=false] - наличие отступов у слайдера
+ * @param {Boolean} [props.mobileScrollBar=false] - скролл бар вместо слайдера в мобильной версии
  */
-export default function Slider({ children, padding }) {
+export default function Slider({ children, padding, mobileScrollBar }) {
   const classes = useStyles();
   const mobile = useMediaQuery("(max-width: 767px)");
   const classAddPadding = padding ? classes.addPadding : "";
@@ -167,7 +226,11 @@ export default function Slider({ children, padding }) {
     }
   }
 
-  return (
+  return mobile && mobileScrollBar ? (
+    <div className={classes.slider_wrapper_scrollBar + " " + classAddPadding}>
+      <div className={classes.slider_track_scrollBar}>{children}</div>
+    </div>
+  ) : (
     <div className={classes.slider_wrapper + " " + classAddPadding}>
       <div
         ref={ref}
@@ -185,7 +248,9 @@ export default function Slider({ children, padding }) {
             className={classes.nav_button + " " + classes.mirror}
             aria-label="назад"
           >
-            <ArrowRight />
+            <p className={classes.nav_button_icon}>
+              <ArrowRight />
+            </p>
           </button>
 
           <button
@@ -194,10 +259,22 @@ export default function Slider({ children, padding }) {
             aria-label="далее"
           >
             <Typography className={classes.nav_button_text}>Далее</Typography>
-            <ArrowRight />
+            <p className={classes.nav_button_icon}>
+              <ArrowRight />
+            </p>
           </button>
         </div>
       )}
+
+      {mobile ? (
+        <div className={classes.pagination}>
+          {children.map((child, i) => {
+            const active =
+              i === activeIndex ? classes.pagination_item_active : "";
+            return <div className={classes.pagination_item + " " + active} />;
+          })}
+        </div>
+      ) : null}
     </div>
   );
 }

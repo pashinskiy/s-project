@@ -1,36 +1,43 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
-import Water from "../../images/svg/water.svg";
-import ArrowLearnMore from "../../images/svg/arrow_learn_more.svg";
+import ArrowLearnMore from "../../../images/svg/arrow_learn_more.svg";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    position: "relative",
 
-    padding: "0 3.47vw",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+
+    minHeight: "44.45vw",
     "@media(max-width: 767px)": {
-      flexDirection: "column",
-      padding: 0,
+      minHeight: "124.4vw",
     },
   },
   image: {
-    width: "53.73%",
-    height: "34.72vw",
+    width: "100%",
+
+    position: "absolute",
+    left: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: -1,
+
+    height: "44.44vw",
     "@media(max-width: 767px)": {
-      order: 1,
-      width: "100%",
-      height: "120.77vw",
-      marginTop: "4.83vw",
+      height: "124.39vw",
     },
   },
   content: {
+    position: "relative",
+    transform: "translateY(1px)",
+
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -38,11 +45,13 @@ const useStyles = makeStyles((theme) => ({
 
     background: theme.palette.background.main,
 
-    width: "42.53%",
+    width: "48.61vw",
+    padding: "3.47vw",
+    borderRadius: "1.73vw 0 0",
     "@media(max-width: 767px)": {
-      width: "100%",
-      padding: "0 6.03vw",
-      order: -1,
+      width: "81.4vw",
+      padding: "4.83vw",
+      borderRadius: "6.03vw 0 0",
     },
 
     "& > *": {
@@ -54,26 +63,6 @@ const useStyles = makeStyles((theme) => ({
       "&:first-child": {
         marginTop: 0,
       },
-    },
-  },
-  logo: {
-    width: "auto",
-
-    height: "10.41vw",
-    "@media(max-width: 767px)": {
-      height: "24.15vw",
-    },
-  },
-  icon: {
-    width: "17.98vw",
-    height: "4.31vw",
-    "@media(max-width: 767px)": {
-      width: "43.96vw",
-      height: "10.55vw",
-    },
-
-    "& path": {
-      fill: (props) => colors[props.icon_color] ?? "",
     },
   },
   subtitle: {
@@ -161,30 +150,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "изображение сбоку текста"
- * @module src/components/constructor/imageSideText
+ * Блок конструктора "текст на изображении"
+ * @module src/components/constructor/textOnImage
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
-export default function ImageSideText({ slice }) {
+export default function TextOnImage({ slice }) {
+  const classes = useStyles();
+
   const image = slice.primary.image;
-  const logo = slice.primary.logo;
-  const icon_color = slice.primary.icon ?? false;
   const subtitle = slice.primary.accent_subtitle ?? false;
   const title = slice.primary.accent_title ?? false;
   const text = slice.primary.text ?? false;
   const link_text = slice.primary.link_text ?? false;
   const text_button = slice.primary.text_button ?? false;
-  const content =
-    (logo.localFile ?? false) ||
-    icon_color ||
-    subtitle ||
-    title ||
-    text ||
-    link_text ||
-    text_button;
-
-  const classes = useStyles({ icon_color });
+  const content = subtitle || title || text || link_text || text_button;
 
   function goLink(str) {
     if (!(str ?? false)) return;
@@ -207,32 +187,11 @@ export default function ImageSideText({ slice }) {
           alt={image.alt}
           className={classes.image}
           imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-          style={{ order: slice.primary.position ? 0 : 1 }}
         />
       ) : null}
 
       {content ? (
         <div className={classes.content}>
-          {logo.localFile ?? false ? (
-            <img
-              src={logo.localFile.publicURL}
-              alt={logo.alt}
-              width={1}
-              height={1}
-              className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 1 }}
-            />
-          ) : null}
-
-          {icon_color ? (
-            <div
-              className={classes.icon}
-              style={{ order: slice.primary.order_icon ?? 1 }}
-            >
-              <Water />
-            </div>
-          ) : null}
-
           {subtitle ? (
             <Typography
               className={classes.subtitle}

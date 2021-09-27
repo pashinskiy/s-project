@@ -2,57 +2,57 @@ import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import colors from "../../templates/colors.json";
+import colors from "../../../templates/colors.json";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
 
     display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
 
-    marginRight: "3.73%",
-    width: "48.13%",
-    height: "41.66vw",
-    padding: "3.12vw 1.73vw",
+    height: "36.11vw",
     "@media(max-width: 767px)": {
-      marginRight: "4.83%",
-      width: "84.78%",
-      height: "120.77vw",
-      padding: "10.86vw 6.03vw",
-    },
-
-    "&:last-child": {
-      marginRight: 0,
+      height: "80.43vw",
     },
   },
   image: {
     width: "100%",
-    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: -1,
+
+    height: "36.11vw",
+    "@media(max-width: 767px)": {
+      height: "80.43vw",
+    },
   },
   gradient: {
     width: "100%",
-    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
     zIndex: -1,
 
     background:
-      "linear-gradient(180deg, rgba(28, 70, 246, 0) 40.5%, #1C46F6 77.83%)",
+      "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
+
+    height: "36.11vw",
+    "@media(max-width: 767px)": {
+      height: "80.43vw",
+    },
   },
   content: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
+    justifyContent: "center",
+    alignItems: "center",
 
     width: "54.93vw",
     "@media(max-width: 767px)": {
@@ -109,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 300,
     lineHeight: 1.28,
+    textAlign: "center",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -118,19 +119,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "карточка маленького слайдера"
- * @module src/components/constructor/smallSliderCard
+ * Блок конструктора "текст на изображении с синим фоном"
+ * @module src/components/constructor/textOnImageBlueBg
  * @param {Object} props - объект свойств компонента React
- * @param {Object[]} props.card - объект карточки полученный из prismic
+ * @param {Object} props.slice - объект слайса полученный из prismic
  */
-export default function SmallSliderCard({ card }) {
+export default function TextOnImageBlueBg({ slice }) {
   const classes = useStyles();
 
-  const image = card.image;
-  const subtitle = card.accent_subtitle ?? false;
-  const title = card.main_title ?? false;
-  const text = card.text ?? false;
-  const content = subtitle || title || text;
+  const image = slice.primary.image;
+  const logo = slice.primary.logo;
+  const subtitle = slice.primary.accent_subtitle ?? false;
+  const title = slice.primary.main_title ?? false;
+  const text = slice.primary.text ?? false;
+  const content = (logo.localFile ?? false) || subtitle || title || text;
 
   return (
     <div className={classes.wrapper}>
@@ -143,16 +145,27 @@ export default function SmallSliderCard({ card }) {
         />
       ) : null}
 
-      {content ? <div className={classes.gradient} /> : null}
+      <div className={classes.gradient} />
 
       {content ? (
         <div className={classes.content}>
+          {logo.localFile ?? false ? (
+            <img
+              src={logo.localFile.publicURL}
+              alt={logo.alt}
+              width={1}
+              height={1}
+              className={classes.logo}
+              style={{ order: slice.primary.order_logo ?? 1 }}
+            />
+          ) : null}
+
           {subtitle ? (
             <Typography
               className={classes.subtitle}
               style={{
-                background: colors[card.bg_subtitle],
-                order: card.order_subtitle ?? 1,
+                background: colors[slice.primary.bg_subtitle],
+                order: slice.primary.order_subtitle ?? 1,
               }}
             >
               {subtitle}
@@ -162,7 +175,7 @@ export default function SmallSliderCard({ card }) {
           {title ? (
             <Typography
               className={classes.title}
-              style={{ order: card.order_title ?? 2 }}
+              style={{ order: slice.primary.order_title ?? 2 }}
             >
               {title}
             </Typography>
@@ -171,7 +184,7 @@ export default function SmallSliderCard({ card }) {
           {text ? (
             <Typography
               className={classes.text}
-              style={{ order: card.order_text ?? 3 }}
+              style={{ order: slice.primary.order_text ?? 3 }}
             >
               {text}
             </Typography>
