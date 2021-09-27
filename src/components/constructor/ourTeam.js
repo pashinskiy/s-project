@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 import BlockHeaderText from "../blockHeaderText";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ArrowMore from "../../images/svg/arrow_more.svg";
@@ -96,16 +96,27 @@ const useStyle = makeStyles((theme) => ({
     flexDirection: "row",
     "@media(max-width: 767px)": {
       flexDirection: "column",
+      height: "100%",
+    },
+  },
+  dialogScrollBody: {
+    "@media(max-width: 767px)": {
+      padding: "12.06vw 6.03vw",
+      overflow: "scroll",
     },
   },
   dialogPaper: {
     borderRadius: 0,
-    boxShadow: "0px 20px 70px rgba(4, 22, 94, 0.44)",
+    boxShadow: "0px 4.83vw 16.9vw rgba(4, 22, 94, 0.44)",
     width: "74.3vw",
     height: "42.5vw",
     "@media(max-width: 767px)": {
-      width: "87.92vw",
-      height: "auto",
+      maxHeight: "100%",
+      margin: 0,
+      width: "100%",
+      height: "unset",
+      // height: "100%",
+      maxWidth: "unset",
     },
   },
   iconCloseDialog: {
@@ -125,15 +136,15 @@ const useStyle = makeStyles((theme) => ({
     width: "30.13vw",
     marginRight: "4.16vw",
     "@media(max-width: 767px)": {
+      flexShrink: 0,
       width: "100%",
       height: "44.3vh",
       marginRight: 0,
-      marginBottom: "8.45vw",
+      marginBottom: "3.9vh",
     },
   },
   dialogCoachName: {
     color: theme.palette.color.blue,
-    fontFamily: "'Exo 2'",
     lineHeight: "112.7%",
     fontWeight: 700,
     textAlign: "center",
@@ -147,8 +158,13 @@ const useStyle = makeStyles((theme) => ({
   dialogDescription: {
     color: theme.palette.color.lightBlue,
     fontSize: "1.11vw",
+    maxHeight: "27.77vw",
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
+      overflowY: "auto",
+      maxHeight: "unset",
+      flexGrow: 1,
+      margin: "0px 6.03vw 7.24vw 6.03vw",
     },
   },
   dialogTextContainer: {
@@ -171,6 +187,8 @@ export default function OurTeam({ slice }) {
   console.log(data);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [coachData, setCoachData] = useState(data[0]);
+
+  const mobile = useMediaQuery("(max-width: 767px)");
 
   const handleClickOpen = (coachNum) => {
     setCoachData(data[coachNum]);
@@ -237,36 +255,51 @@ export default function OurTeam({ slice }) {
           }}
           maxWidth={false}
           scroll={"body"}
-          style={{ backgroundColor: "transparent" }}
-          classes={{ paper: classes.dialogPaper }}
+          style={{ backgroundColor: "transparent"}}
+          classes={{ paper: classes.dialogPaper, scrollBody: classes.dialogScrollBody }}
         >
           <IconCloseDialog
             className={classes.iconCloseDialog}
             onClick={handleClose}
           />
-          <div className={classes.dialogContainer}>
-            <GatsbyImage
-              image={
-                coachData.coach.document.data.image.localFile.childImageSharp
-                  ?.gatsbyImageData
-              }
-              alt={
-                coachData.coach.document.data.image.alt !== null
-                  ? coachData.coach.document.data.image.alt
-                  : "coach-active"
-              }
-              className={classes.dialogImage}
-              imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-            <div className={classes.dialogTextContainer}>
-              <Typography className={classes.dialogCoachName}>
-                {coachData.coach.document.data.first_name.text +
-                  " " +
-                  coachData.coach.document.data.second_name.text}
-              </Typography>
-              <Typography className={classes.dialogDescription}>
-                {coachData.coach.document.data.description.text}
-              </Typography>
+          <div style={{width: "100%", height: "100%"}}>
+            <div className={classes.dialogContainer}>
+              <GatsbyImage
+                image={
+                  coachData.coach.document.data.image.localFile.childImageSharp
+                    ?.gatsbyImageData
+                }
+                alt={
+                  coachData.coach.document.data.image.alt !== null
+                    ? coachData.coach.document.data.image.alt
+                    : "coach-active"
+                }
+                className={classes.dialogImage}
+                imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              {mobile ? (
+                <>
+                  <Typography className={classes.dialogCoachName}>
+                    {coachData.coach.document.data.first_name.text +
+                      " " +
+                      coachData.coach.document.data.second_name.text}
+                  </Typography>
+                  <Typography className={classes.dialogDescription}>
+                    {coachData.coach.document.data.description.text}
+                  </Typography>
+                </>
+              ) : (
+                <div className={classes.dialogTextContainer}>
+                  <Typography className={classes.dialogCoachName}>
+                    {coachData.coach.document.data.first_name.text +
+                      " " +
+                      coachData.coach.document.data.second_name.text}
+                  </Typography>
+                  <Typography className={classes.dialogDescription}>
+                    {coachData.coach.document.data.description.text}
+                  </Typography>
+                </div>
+              )}
             </div>
           </div>
         </Dialog>

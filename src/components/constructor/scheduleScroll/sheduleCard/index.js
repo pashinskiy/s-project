@@ -14,11 +14,6 @@ const useStyle = makeStyles(theme => ({
         width: "20.97vw",
         marginRight: "1.6vw",
         marginTop: 0,
-        // "@media(min-width: 1440px)": {
-        //   width: "302px",
-        //   padding: "40px",
-        //   marginRight: "24px",
-        // },
         "@media(max-width: 767px)": {
           width: "55.7vw",
           padding: "5.79vw",
@@ -34,10 +29,6 @@ const useStyle = makeStyles(theme => ({
 
         width: "15.41vw",
         height: "3.54vw",
-        // "@media(min-width: 1440px)": {
-        //   width: "222px",
-        //   height: "51px",
-        // },
         "@media(max-width: 767px)": {
           width: "37.19vw",
           height: "7.97vw",
@@ -51,10 +42,6 @@ const useStyle = makeStyles(theme => ({
         
         fontSize: "1.66vw",
         flex: "0 0 14vw",
-        // "@media(min-width: 1440px)": {
-        //     flex: "0 0 202px",
-        //     fontSize: 24,
-        // },
         "@media(max-width: 767px)": {
             flex: "0 0 27.53vw",
             fontSize: "4.34vw",
@@ -65,10 +52,6 @@ const useStyle = makeStyles(theme => ({
         alignSelf: "center",
         width: "12.56vw",
         marginTop: "1.73vw",
-        // "@media(min-width: 1440px)": {
-        //     marginTop: "25px",
-        //     width: "181px",
-        // },
         "@media(max-width: 767px)": {
             width: "43.71vw",
             marginTop: "6.03vw",
@@ -81,9 +64,6 @@ const useStyle = makeStyles(theme => ({
         fontFamily: "'Exo 2'",
         
         fontSize: "2.5vw",
-        // "@media(min-width: 1440px)": {
-        //     fontSize: 36,
-        // },
         "@media(max-width: 767px)": {
             fontSize: "4.34vw",
         },
@@ -92,9 +72,6 @@ const useStyle = makeStyles(theme => ({
     timeAndCoach: {
         color: theme.palette.color.lightBlue,
         fontSize: "1.25vw",
-        // "@media(min-width: 1440px)": {
-        //     fontSize: 18,
-        // },
         "@media(max-width: 767px)": {
             fontSize: "3.38vw",
         },
