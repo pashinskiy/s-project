@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
-import BlockHeaderText from "../blockHeaderText";
+import BlockHeaderText from "../../blockHeaderText";
 import { GatsbyImage } from "gatsby-plugin-image";
-import ArrowMore from "../../images/svg/arrow_more.svg";
+import ArrowMore from "../../../images/svg/arrow_more.svg";
 import { useState } from "react";
 import { Dialog } from "@material-ui/core";
-import IconCloseDialog from "../../images/svg/icon_close_dialog.svg";
+import IconCloseDialog from "../../../images/svg/icon_close_dialog.svg";
 
 const useStyle = makeStyles((theme) => ({
   rootOurTeam: {
@@ -257,14 +257,17 @@ export default function OurTeam({ slice }) {
           }}
           maxWidth={false}
           scroll={"body"}
-          style={{ backgroundColor: "transparent"}}
-          classes={{ paper: classes.dialogPaper, scrollBody: classes.dialogScrollBody }}
+          style={{ backgroundColor: "transparent" }}
+          classes={{
+            paper: classes.dialogPaper,
+            scrollBody: classes.dialogScrollBody,
+          }}
         >
           <IconCloseDialog
             className={classes.iconCloseDialog}
             onClick={handleClose}
           />
-          <div style={{width: "100%", height: "100%"}}>
+          <div style={{ width: "100%", height: "100%" }}>
             <div className={classes.dialogContainer}>
               <GatsbyImage
                 image={
