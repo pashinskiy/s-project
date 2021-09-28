@@ -77,6 +77,29 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicMainPageDataBodyGalery {
+            id
+            slice_type
+            primary {
+              accent_heading {
+                text
+              }
+              accent_heading_color
+              gallery_header {
+                text
+              }
+            }
+            items {
+              gallery_photo {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicMainPageDataBodyGrayPanelWithBlocksText {
             id
             slice_type
@@ -503,6 +526,29 @@ export const query = graphql`
                         }
                       }
                     }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicMainPageDataBody1Galery {
+            id
+            slice_type
+            primary {
+              accent_heading {
+                text
+              }
+              accent_heading_color
+              gallery_header {
+                text
+              }
+            }
+            items {
+              gallery_photo {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
                   }
                 }
               }

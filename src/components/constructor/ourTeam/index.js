@@ -116,7 +116,6 @@ const useStyle = makeStyles((theme) => ({
       margin: 0,
       width: "100%",
       height: "unset",
-      // height: "100%",
       maxWidth: "unset",
     },
   },
@@ -203,7 +202,7 @@ export default function OurTeam({ slice }) {
   return (
     <>
       <BlockHeaderText text="Наша команда" />
-      <div className={classes.rootOurTeam}>
+      <div className={classes.rootOurTeam} style={{marginTop: 0}}>
         {data.map((block, i) => {
           return (
             <div

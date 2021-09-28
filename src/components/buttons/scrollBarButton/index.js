@@ -4,7 +4,6 @@ import ArrowButton from "../../../images/svg/button_arrow.svg";
 
 const useStyle = makeStyles((theme) => ({
   button: {
-    // width: "200px",
     height: "3.47vw",
     padding: "0.9375vw 2.74vw",
     border: "1px solid",
