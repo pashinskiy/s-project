@@ -20,6 +20,12 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Заголовок на странице новостей 
+ * @module src/components/newsPage/blockHeaderText
+ * @param {Object} props - объект свойств компонента React
+ * @param {String} props.text - текст заголовка
+ */
 export default function BlockHeaderText({ text }) {
   const classes = useStyle();
   return <Typography className={classes.rootText}>{text}</Typography>;

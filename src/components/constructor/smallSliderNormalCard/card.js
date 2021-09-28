@@ -65,9 +65,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "3.62vw",
       },
 
-      "&:first-child": {
-        marginTop: 0,
-      },
     },
 
     "& *": {

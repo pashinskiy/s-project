@@ -16,6 +16,7 @@ import OurTeam from "./ourTeam";
 import BigSlider from "./bigSlider";
 import SliderWithTitleAndDescription from "./sliderWithTitleAndDescription";
 import Ticker from "./ticker";
+import Timer from "./timer";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Constructor({ slices }) {
   const classes = useStyles();
 
-  return (
+  return slices !== null ? (
     <div className={classes.wrapper}>
       {slices.map((slice) => {
         if (slice === null) return null;
@@ -85,10 +86,12 @@ export default function Constructor({ slices }) {
             return <OurTeam slice={slice} key={slice.id} />;
           case "ticker":
             return <Ticker slice={slice} key={slice.id} />;
+          case "timer":
+            return <Timer slice={slice} key={slice.id} />;
           default:
             return null;
         }
       })}
     </div>
-  );
+  ) : null;
 }

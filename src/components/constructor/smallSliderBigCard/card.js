@@ -66,9 +66,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "3.62vw",
       },
 
-      "&:first-child": {
-        marginTop: 0,
-      },
     },
 
     "& *": {
@@ -102,9 +99,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.2,
     textAlign: "center",
 
-    fontSize: "4.44vw",
+    fontSize: "6.66vw",
     "@media(max-width: 767px)": {
-      fontSize: "8.69vw",
+      fontSize: "9.66vw",
     },
   },
   text: {

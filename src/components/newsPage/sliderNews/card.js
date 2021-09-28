@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from "gatsby";
 import { makeStyles, Typography } from "@material-ui/core";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -9,50 +10,50 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
 
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-start",
+    alignItems: "flex-end",
 
-    height: "36.11vw",
+    marginRight: "3.73%",
+    width: "48.13%",
+    height: "41.66vw",
+    padding: "3.12vw 1.73vw",
     "@media(max-width: 767px)": {
-      height: "80.43vw",
+      marginRight: "4.83%",
+      width: "84.78%",
+      height: "120.77vw",
+      padding: "10.86vw 6.03vw",
+    },
+
+    "&:last-child": {
+      marginRight: 0,
     },
   },
   image: {
     width: "100%",
+    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: "50%",
-    transform: "translateY(-50%)",
+    top: 0,
     zIndex: -1,
-
-    height: "36.11vw",
-    "@media(max-width: 767px)": {
-      height: "80.43vw",
-    },
   },
   gradient: {
     width: "100%",
+    height: "100%",
 
     position: "absolute",
     left: 0,
-    top: "50%",
-    transform: "translateY(-50%)",
+    top: 0,
     zIndex: -1,
 
     background:
-      "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
-
-    height: "36.11vw",
-    "@media(max-width: 767px)": {
-      height: "80.43vw",
-    },
+      "linear-gradient(180deg, rgba(28, 70, 246, 0) 40.5%, #1C46F6 77.83%)",
   },
   content: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
 
     width: "54.93vw",
     "@media(max-width: 767px)": {
@@ -71,18 +72,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.color.white,
     },
   },
-  logo: {
-    width: "auto",
-
-    height: "9.02vw",
-    "@media(max-width: 767px)": {
-      height: "16.9vw",
-    },
-  },
   subtitle: {
     fontWeight: 700,
     lineHeight: 1.28,
-    textAlign: "center",
+    textAlign: "left",
     textTransform: "lowercase",
 
     padding: "0.48vw 0.76vw",
@@ -96,17 +89,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Exo 2'",
     fontWeight: 700,
     lineHeight: 1.2,
-    textAlign: "center",
+    textAlign: "left",
 
-    fontSize: "6.66vw",
+    fontSize: "4.44vw",
     "@media(max-width: 767px)": {
-      fontSize: "9.66vw",
+      fontSize: "8.69vw",
     },
   },
   text: {
     fontWeight: 300,
     lineHeight: 1.28,
-    textAlign: "center",
+    textAlign: "left",
 
     fontSize: "1.25vw",
     "@media(max-width: 767px)": {
@@ -116,23 +109,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Блок конструктора "текст на изображении с синим фоном"
- * @module src/components/constructor/textOnImageBlueBg
+ * Карточка слайдера новостей
+ * @module src/components/newsPage/sliderNews/card
  * @param {Object} props - объект свойств компонента React
- * @param {Object} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.news - объект новости полученный из prismic
  */
-export default function TextOnImageBlueBg({ slice }) {
+export default function Card({ news }) {
   const classes = useStyles();
 
-  const image = slice.primary.image;
-  const logo = slice.primary.logo;
-  const subtitle = slice.primary.accent_subtitle ?? false;
-  const title = slice.primary.main_title ?? false;
-  const text = slice.primary.text ?? false;
-  const content = (logo.localFile ?? false) || subtitle || title || text;
+  const image = news.data.main_image;
+  const subtitle = news.data.subtitle ?? false;
+  const title = news.data.title ?? false;
+  const text = news.data.text ?? false;
+  const content = subtitle || title || text;
+
+  function goNews() {
+    navigate(`/news/${news.uid}`);
+  }
 
   return (
-    <div className={classes.wrapper}>
+    <button onClick={goNews} className={classes.wrapper}>
       {image?.localFile ?? false ? (
         <GatsbyImage
           image={image.localFile.childImageSharp?.gatsbyImageData}
@@ -146,23 +142,11 @@ export default function TextOnImageBlueBg({ slice }) {
 
       {content ? (
         <div className={classes.content}>
-          {logo.localFile ?? false ? (
-            <img
-              src={logo.localFile.publicURL}
-              alt={logo.alt ?? "photo"}
-              width={1}
-              height={1}
-              className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 1 }}
-            />
-          ) : null}
-
           {subtitle ? (
             <Typography
               className={classes.subtitle}
               style={{
-                background: colors[slice.primary.bg_subtitle],
-                order: slice.primary.order_subtitle ?? 1,
+                background: colors[news.data.subtitle_bg],
               }}
             >
               {subtitle}
@@ -170,24 +154,14 @@ export default function TextOnImageBlueBg({ slice }) {
           ) : null}
 
           {title ? (
-            <Typography
-              className={classes.title}
-              style={{ order: slice.primary.order_title ?? 2 }}
-            >
-              {title}
-            </Typography>
+            <Typography className={classes.title}>{title}</Typography>
           ) : null}
 
           {text ? (
-            <Typography
-              className={classes.text}
-              style={{ order: slice.primary.order_text ?? 3 }}
-            >
-              {text}
-            </Typography>
+            <Typography className={classes.text}>{text}</Typography>
           ) : null}
         </div>
       ) : null}
-    </div>
+    </button>
   );
 }

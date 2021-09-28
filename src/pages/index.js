@@ -470,6 +470,27 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicMainPageDataBodyTicker {
+            id
+            slice_type
+            primary {
+              text
+              color_text
+              color_bg
+              time
+            }
+          }
+          ... on PrismicMainPageDataBodyTimer {
+            id
+            slice_type
+            primary {
+              timer_title
+              timer_title_color
+              timer_date
+              timer_bg_color
+              timer_text
+            }
+          }
         }
         body1 {
           ... on PrismicMainPageDataBody1Schedule {
@@ -929,6 +950,17 @@ export const query = graphql`
               color_text
               color_bg
               time
+            }
+          }
+          ... on PrismicMainPageDataBody1Timer {
+            id
+            slice_type
+            primary {
+              timer_title
+              timer_title_color
+              timer_date
+              timer_bg_color
+              timer_text
             }
           }
         }

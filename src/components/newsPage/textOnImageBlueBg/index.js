@@ -4,6 +4,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 import colors from "../../../templates/colors.json";
 
+import Calendar from "../../../images/svg/calendar.svg";
+
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
@@ -12,8 +14,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
 
+    marginTop: "1.94vw",
     height: "36.11vw",
     "@media(max-width: 767px)": {
+      marginTop: "6.76vw",
       height: "80.43vw",
     },
   },
@@ -71,14 +75,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.color.white,
     },
   },
-  logo: {
-    width: "auto",
-
-    height: "9.02vw",
-    "@media(max-width: 767px)": {
-      height: "16.9vw",
-    },
-  },
   subtitle: {
     fontWeight: 700,
     lineHeight: 1.28,
@@ -113,23 +109,75 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3.38vw",
     },
   },
+  date: {
+    alignSelf: "flex-end",
+
+    display: "flex",
+    alignItems: "center",
+    
+    marginTop: "0.55vw",
+    "@media(max-width: 767px)": {
+      marginTop: "1.93vw",
+    },
+  },
+  date_icon: {
+    marginRight: "0.83vw",
+    width: "2.08vw",
+    height: "2.08vw",
+    "@media(max-width: 767px)": {
+      marginRight: "2.89vw",
+      width: "7.24vw",
+      height: "7.24vw",
+    },
+  },
+  date_text: {
+    fontWeight: 700,
+    lineHeight: 1.28,
+
+    fontSize: "1.25vw",
+    "@media(max-width: 767px)": {
+      fontSize: "3.38vw",
+    },
+  },
 }));
 
 /**
- * Блок конструктора "текст на изображении с синим фоном"
- * @module src/components/constructor/textOnImageBlueBg
+ * Главная карточка новости
+ * @module src/components/newsPage/textOnImageBlueBg
  * @param {Object} props - объект свойств компонента React
- * @param {Object} props.slice - объект слайса полученный из prismic
+ * @param {Object} props.news - объект новости полученный из prismic
  */
-export default function TextOnImageBlueBg({ slice }) {
+export default function TextOnImageBlueBg({ news }) {
   const classes = useStyles();
 
-  const image = slice.primary.image;
-  const logo = slice.primary.logo;
-  const subtitle = slice.primary.accent_subtitle ?? false;
-  const title = slice.primary.main_title ?? false;
-  const text = slice.primary.text ?? false;
-  const content = (logo.localFile ?? false) || subtitle || title || text;
+  const image = news.data.main_image;
+  const subtitle = news.data.subtitle ?? false;
+  const title = news.data.title ?? false;
+  const text = news.data.text ?? false;
+  const content = subtitle || title || text;
+
+  const dateText = (function () {
+    const date = new Date(news.data.date ?? news.first_publication_date);
+
+    const day = date.getDate();
+    const month = [
+      "января",
+      "февраля",
+      "марта",
+      "апреля",
+      "мая",
+      "июня",
+      "июля",
+      "августа",
+      "сентября",
+      "октября",
+      "ноября",
+      "декабря",
+    ][date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${day} ${month} ${year}`;
+  })();
 
   return (
     <div className={classes.wrapper}>
@@ -146,23 +194,11 @@ export default function TextOnImageBlueBg({ slice }) {
 
       {content ? (
         <div className={classes.content}>
-          {logo.localFile ?? false ? (
-            <img
-              src={logo.localFile.publicURL}
-              alt={logo.alt ?? "photo"}
-              width={1}
-              height={1}
-              className={classes.logo}
-              style={{ order: slice.primary.order_logo ?? 1 }}
-            />
-          ) : null}
-
           {subtitle ? (
             <Typography
               className={classes.subtitle}
               style={{
-                background: colors[slice.primary.bg_subtitle],
-                order: slice.primary.order_subtitle ?? 1,
+                background: colors[news.data.subtitle_bg],
               }}
             >
               {subtitle}
@@ -170,21 +206,19 @@ export default function TextOnImageBlueBg({ slice }) {
           ) : null}
 
           {title ? (
-            <Typography
-              className={classes.title}
-              style={{ order: slice.primary.order_title ?? 2 }}
-            >
-              {title}
-            </Typography>
+            <Typography className={classes.title}>{title}</Typography>
           ) : null}
 
+          <div className={classes.date}>
+            <div className={classes.date_icon}>
+              <Calendar />
+            </div>
+
+            <Typography className={classes.date_text}>{dateText}</Typography>
+          </div>
+
           {text ? (
-            <Typography
-              className={classes.text}
-              style={{ order: slice.primary.order_text ?? 3 }}
-            >
-              {text}
-            </Typography>
+            <Typography className={classes.text}>{text}</Typography>
           ) : null}
         </div>
       ) : null}

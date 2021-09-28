@@ -77,9 +77,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "4.83vw",
       },
 
-      "&:first-child": {
-        marginTop: 0,
-      },
     },
   },
   subtitle: {
@@ -119,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /**
- * Карточка новостей
+ * Карточка новости
  * @module src/components/listNews/card
  * @param {Object} props - объект свойств компонента React
  * @param {Object} props.news - объект новости полученный из prismic
@@ -148,7 +145,7 @@ export default function Card({ news }) {
         />
       ) : null}
 
-      {content ? <div className={classes.background} /> : null}
+      <div className={classes.background} />
 
       {content ? (
         <div className={classes.content}>

@@ -185,6 +185,9 @@ export default function SlidingBlock({
           onClick={() => setOpen(!open)}
           className={classes.slideBlock_button + " " + classMirror}
           style={{ ...positionButton }}
+          aria-label={
+            open ? "закрыть боковую панель" : "открыть боковую панель"
+          }
         >
           {open ? (
             <div className={classes.wrapperCross}>
