@@ -14,6 +14,7 @@ import ArrowNext from "../../../images/svg/gallery_arrow_next.svg";
 import ArrowButton from "../../../images/svg/button_arrow.svg";
 
 const useStyle = makeStyles((theme) => ({
+  
   noDrag: {
     "& *": {
       "-webkit-user-select": "none",
