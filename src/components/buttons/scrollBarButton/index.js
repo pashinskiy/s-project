@@ -31,6 +31,15 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Кнопка для прокрутки
+ * @module src/components/buttons/scrollBarButton
+ * @param {Object} props - объект свойств компонента React
+ * @param {function()} props.onClick - функция при нажатии кнопки
+ * @param {String} props.text - текст кнопки
+ * @param {Object} props.left - повернуть стрелку кнопки влево
+ */
+
 export default function ScrollBarButton({ onClick, text, left }) {
   const classes = useStyle();
   return (
