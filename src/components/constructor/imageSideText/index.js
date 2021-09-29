@@ -51,9 +51,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "4.83vw",
       },
 
-      "&:first-child": {
-        marginTop: 0,
-      },
     },
   },
   logo: {

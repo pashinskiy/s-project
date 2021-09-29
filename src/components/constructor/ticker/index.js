@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     display: "flex",
     background: (props) => props.color_bg ?? "transparent",
+    overflowX: "hidden",
 
     height: "12.15vw",
     padding: "2.08vw 0",
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 900,
     lineHeight: 1.2,
     whiteSpace: "nowrap",
+    textTransform: "uppercase",
 
     position: "absolute",
     left: "100%",

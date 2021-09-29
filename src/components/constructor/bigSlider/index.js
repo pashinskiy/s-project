@@ -36,10 +36,6 @@ const useStyles = makeStyles((theme) => ({
       "@media(max-width: 767px)": {
         marginTop: "4.83vw",
       },
-
-      "&:first-child": {
-        marginTop: 0,
-      },
     },
   },
   logo: {
