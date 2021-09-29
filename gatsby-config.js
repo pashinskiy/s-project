@@ -73,6 +73,7 @@ module.exports = {
           contact: require("./src/schemas/contact.json"),
           news_page: require("./src/schemas/news_page.json"),
           heading_block: require("./src/schemas/heading_block.json"),
+          contact_form: require("./src/schemas/contact_form.json"),
         },
         // shouldDownloadImage: () => true,
       },

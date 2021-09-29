@@ -17,7 +17,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Futura PT", "'Exo 2'"].join(","),
+    fontFamily: ["Futura PT", "'Exo 2'", "Roboto Condensed"].join(","),
   },
   overrides: {
     MuiCssBaseline: {

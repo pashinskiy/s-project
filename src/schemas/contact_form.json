@@ -1,0 +1,82 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Заголовок",
+        "placeholder": "Заголовок"
+      }
+    },
+    "text": {
+      "type": "Text",
+      "config": {
+        "label": "Текст",
+        "placeholder": "Текст"
+      }
+    },
+    "button_text": {
+      "type": "Text",
+      "config": {
+        "label": "Текст на кнопке",
+        "placeholder": "Текст на кнопке"
+      }
+    }
+  },
+  "Контакты": {
+    "phone_number": {
+      "type": "Text",
+      "config": {
+        "label": "Номер телефона",
+        "placeholder": "Номер телефона"
+      }
+    },
+    "phone_icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Иконка телефона (svg)"
+      }
+    },
+    "networks": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "network_icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Иконка соцсети (svg)"
+            }
+          },
+          "network_link": {
+            "type": "Text",
+            "config": {
+              "label": "Ссылка на соцсеть",
+              "placeholder": "Ссылка на соцсеть"
+            }
+          }
+        },
+        "label": "Социальные сети"
+      }
+    }
+  },
+  "Направления": {
+    "directions": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "direction": {
+            "type": "Text",
+            "config": {
+              "label": "Направление",
+              "placeholder": "Направление"
+            }
+          }
+        },
+        "label": "Направления"
+      }
+    }
+  }
+}

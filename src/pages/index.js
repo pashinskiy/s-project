@@ -8,6 +8,7 @@ import Seo from "../components/seo";
 import FirstScreen from "../components/mainPage/firstScreen";
 import SwitchingBlock from "../components/mainPage/switchingBlock";
 import Constructor from "../components/constructor";
+import ContactForm from "../components/mainPage/contactForm";
 
 const IndexPage = ({ data }) => {
   const state = React.useContext(GlobalStateContext);
@@ -24,6 +25,8 @@ const IndexPage = ({ data }) => {
       {state.versionSite === "fitnes" ? (
         <Constructor slices={data.prismicMainPage.data.body1} />
       ) : null}
+
+      <ContactForm />
     </Layout>
   );
 };

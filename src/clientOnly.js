@@ -33,12 +33,14 @@ export default function ClientOnly({ children, ...delegated }) {
   return (
     <div {...delegated}>
       <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="preconnect"
+          rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap"
           rel="stylesheet"
         />
       </Helmet>
