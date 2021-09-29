@@ -217,7 +217,7 @@ export default function ScrollBar({ children }){
 
 
     return (
-        <div className={classes.rootSchedule}>
+        <div className={classes.rootSchedule} style={{marginTop: 0}}>
             <Grid container className={classes.wrapper}>
                 <Grid
                     container

@@ -1720,7 +1720,6 @@
             "fieldset": "galery",
             "description": "Галерея",
             "icon": "dashboard",
-            "display": "list",
             "non-repeat": {
               "gallery_header": {
                 "type": "StructuredText",
@@ -3515,56 +3514,6 @@
             },
             "repeat": {}
           },
-          "galery": {
-            "type": "Slice",
-            "fieldset": "galery",
-            "description": "Галерея",
-            "icon": "dashboard",
-            "non-repeat": {
-              "gallery_header": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label": "Заголовок",
-                  "placeholder": "Текст заголовка"
-                }
-              },
-              "accent_heading": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
-                  "label": "Акцентный заголовок",
-                  "placeholder": "Текст акцентного заголовка"
-                }
-              },
-              "accent_heading_color": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "Синий",
-                    "Оранжевый",
-                    "Зеленый",
-                    "Голубой",
-                    "Фиолетовый",
-                    "Желтый",
-                    "Темно-синий"
-                  ],
-                  "default_value": "Синий",
-                  "label": "Цвет акцентного заголовка"
-                }
-              }
-            },
-            "repeat": {
-              "gallery_photo": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Изображение"
-                }
-              }
-            }
-          },
           "timer": {
             "type": "Slice",
             "fieldset": "timer",
@@ -3624,6 +3573,57 @@
               }
             },
             "repeat": {}
+          },
+          "galery": {
+            "type": "Slice",
+            "fieldset": "galery",
+            "description": "Галерея",
+            "icon": "dashboard",
+            "display": "list",
+            "non-repeat": {
+              "gallery_header": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Заголовок",
+                  "placeholder": "Текст заголовка"
+                }
+              },
+              "accent_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label": "Акцентный заголовок",
+                  "placeholder": "Текст акцентного заголовка"
+                }
+              },
+              "accent_heading_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Синий",
+                    "Оранжевый",
+                    "Зеленый",
+                    "Голубой",
+                    "Фиолетовый",
+                    "Желтый",
+                    "Темно-синий"
+                  ],
+                  "default_value": "Синий",
+                  "label": "Цвет акцентного заголовка"
+                }
+              }
+            },
+            "repeat": {
+              "gallery_photo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Изображение"
+                }
+              }
+            }
           }
         }
       }

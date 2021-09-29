@@ -17,6 +17,7 @@ import BigSlider from "./bigSlider";
 import SliderWithTitleAndDescription from "./sliderWithTitleAndDescription";
 import Ticker from "./ticker";
 import Timer from "./timer";
+import Gallery from "./gallery";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -82,6 +83,8 @@ export default function Constructor({ slices }) {
             return <ScheduleScroll slice={slice} key={slice.id} />;
           case "gray_panel_with_blocks_text":
             return <GrayPanelWithBlocks slice={slice} key={slice.id} />;
+          case "galery":
+            return <Gallery slice={slice} key={slice.id} />;
           case "our_team":
             return <OurTeam slice={slice} key={slice.id} />;
           case "ticker":
