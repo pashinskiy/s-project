@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * Динамический SVG для блока серой панели
+ * @module src/components/constructor/grayPanelWithBlocks/HeaderSingleBlock/wavesSVG.js
+ * @param {Object} props - объект свойств компонента React
+ * @param {String} props.color - цвет SVG
+ */
 export default function WavesSVG({ color }) {
   return (
     <div>

@@ -182,6 +182,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Блок конструктора "Наша команда"
+ * @module src/components/constructor/ourTeam
+ * @param {Object} props - объект свойств компонента React
+ * @param {Object} props.slice - объект слайса полученный из prismic
+ */
+
 export default function OurTeam({ slice }) {
   const classes = useStyle();
   const data = slice.items.map((coach) => coach);
@@ -202,7 +209,7 @@ export default function OurTeam({ slice }) {
   return (
     <>
       <BlockHeaderText text="Наша команда" />
-      <div className={classes.rootOurTeam} style={{marginTop: 0}}>
+      <div className={classes.rootOurTeam} style={{ marginTop: 0 }}>
         {data.map((block, i) => {
           return (
             <div

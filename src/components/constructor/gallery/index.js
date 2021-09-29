@@ -36,7 +36,7 @@ const useStyle = makeStyles((theme) => ({
     "-moz-user-drag": "none",
     "-o-user-drag": "none",
     "-ms-user-drag": "none",
-    "user-drag": "none",    
+    "user-drag": "none",
   },
 
   textAndButton: {
@@ -288,6 +288,13 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Блок конструктора "Галерея"
+ * @module src/components/constructor/gallery
+ * @param {Object} props - объект свойств компонента React
+ * @param {Object} props.slice - объект слайса полученный из prismic
+ */
+
 export default function Gallery({ slice }) {
   const classes = useStyle();
   const mobile = useMediaQuery("(max-width: 767px)");
@@ -439,7 +446,13 @@ export default function Gallery({ slice }) {
             {imageIndex + 1}
           </Typography>
           <Typography
-            className={classes.indexSpaceBetween + " " + classes.indexText + " " + classes.noDrag}
+            className={
+              classes.indexSpaceBetween +
+              " " +
+              classes.indexText +
+              " " +
+              classes.noDrag
+            }
           >
             /
           </Typography>
