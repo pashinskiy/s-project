@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography, Modal } from "@material-ui/core";
 
 import ArrowSelect from "../../../../images/svg/arrow_select.svg";
 
@@ -30,6 +30,40 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 0,
       },
     },
+  },
+  networks: {
+    display: "flex",
+
+    "& > *": {
+      marginLeft: "1.73vw",
+      "@media(min-width: 1440px)": {
+        marginLeft: 25,
+      },
+      "@media(max-width: 767px)": {
+        marginLeft: "6.03vw",
+      },
+
+      "&:first-child": {
+        marginLeft: 0,
+      },
+    },
+  },
+  buttonLink: {
+    width: "2.43vw",
+    height: "2.43vw",
+    "@media(min-width: 1440px)": {
+      width: 35,
+      height: 35,
+    },
+    "@media(max-width: 767px)": {
+      width: "8.45vw",
+      height: "8.45vw",
+    },
+  },
+  buttonLink_icon: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
   },
 
   fullField: {
@@ -202,9 +236,71 @@ const useStyles = makeStyles((theme) => ({
 
     padding: "1.04vw 5.55vw",
     fontSize: "1.66vw",
+    "@media(min-width: 1440px)": {
+      padding: "15px 80px",
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       padding: "2.41vw 10.86vw",
       fontSize: "3.86vw",
+    },
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+  },
+  modalContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
+    margin: "auto",
+    outline: "none",
+    background: theme.palette.background.main,
+
+    width: "26.66%",
+    padding: "1.56vw",
+    borderRadius: "1.56vw",
+    "@media(min-width: 1440px)": {
+      width: "384px",
+      padding: "30px",
+      borderRadius: "30px",
+    },
+    "@media(max-width: 767px)": {
+      width: "60%",
+      padding: "3vw",
+      borderRadius: "3vw",
+    },
+  },
+  modalContentText: {
+    width: "100%",
+
+    fontWeight: 700,
+    lineHeight: 1.28,
+    color: theme.palette.color.lightBlue,
+
+    fontSize: "1.38vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 20,
+    },
+    "@media(max-width: 767px)": {
+      fontSize: "4.4vw",
+    },
+  },
+  error: {
+    width: "100%",
+    marginRight: "0.8em",
+
+    fontWeight: 300,
+    lineHeight: 1.4,
+    color: "red",
+
+    fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
+    "@media(max-width: 767px)": {
+      fontSize: "3.38vw",
     },
   },
 }));
@@ -249,18 +345,115 @@ export default function Form() {
   const [email, setEmail] = React.useState("");
   const [direction, setDirection] = React.useState("Интересующее направление");
   const [openOptions, SetOpenOptions] = React.useState(false);
+  const [messageOpen, setMessageOpen] = React.useState(false);
+  const [message, setMessage] = React.useState(null);
 
-  function submit(e) {
-    e.preventDefault();
+  // валидация формы
+  function validForm() {
+    const errors = [];
+
+    if (!/^[a-zа-я]+$/i.test(name)) errors.push("некорректное имя");
+    if (!/^\s*(\+?[78]-?\(?\d{3}\)?-?)?\d{3}-?\d{2}-?\d{2}\s*$/.test(phone))
+      errors.push("некорректый номер телефона");
+    if (!/@/.test(email)) errors.push("некорректный E-mail");
+
+    return errors;
   }
 
+  // изменение состояния опции
   function changeOpenOptions(e) {
     e.preventDefault();
     SetOpenOptions(!openOptions);
   }
 
+  // переход по ссылке
+  function goLink(str, options) {
+    if (!(str ?? false)) return;
+
+    const anchor = document.createElement("a");
+    anchor.href = str;
+    if (options) {
+      [...Object.keys(options)].forEach((key) => {
+        anchor[key] = options[key];
+      });
+    }
+    anchor.click();
+  }
+
+  // открытие модального окна с авто закрытием через 10с
+  function openModal() {
+    setMessageOpen(true);
+    setTimeout(setMessageOpen, 10000, false);
+  }
+
+  // отправка формы
+  function submit(e) {
+    e.preventDefault();
+    const errors = validForm();
+
+    if (errors.length) {
+      setMessage([
+        <Typography align="center" className={classes.modalContentText}>
+          Данные не отправлены
+        </Typography>,
+        ...errors.map((err) => (
+          <Typography align="left" key={err} className={classes.error}>
+            - {err}
+          </Typography>
+        )),
+      ]);
+    } else {
+      setMessage([
+        <Typography align="center" className={classes.modalContentText}>
+          Отправка данных...
+        </Typography>,
+      ]);
+    }
+
+    openModal();
+  }
+
   return (
     <form onSubmit={submit} className={classes.wrapper}>
+      <div className={classes.networks}>
+        {data.prismicContactForm.data.networks.map((network) => (
+          <button
+            aria-label={network.network_link}
+            onClick={() =>
+              goLink(network.network_link, {
+                target: "_blank",
+                rel: "noreferrer",
+              })
+            }
+            className={classes.buttonLink}
+          >
+            <img
+              src={network.network_icon.localFile.publicURL}
+              alt={network.network_icon.alt}
+              width={1}
+              height={1}
+              className={classes.buttonLink_icon}
+            />
+          </button>
+        ))}
+
+        <button
+          aria-label={data.prismicContactForm.data.network_link}
+          onClick={() =>
+            goLink(`tel:${data.prismicContactForm.data.network_link}`)
+          }
+          className={classes.buttonLink}
+        >
+          <img
+            src={data.prismicContactForm.data.phone_icon.localFile.publicURL}
+            alt={data.prismicContactForm.data.phone_icon.alt}
+            width={1}
+            height={1}
+            className={classes.buttonLink_icon}
+          />
+        </button>
+      </div>
+
       <label id="name" className={classes.fullField}>
         <Typography className={classes.text}>
           Ваше имя<font>*</font>
@@ -340,6 +533,14 @@ export default function Form() {
           {data.prismicContactForm.data.button_text ?? "Отправить"}
         </button>
       </div>
+
+      <Modal
+        open={messageOpen}
+        onClose={() => setMessageOpen(false)}
+        className={classes.modal}
+      >
+        <div className={classes.modalContent}>{message}</div>
+      </Modal>
     </form>
   );
 }
