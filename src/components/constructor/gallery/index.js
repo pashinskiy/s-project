@@ -14,29 +14,22 @@ import ArrowNext from "../../../images/svg/gallery_arrow_next.svg";
 import ArrowButton from "../../../images/svg/button_arrow.svg";
 
 const useStyle = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      "-webkit-touch-callout": "none",
+  
+  noDrag: {
+    "& *": {
       "-webkit-user-select": "none",
       "-khtml-user-select": "none",
       "-moz-user-select": "none",
+      "-o-user-select": "none",
       "-ms-user-select": "none",
       "user-select": "none",
+      "-webkit-user-drag": "none",
+      "-khtml-user-drag": "none",
+      "-moz-user-drag": "none",
+      "-o-user-drag": "none",
+      "-ms-user-drag": "none",
+      "user-drag": "none",
     },
-  },
-  noDrag: {
-    "-webkit-user-select": "none",
-    "-khtml-user-select": "none",
-    "-moz-user-select": "none",
-    "-o-user-select": "none",
-    "-ms-user-select": "none",
-    "user-select": "none",
-    "-webkit-user-drag": "none",
-    "-khtml-user-drag": "none",
-    "-moz-user-drag": "none",
-    "-o-user-drag": "none",
-    "-ms-user-drag": "none",
-    "user-drag": "none",
   },
 
   textAndButton: {
@@ -324,7 +317,7 @@ export default function Gallery({ slice }) {
     setOpenModal(true);
   };
   return (
-    <div className={classes.root}>
+    <div className={classes.noDrag}>
       <div className={classes.textAndButton}>
         <div className={classes.textContainer}>
           <Typography
@@ -423,6 +416,7 @@ export default function Gallery({ slice }) {
         classes={{
           paper: classes.dialogPaper,
         }}
+        className={classes.noDrag}
       >
         <CrossClose
           className={classes.iconCrossClose}
@@ -441,7 +435,10 @@ export default function Gallery({ slice }) {
           imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div className={classes.selectorContainer}>
-          <ArrowNext className={classes.arrowLeft} onClick={handleImagePrev} />
+          <ArrowNext
+            className={classes.arrowLeft + " " + classes.noDrag}
+            onClick={handleImagePrev}
+          />
           <Typography className={classes.indexText + " " + classes.noDrag}>
             {imageIndex + 1}
           </Typography>
@@ -459,7 +456,10 @@ export default function Gallery({ slice }) {
           <Typography className={classes.indexText + " " + classes.noDrag}>
             {photosArr.length}
           </Typography>
-          <ArrowNext className={classes.arrowRight} onClick={handleImageNext} />
+          <ArrowNext
+            className={classes.arrowRight + " " + classes.noDrag}
+            onClick={handleImageNext}
+          />
         </div>
       </Dialog>
     </div>

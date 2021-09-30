@@ -213,6 +213,7 @@ export default function OurTeam({ slice }) {
         {data.map((block, i) => {
           return (
             <div
+              aria-hidden="true"
               className={classes.coachContainer}
               onClick={(e) => {
                 handleClickOpen(i);
