@@ -79,8 +79,8 @@ const useStyle = makeStyles((theme) => ({
     fontSize: "1.25vw",
     marginTop: "1.73vw",
     "@media(min-width: 1440px)": {
-      fontSize: 36,
-      marginTop: "25px",  
+      fontSize: 18,
+      marginTop: 25,  
     },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",

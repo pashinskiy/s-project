@@ -147,6 +147,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  content: {
+    margin: "auto",
+    width: "100%",
+    maxWidth: 1440,
+  },
+
   map: {
     width: "100%",
     display: "flex",
@@ -764,243 +770,249 @@ export default function Footer({ data }) {
         )}
       </div>
 
-      <div className={classes.map}>
-        <div className={classes.address}>
-          <div className={classes.address_icon}>
-            <Geo />
+      <div className={classes.content}>
+        <div className={classes.map}>
+          <div className={classes.address}>
+            <div className={classes.address_icon}>
+              <Geo />
+            </div>
+
+            <div>
+              <Typography className={classes.address_textBold}>
+                {prismicContact.data.address}
+              </Typography>
+
+              <Typography className={classes.address_textNormal}>
+                {`Метро: “${prismicContact.data.metro}”`}
+              </Typography>
+              <Typography className={classes.address_textNormal}>
+                {`Автобус: “${prismicContact.data.bus}”`}
+              </Typography>
+            </div>
+          </div>
+
+          <div className={classes.yandexMap_wraper}>
+            <YMaps>
+              <Map
+                defaultState={{
+                  center: coordinate,
+                  zoom: 15,
+                  controls: ["zoomControl", "fullscreenControl"],
+                  behaviors: ["drag", "dblClickZoom", "multiTouch"],
+                }}
+                modules={["control.ZoomControl", "control.FullscreenControl"]}
+                width={"100%"}
+                height={"100%"}
+                options={{
+                  suppressMapOpenBlock: true,
+                }}
+              >
+                <Placemark
+                  modules={["geoObject.addon.balloon"]}
+                  defaultGeometry={coordinate}
+                  options={{
+                    iconLayout: "default#image",
+                    iconImageHref: "/svg/logo_on_map.svg",
+                    iconImageSize: [66, 66],
+                    iconImageOffset: [-33, -33],
+                  }}
+                />
+              </Map>
+            </YMaps>
+          </div>
+        </div>
+
+        <div className={classes.footerMenu}>
+          <div>
+            <div className={classes.titleWithIcon_wrapper}>
+              <img
+                src={iconSport.localFile.publicURL}
+                alt={iconSport.alt ?? "photo"}
+                width={1}
+                height={1}
+                className={classes.titleWithIcon_icon}
+              />
+
+              <Typography className={classes.titleWithIcon_text}>
+                {data.prismicLayout.data.title_sport}
+              </Typography>
+            </div>
+
+            <div className={classes.listLinks_wrapper}>
+              {data.prismicLayout.data.teams.map((team) => {
+                const title =
+                  team.text_link ?? team.page_team?.document?.data.title;
+                const link = `/${team.page_team?.document?.uid}`;
+
+                return title ? (
+                  <button
+                    onClick={() => navigate(link)}
+                    aria-label={title}
+                    key={title}
+                    className={classes.listLinks_button}
+                  >
+                    <div className={classes.listLinks_marker}>
+                      <ArrowMarker />
+                    </div>
+
+                    <Typography className={classes.listLinks_text}>
+                      {title}
+                    </Typography>
+                  </button>
+                ) : null;
+              })}
+            </div>
           </div>
 
           <div>
-            <Typography className={classes.address_textBold}>
-              {prismicContact.data.address}
-            </Typography>
-
-            <Typography className={classes.address_textNormal}>
-              {`Метро: “${prismicContact.data.metro}”`}
-            </Typography>
-            <Typography className={classes.address_textNormal}>
-              {`Автобус: “${prismicContact.data.bus}”`}
-            </Typography>
-          </div>
-        </div>
-
-        <div className={classes.yandexMap_wraper}>
-          <YMaps>
-            <Map
-              defaultState={{
-                center: coordinate,
-                zoom: 15,
-                controls: ["zoomControl", "fullscreenControl"],
-                behaviors: ["drag", "dblClickZoom", "multiTouch"],
-              }}
-              modules={["control.ZoomControl", "control.FullscreenControl"]}
-              width={"100%"}
-              height={"100%"}
-              options={{
-                suppressMapOpenBlock: true,
-              }}
-            >
-              <Placemark
-                modules={["geoObject.addon.balloon"]}
-                defaultGeometry={coordinate}
-                options={{
-                  iconLayout: "default#image",
-                  iconImageHref: "/svg/logo_on_map.svg",
-                  iconImageSize: [66, 66],
-                  iconImageOffset: [-33, -33],
-                }}
+            <div className={classes.titleWithIcon_wrapper}>
+              <img
+                src={iconFitnes.localFile.publicURL}
+                alt={iconFitnes.alt ?? "photo"}
+                width={1}
+                height={1}
+                className={classes.titleWithIcon_icon}
               />
-            </Map>
-          </YMaps>
-        </div>
-      </div>
 
-      <div className={classes.footerMenu}>
-        <div>
-          <div className={classes.titleWithIcon_wrapper}>
-            <img
-              src={iconSport.localFile.publicURL}
-              alt={iconSport.alt ?? "photo"}
-              width={1}
-              height={1}
-              className={classes.titleWithIcon_icon}
-            />
+              <Typography className={classes.titleWithIcon_text}>
+                {data.prismicLayout.data.title_fitnes}
+              </Typography>
+            </div>
 
-            <Typography className={classes.titleWithIcon_text}>
-              {data.prismicLayout.data.title_sport}
-            </Typography>
+            <div className={classes.listLinks_wrapper}>
+              {data.prismicLayout.data.workouts.map((workout) => {
+                const title =
+                  workout.text_link ??
+                  workout.page_workout?.document?.data.title;
+                const link = `/${workout.page_workout?.document?.uid}`;
+
+                return title ? (
+                  <button
+                    onClick={() => navigate(link)}
+                    aria-label={title}
+                    key={title}
+                    className={classes.listLinks_button}
+                  >
+                    <div className={classes.listLinks_marker}>
+                      <ArrowMarker />
+                    </div>
+
+                    <Typography className={classes.listLinks_text}>
+                      {title}
+                    </Typography>
+                  </button>
+                ) : null;
+              })}
+            </div>
           </div>
 
-          <div className={classes.listLinks_wrapper}>
-            {data.prismicLayout.data.teams.map((team) => {
-              const title =
-                team.text_link ?? team.page_team?.document?.data.title;
-              const link = `/${team.page_team?.document?.uid}`;
+          <div className={classes.separateLinks_wrapper}>
+            {separateLinks.map((item) => (
+              <button
+                onClick={() => navigate(item.link)}
+                aria-label={item.title}
+                key={item.title}
+                className={classes.separateLinks_button}
+              >
+                <Typography className={classes.separateLinks_text}>
+                  {item.title}
+                </Typography>
+              </button>
+            ))}
+          </div>
+        </div>
 
-              return title ? (
-                <button
-                  onClick={() => navigate(link)}
-                  aria-label={title}
-                  key={title}
-                  className={classes.listLinks_button}
+        <div className={classes.documentsAndContacts}>
+          <div className={classes.documentsAndContacts_divider} />
+
+          <div className={classes.documents_wrapper}>
+            {data.prismicLayout.data.documents.map((item) => {
+              const url = item.document?.url;
+              return (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={item.name}
+                  className={classes.documents_link}
                 >
-                  <div className={classes.listLinks_marker}>
-                    <ArrowMarker />
-                  </div>
-
-                  <Typography className={classes.listLinks_text}>
-                    {title}
-                  </Typography>
-                </button>
-              ) : null;
+                  {item.name}
+                </a>
+              );
             })}
           </div>
-        </div>
 
-        <div>
-          <div className={classes.titleWithIcon_wrapper}>
-            <img
-              src={iconFitnes.localFile.publicURL}
-              alt={iconFitnes.alt ?? "photo"}
-              width={1}
-              height={1}
-              className={classes.titleWithIcon_icon}
-            />
-
-            <Typography className={classes.titleWithIcon_text}>
-              {data.prismicLayout.data.title_fitnes}
-            </Typography>
-          </div>
-
-          <div className={classes.listLinks_wrapper}>
-            {data.prismicLayout.data.workouts.map((workout) => {
-              const title =
-                workout.text_link ?? workout.page_workout?.document?.data.title;
-              const link = `/${workout.page_workout?.document?.uid}`;
-
-              return title ? (
-                <button
-                  onClick={() => navigate(link)}
-                  aria-label={title}
-                  key={title}
-                  className={classes.listLinks_button}
-                >
-                  <div className={classes.listLinks_marker}>
-                    <ArrowMarker />
-                  </div>
-
-                  <Typography className={classes.listLinks_text}>
-                    {title}
-                  </Typography>
-                </button>
-              ) : null;
-            })}
-          </div>
-        </div>
-
-        <div className={classes.separateLinks_wrapper}>
-          {separateLinks.map((item) => (
+          <div className={classes.contacts_wrapper}>
             <button
-              onClick={() => navigate(item.link)}
-              aria-label={item.title}
-              key={item.title}
-              className={classes.separateLinks_button}
+              onClick={() => goLink(`tel:${prismicContact.data.phone_number}`)}
+              className={classes.buttonPhone}
             >
-              <Typography className={classes.separateLinks_text}>
-                {item.title}
+              <img
+                src={prismicContact.data.phone_icon?.localFile?.publicURL}
+                alt={prismicContact.data.phone_icon?.alt ?? "photo"}
+                width={1}
+                height={1}
+                className={classes.buttonPhone_icon}
+              />
+
+              <Typography className={classes.buttonPhone_text}>
+                {prismicContact.data.phone_number}
               </Typography>
             </button>
-          ))}
-        </div>
-      </div>
 
-      <div className={classes.documentsAndContacts}>
-        <div className={classes.documentsAndContacts_divider} />
+            <div className={classes.socialNetworks_wrapper}>
+              {prismicContact.data.social_networks.map((network, i) => {
+                const iconPath = network.network_icon?.localFile?.publicURL;
+                const iconAlt = network.network_icon?.alt ?? "social";
 
-        <div className={classes.documents_wrapper}>
-          {data.prismicLayout.data.documents.map((item) => {
-            const url = item.document?.url;
-            return (
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                key={item.name}
-                className={classes.documents_link}
-              >
-                {item.name}
-              </a>
-            );
-          })}
-        </div>
-
-        <div className={classes.contacts_wrapper}>
-          <button
-            onClick={() => goLink(`tel:${prismicContact.data.phone_number}`)}
-            className={classes.buttonPhone}
-          >
-            <img
-              src={prismicContact.data.phone_icon?.localFile?.publicURL}
-              alt={prismicContact.data.phone_icon?.alt ?? "photo"}
-              width={1}
-              height={1}
-              className={classes.buttonPhone_icon}
-            />
-
-            <Typography className={classes.buttonPhone_text}>
-              {prismicContact.data.phone_number}
-            </Typography>
-          </button>
-
-          <div className={classes.socialNetworks_wrapper}>
-            {prismicContact.data.social_networks.map((network, i) => {
-              const iconPath = network.network_icon?.localFile?.publicURL;
-              const iconAlt = network.network_icon?.alt ?? "social";
-
-              return iconPath ? (
-                <button
-                  onClick={() =>
-                    goLink(network.network_link, {
-                      target: "_blank",
-                      rel: "noreferrer",
-                    })
-                  }
-                  aria-label={iconAlt ?? "social"}
-                  key={`social_${i}`}
-                  className={classes.buttonSocialNetwork}
-                >
-                  <img
-                    src={iconPath}
-                    alt={iconAlt ?? "photo"}
-                    width={1}
-                    height={1}
-                    className={classes.buttonSocialNetwork_icon}
-                  />
-                </button>
-              ) : null;
-            })}
+                return iconPath ? (
+                  <button
+                    onClick={() =>
+                      goLink(network.network_link, {
+                        target: "_blank",
+                        rel: "noreferrer",
+                      })
+                    }
+                    aria-label={iconAlt ?? "social"}
+                    key={`social_${i}`}
+                    className={classes.buttonSocialNetwork}
+                  >
+                    <img
+                      src={iconPath}
+                      alt={iconAlt ?? "photo"}
+                      width={1}
+                      height={1}
+                      className={classes.buttonSocialNetwork_icon}
+                    />
+                  </button>
+                ) : null;
+              })}
+            </div>
           </div>
         </div>
+
+        <button
+          onClick={toogleVersionSite}
+          className={classes.orangeRoundedBlock}
+        >
+          <div>
+            <Typography
+              align="left"
+              className={classes.orangeRoundedBlock_title}
+            >
+              Перейти
+            </Typography>
+
+            <Typography className={classes.orangeRoundedBlock_variant}>
+              {state.versionSite === "sport" ? "Фитнес клуб" : "Спорт клуб"}
+            </Typography>
+          </div>
+
+          <div className={classes.orangeRoundedBlock_icon}>
+            <ArrowRight />
+          </div>
+        </button>
       </div>
-
-      <button
-        onClick={toogleVersionSite}
-        className={classes.orangeRoundedBlock}
-      >
-        <div>
-          <Typography align="left" className={classes.orangeRoundedBlock_title}>
-            Перейти
-          </Typography>
-
-          <Typography className={classes.orangeRoundedBlock_variant}>
-            {state.versionSite === "sport" ? "Фитнес клуб" : "Спорт клуб"}
-          </Typography>
-        </div>
-
-        <div className={classes.orangeRoundedBlock_icon}>
-          <ArrowRight />
-        </div>
-      </button>
     </footer>
   );
 }

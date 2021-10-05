@@ -14,7 +14,6 @@ import ArrowNext from "../../../images/svg/gallery_arrow_next.svg";
 import ArrowButton from "../../../images/svg/button_arrow.svg";
 
 const useStyle = makeStyles((theme) => ({
-  
   noDrag: {
     "& *": {
       "-webkit-user-select": "none",
@@ -103,7 +102,7 @@ const useStyle = makeStyles((theme) => ({
         "& svg": {
           marginLeft: "10px",
         },
-      },  
+      },
     },
     "& span": {
       "& svg": {
@@ -115,6 +114,10 @@ const useStyle = makeStyles((theme) => ({
   arrowViewAll: {
     width: "2.7vw",
     height: "1.11vw",
+    "@media(min-width: 1440px)": {
+      width: 39,
+      height: 16,
+    },
   },
 
   gridFirst: {

@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     lineHeight: 3,
 
-    fontSize: "5vw",
-    "@media(min-width: 1280px)": {
+    fontSize: "4.44vw",
+    "@media(min-width: 1440px)": {
       fontSize: "64px",
     },
     "@media(max-width: 414px)": {

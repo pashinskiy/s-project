@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     padding: (props) => (props.padding ? "0 3.47vw" : 0),
+    "@media(min-width: 1440px)": {
+      padding: (props) => (props.padding ? 50 : 0),
+    },
     "@media(max-width: 767px)": {
       padding: "0 !important",
     },
@@ -41,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
       "@media(max-width: 767px)": {
         marginTop: "4.83vw",
       },
-
     },
   },
   logo: {
@@ -210,6 +212,9 @@ const useStyles = makeStyles((theme) => ({
 
     marginTop: "1.73vw",
     height: (props) => (props.padding ? "34.72vw" : "41.66vw"),
+    "@media(min-width: 1440px)": {
+      height: (props) => (props.padding ? 500 : 600),
+    },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
       height: "120.77vw !important",

@@ -59,7 +59,7 @@ export const query = graphql`
               alt
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(width: 645)
                 }
               }
             }
@@ -81,7 +81,7 @@ export const query = graphql`
           alt
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(width: 1440)
             }
           }
         }
@@ -154,7 +154,7 @@ export const query = graphql`
                         alt
                         localFile {
                           childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 434)
                           }
                         }
                       }
@@ -178,7 +178,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -206,7 +206,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 720)
                   }
                 }
               }
@@ -243,7 +243,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -281,7 +281,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -289,7 +289,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -333,7 +333,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 550)
                   }
                 }
               }
@@ -341,7 +341,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 550)
                   }
                 }
               }
@@ -361,7 +361,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1110)
                   }
                 }
               }
@@ -375,7 +375,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -433,7 +433,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -462,7 +462,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -509,7 +509,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1340)
                   }
                 }
               }

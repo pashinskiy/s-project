@@ -95,15 +95,15 @@ const useStyles = makeStyles((theme) => ({
     transform: "scaleX(-1)",
   },
   nav_button_text: {
-    marginRight: "0.69vw",
-
     fontWeight: 700,
     lineHeight: 1.28,
     color: theme.palette.color.black,
+
+    marginRight: "0.69vw",
     fontSize: "1.25vw",
     "@media(min-width: 1440px)": {
-      fontSize: 18,
       marginRight: "10px",
+      fontSize: 18,
     },
   },
   nav_button_icon: {

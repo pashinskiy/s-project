@@ -77,6 +77,29 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicPageConstructorDataBodyGalery {
+            id
+            slice_type
+            primary {
+              accent_heading {
+                text
+              }
+              accent_heading_color
+              gallery_header {
+                text
+              }
+            }
+            items {
+              gallery_photo {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1112)
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicPageConstructorDataBodyGrayPanelWithBlocksText {
             id
             slice_type
@@ -109,7 +132,7 @@ export const query = graphql`
                         alt
                         localFile {
                           childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 434)
                           }
                         }
                       }
@@ -133,7 +156,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -161,7 +184,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 720)
                   }
                 }
               }
@@ -198,7 +221,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -236,7 +259,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -244,7 +267,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -288,7 +311,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 550)
                   }
                 }
               }
@@ -296,7 +319,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 550)
                   }
                 }
               }
@@ -316,7 +339,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1110)
                   }
                 }
               }
@@ -330,7 +353,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -388,7 +411,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1440)
                   }
                 }
               }
@@ -417,7 +440,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 645)
                   }
                 }
               }
@@ -464,7 +487,7 @@ export const query = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1340)
                   }
                 }
               }
