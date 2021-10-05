@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
 
     height: "9.02vw",
     "@media(min-width: 1440px)": {
-      marginTop: "130px",
+      height: "130px",
     },
     "@media(max-width: 767px)": {
       height: "16.9vw",

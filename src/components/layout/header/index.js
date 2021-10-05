@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
     height: "12.01vw",
     padding: "0 2.08vw",
     "@media(min-width: 1440px)": {
+      margin: "auto",
+      width: 1440,
       height: 173,
       padding: "0 30px",
     },

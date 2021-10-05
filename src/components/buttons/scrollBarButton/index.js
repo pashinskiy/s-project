@@ -4,13 +4,20 @@ import ArrowButton from "../../../images/svg/button_arrow.svg";
 
 const useStyle = makeStyles((theme) => ({
   button: {
-    height: "3.47vw",
-    padding: "0.9375vw 2.74vw",
     border: "1px solid",
     borderColor: theme.palette.color.blue,
+    fontWeight: 700,
+
+    height: "3.47vw",
+    padding: "0.93vw 2.74vw",
     borderRadius: "4.72vw",
     fontSize: "1.25vw",
-    fontWeight: 700,
+    "@media(min-width: 1440px)": {
+      height: 50,
+      padding: "13.5px 39.5px",
+      borderRadius: 68,
+      fontSize: 18,
+    },
   },
 
   arrowAndText: {
@@ -18,12 +25,19 @@ const useStyle = makeStyles((theme) => ({
     "& span": {
       "& svg": {
         marginLeft: "0.69vw",
+        "@media(min-width: 1440px)": {
+          marginLeft: 10,
+        },
       },
     },
   },
   arrow: {
     width: "2.7vw",
     height: "1.11vw",
+    "@media(min-width: 1440px)": {
+      width: 39,
+      height: 16,
+    },
   },
 
   mirrorArrow: {

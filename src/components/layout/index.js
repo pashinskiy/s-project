@@ -8,11 +8,12 @@ import { graphql, useStaticQuery } from "gatsby";
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     width: "100%",
-    maxWidth: 1440,
     margin: "0 auto",
     minHeight: "100vh",
   },
   root: {
+    margin: "auto",
+    maxWidth: 1440,
     paddingBottom: "1px",
   },
 }));
