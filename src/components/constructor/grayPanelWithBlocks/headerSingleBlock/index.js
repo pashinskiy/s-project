@@ -9,6 +9,9 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     marginRight: "5.9vw",
+    "@media(min-width: 1440px)": {
+      marginRight: "85px",
+    },
     "@media(max-width: 767px)": {
       marginRight: 0,
       marginBottom: "12.07vw",
@@ -17,9 +20,13 @@ const useStyle = makeStyles((theme) => ({
 
   waveSVG: {
     overflow: "hidden",
+    borderRadius: "1000px", 
     width: "4.3vw", //62px на 1440 view px
-    borderRadius: "1000px",
     marginBottom: "1.73vw",
+    "@media(min-width: 1440px)": {
+      width: "62px",
+      marginBottom: "25px",
+    },
     "@media(max-width: 767px)": {
       width: "14.97vw",
       marginBottom: "4.83vw",
@@ -32,6 +39,10 @@ const useStyle = makeStyles((theme) => ({
     lineHeight: "112.7%",
     fontSize: "2.5vw",
     marginBottom: "1.73vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 36,
+      marginBottom: "25px",
+    },
     "@media(max-width: 767px)": {
       fontSize: "5.79vw",
       marginBottom: "6.03vw",
@@ -41,6 +52,9 @@ const useStyle = makeStyles((theme) => ({
   descriptionText: {
     color: theme.palette.color.lightBlue,
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },

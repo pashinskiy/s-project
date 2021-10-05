@@ -12,6 +12,10 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: "#F3F6FF",
     padding: "3.47vw",
     marginBottom: "8.33vw",
+    "@media(min-width: 1440px)": {
+      padding: "50px",
+      marginBottom: "120px",
+    },
     "@media(max-width: 767px)": {
       justifyContent: "unset",
       alignItems: "unset",

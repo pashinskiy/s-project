@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
 
     height: "12.15vw",
     padding: "2.08vw 0",
+    "@media(min-width: 1440px)": {
+      height: "175px",
+      padding: "30px 0",
+    },
     "@media(max-width: 767px)": {
       height: "16.66vw",
       padding: "4.83vw 0",
@@ -31,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     animationDuration: (props) => `${props.time}ms`,
 
     fontSize: "6.66vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 96,
+    },
     "@media(max-width: 767px)": {
       fontSize: "5.79vw",
     },

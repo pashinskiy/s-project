@@ -22,12 +22,18 @@ import Gallery from "./gallery";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     marginTop: "8.33vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "120px",
+    },
     "@media(max-width: 767px)": {
       marginTop: "14.49vw",
     },
 
     "& > *": {
       marginTop: "8.33vw",
+      "@media(min-width: 1440px)": {
+        marginTop: "120px",
+      },
       "@media(max-width: 767px)": {
         marginTop: "14.49vw",
       },

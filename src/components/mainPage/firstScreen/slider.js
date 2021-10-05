@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
 
     width: "53.05vw",
     height: "29.65vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 764,
-    //   height: 427,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 764,
+      height: 427,
+    },
     "@media(max-width: 767px)": {
       width: "67.63vw",
       height: "67.39vw",
@@ -41,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
     width: "23.88vw",
     height: "21.59vw",
     padding: "0 0.48vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 344,
-    //   height: 311,
-    //   padding: "0 7px",
-    // },
+    "@media(min-width: 1440px)": {
+      width: 344,
+      height: 311,
+      padding: "0 7px",
+    },
     "@media(max-width: 767px)": {
       width: "68.59vw",
       height: "56.03vw",
@@ -56,9 +56,9 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
 
     width: "53.05vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 764,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 764,
+    },
     "@media(max-width: 767px)": {
       width: "68.59vw",
     },
@@ -84,12 +84,12 @@ const useStyles = makeStyles((theme) => ({
     height: "12.91vw",
     padding: "4.58vw 1.25vw",
     borderRadius: "1.73vw 0 0 1.73vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 60,
-    //   height: 186,
-    //   padding: "66px 18px",
-    //   borderRadius: "25px 0px 0px 25px",
-    // },
+    "@media(min-width: 1440px)": {
+      width: 60,
+      height: 186,
+      padding: "66px 18px",
+      borderRadius: "25px 0px 0px 25px",
+    },
   },
   mirror: {
     transform: "scaleX(-1)",

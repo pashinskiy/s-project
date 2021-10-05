@@ -8,6 +8,10 @@ const useStyle = makeStyles((theme) => ({
     marginLeft: "3.47vw",
     marginTop: 0,
     marginRight: 0,
+    "@media(min-width: 1440px)": {
+      marginBottom: "60px",
+      marginLeft: "50px",
+    },
     "@media(max-width: 767px)": {
       marginBottom: "4,83vw",
       marginLeft: "6.03vw",
@@ -63,11 +67,14 @@ const useStyle = makeStyles((theme) => ({
   },
   fullScreen: {
     width: "100vw",
-    // maxWidth: "1440px",
     flexShrink: 0,
-
     marginLeft: "-2.18vw",
     paddingLeft: "2.18vw",
+    "@media(min-width: 1440px)": {
+      width: "100vw",
+      marginLeft: "-31.5px",
+      paddingLeft: "31.5px",
+    },
 
     "@media(max-width: 767px)": {
       marginLeft: "-6.76vw",
@@ -81,6 +88,13 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "flex-end",
     marginTop: "1.73vw",
     marginRight: "3.47vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "25px",
+      marginRight: "50px",
+      "& button:first-child": {
+        marginRight: "8px",
+      },
+    },
     "& button:first-child": {
       marginRight: "0.55vw",
     },

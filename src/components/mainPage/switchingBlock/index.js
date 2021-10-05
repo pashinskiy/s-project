@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
 
     marginTop: "8.33vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "120px",
+    },
     "@media(max-width: 767px)": {
       marginTop: "14.49vw",
     },
@@ -26,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
 
     height: "43.95vw",
     padding: "7.98vw",
+    "@media(min-width: 1440px)": {
+      height: "633px",
+      padding: "115px",
+    },
     "@media(max-width: 767px)": {
       height: "124.39vw",
       padding: "12.07vw",
@@ -56,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.color.white,
 
     fontSize: "4.44vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 64,
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
     },

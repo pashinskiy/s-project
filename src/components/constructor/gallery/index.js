@@ -38,6 +38,10 @@ const useStyle = makeStyles((theme) => ({
     flexDirection: "row",
     padding: "0px 3.47vw",
     marginBottom: "1.73vw",
+    "@media(min-width: 1440px)": {
+      padding: "0px 50px",
+      marginBottom: "50px",
+    },
     "@media(max-width: 767px)": {
       padding: "0px 6.03vw",
       marginBottom: "4.83vw",
@@ -56,6 +60,11 @@ const useStyle = makeStyles((theme) => ({
     fontSize: "1.66vw",
     marginBottom: "1.73vw",
     padding: "0.48vw 4.09vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 24,
+      marginBottom: "50px",
+      padding: "7px  59px",
+    },
     "@media(max-width: 767px)": {
       fontSize: "4.34vw",
       padding: "1.2vw 2.4vw",
@@ -68,20 +77,34 @@ const useStyle = makeStyles((theme) => ({
     fontWeight: 700,
     lineHeight: "112.7%",
     fontSize: "4.44vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 64,
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
     },
   },
 
   buttonViewAll: {
+    borderColor: theme.palette.color.blue,
+    color: theme.palette.color.main,
+    fontWeight: 700,
+    border: "1px solid",
     height: "3.47vw",
     padding: "0.9375vw 1.805vw",
-    border: "1px solid",
-    borderColor: theme.palette.color.blue,
     borderRadius: "4.72vw",
     fontSize: "1.25vw",
-    fontWeight: 700,
-    color: theme.palette.color.main,
+    "@media(min-width: 1440px)": {
+      height: "50px",
+      padding: "13.5px 26px",
+      borderRadius: "68px",
+      fontSize: 18,
+      "& span": {
+        "& svg": {
+          marginLeft: "10px",
+        },
+      },  
+    },
     "& span": {
       "& svg": {
         marginLeft: "0.69vw",
@@ -98,6 +121,9 @@ const useStyle = makeStyles((theme) => ({
     width: "100%",
     height: "55.55vw",
     flexDirection: "row",
+    "@media(min-width: 1440px)": {
+      height: "800px",
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       width: "100vw",
@@ -126,6 +152,9 @@ const useStyle = makeStyles((theme) => ({
   gridItemFirst: {
     height: "53.75%",
     paddingBottom: "1.38vw",
+    "@media(min-width: 1440px)": {
+      paddingBottom: "20px",
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       width: "100vw",
@@ -146,6 +175,9 @@ const useStyle = makeStyles((theme) => ({
     paddingLeft: "1.38vw",
     width: "48.8%",
     flexGrow: 1,
+    "@media(min-width: 1440px)": {
+      paddingLeft: "20px",
+    },
     "@media(max-width: 767px)": {
       flexGrow: "unset",
       flexDirection: "column",
@@ -159,6 +191,9 @@ const useStyle = makeStyles((theme) => ({
     width: "37.5%",
     height: "100%",
     paddingLeft: "1.38vw",
+    "@media(min-width: 1440px)": {
+      paddingLeft: "20px",
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       paddingLeft: 0,
@@ -192,6 +227,12 @@ const useStyle = makeStyles((theme) => ({
     right: "1.38vw",
     width: "1.38vw",
     height: "1.38vw",
+    "@media(min-width: 1440px)": {
+      top: "20px",
+      right: "20px",
+      width: "20px",
+      height: "20px",
+    },
     "@media(max-width: 767px)": {
       width: "4.83vw",
       height: "4.83vw",
@@ -203,6 +244,9 @@ const useStyle = makeStyles((theme) => ({
     cursor: "pointer",
     marginRight: "1.04vw",
     transform: "scaleX(-1)",
+    "@media(min-width: 1440px)": {
+      marginRight: "15px",
+    },
     "@media(max-width: 767px)": {
       marginRight: "3.62vw",
     },
@@ -210,6 +254,9 @@ const useStyle = makeStyles((theme) => ({
   arrowRight: {
     cursor: "pointer",
     marginLeft: "1.04vw",
+    "@media(min-width: 1440px)": {
+      marginLeft: "15px",
+    },
     "@media(max-width: 767px)": {
       marginLeft: "3.62vw",
     },
@@ -227,6 +274,9 @@ const useStyle = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     padding: "2.08vw 0",
+    "@media(min-width: 1440px)": {
+      padding: "30px 0",
+    },
     "@media(max-width: 767px)": {
       padding: "0px 0px 14.49vw 0px",
     },
@@ -234,16 +284,24 @@ const useStyle = makeStyles((theme) => ({
   indexSpaceBetween: {
     marginLeft: "1.38vw",
     marginRight: "1.04vw",
+    "@media(min-width: 1440px)": {
+      marginLeft: "20px",
+      marginRight: "15px",
+    },
   },
   dialogImage: {
     width: "100%",
     height: "100%",
-    maxHeight: "80vh",
+    maxHeight: "45vw",
     maxWidth: "87.5vw",
     "-webkit-transition": "opacity 1s ease-in-out",
     "-moz-transition": "opacity 1s ease-in-out",
     "-o-transition": "opacity 1s ease-in-out",
     transition: "opacity 1s ease-in-out",
+    "@media(min-width: 1440px)": {
+      maxHeight: "648px",
+      maxWidth: "1260px",
+    },
     "@media(max-width: 767px)": {
       width: "100vw",
       maxWidth: "unset",
@@ -257,15 +315,15 @@ const useStyle = makeStyles((theme) => ({
   },
   buttonAllMobile: {
     position: "absolute",
+    fontFamily: "Futura PT,'Exo 2'",
+    borderColor: theme.palette.color.blue,
+    border: "1px solid",
+    fontWeight: 700,
     right: "6.038vw",
     height: "12.07vw",
     padding: "3.26vw 6.28vw",
-    border: "1px solid",
-    borderColor: theme.palette.color.blue,
     borderRadius: "16.425vw",
     fontSize: "4.347vw",
-    fontWeight: 700,
-    fontFamily: "Futura PT,'Exo 2'",
     color: theme.palette.color.main,
     "& span": {
       lineHeight: "50%",

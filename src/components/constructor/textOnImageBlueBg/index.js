@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     height: "36.11vw",
+    "@media(min-width: 1440px)": {
+      height: "520px",
+    },
     "@media(max-width: 767px)": {
       height: "80.43vw",
     },
@@ -27,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     zIndex: -1,
 
     height: "36.11vw",
+    "@media(min-width: 1440px)": {
+      height: "520px",
+    },
     "@media(max-width: 767px)": {
       height: "80.43vw",
     },
@@ -44,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(0deg, rgba(28, 70, 246, 0.65), rgba(28, 70, 246, 0.65))",
 
     height: "36.11vw",
+    "@media(min-width: 1440px)": {
+      height: "520px",
+    },
     "@media(max-width: 767px)": {
       height: "80.43vw",
     },
@@ -55,12 +64,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     width: "54.93vw",
+    "@media(min-width: 1440px)": {
+      width: "791px",
+    },
     "@media(max-width: 767px)": {
       width: "87.92vw",
     },
 
     "& > *": {
       marginTop: "1.73vw",
+      "@media(min-width: 1440px)": {
+        marginTop: "25px",
+      },
       "@media(max-width: 767px)": {
         marginTop: "3.62vw",
       },
@@ -75,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
     width: "auto",
 
     height: "9.02vw",
+    "@media(min-width: 1440px)": {
+      height: "130px",
+    },
     "@media(max-width: 767px)": {
       height: "16.9vw",
     },
@@ -87,6 +105,10 @@ const useStyles = makeStyles((theme) => ({
 
     padding: "0.48vw 0.76vw",
     fontSize: "1.66vw",
+    "@media(min-width: 1440px)": {
+      padding: "7px 11px",
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       padding: "1.2vw 2.41vw",
       fontSize: "4.34vw",
@@ -99,6 +121,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "6.66vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 96,
+    },
     "@media(max-width: 767px)": {
       fontSize: "9.66vw",
     },
@@ -109,6 +134,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },
