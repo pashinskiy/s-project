@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
 
     marginTop: "8.33vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "120px",
+    },
     "@media(max-width: 767px)": {
       marginTop: "14.49vw",
       flexDirection: "column",
@@ -29,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     width: "45.13%",
     borderRadius: "0 1.73vw 0 0",
     padding: "8.22vw 3.47vw",
+    "@media(min-width: 1440px)": {
+      borderRadius: "0 25px 0 0",
+      padding: "118.4px 50px",
+    },
     "@media(max-width: 767px)": {
       width: "100%",
       borderRadius: "6.03vw 6.03vw 0 0",
@@ -47,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
 
     width: "99.86vw",
     height: "15.06vw",
+    "@media(min-width: 1440px)": {
+      width: "1438px",
+      height: "217px",
+    },
     "@media(max-width: 767px)": {
       width: "148.3vw",
       height: "30.72vw",
@@ -59,6 +70,9 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
 
     fontSize: "4.16vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 60,
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
       textAlign: "center",
@@ -70,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
 
     marginTop: "3.47vw",
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "50px",
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       marginTop: "3.62vw",
       fontSize: "3.38vw",

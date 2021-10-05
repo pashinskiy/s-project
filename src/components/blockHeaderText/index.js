@@ -10,6 +10,11 @@ const useStyle = makeStyles(theme => ({
         fontSize: "6.66vw",
         marginLeft: "3.47vw",
         marginBottom: "4.16vw",
+        "@media(min-width: 1440px)": {
+            fontSize: "96px",
+            marginLeft: "50px",
+            marginBottom: "60px",
+          },
         "@media(max-width: 767px)": {
             fontSize: "8.69vw",
             marginLeft: "6.03vw",

@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
 
     height: "50vw",
     padding: "0 3.47vw",
+    "@media(min-width: 1440px)": {
+      height: "720px",
+      padding: "0 50px",
+    },
     "@media(max-width: 767px)": {
       height: "89.37vw",
       padding: "0 2.41vw",
@@ -24,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     MozTransform: "translate3d(0, 0, 0)",
 
     borderRadius: "2.08vw",
+    "@media(min-width: 1440px)": {
+      borderRadius: "30px",
+    },
     "@media(max-width: 767px)": {
       borderRadius: "7.24vw",
     },

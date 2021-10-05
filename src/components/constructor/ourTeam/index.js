@@ -14,6 +14,10 @@ const useStyle = makeStyles((theme) => ({
     marginTop: 0,
     marginRight: "3.47vw",
     marginLeft: "3.47vw",
+    "@media(min-width: 1440px)": {
+      marginRight: "50px",
+      marginLeft: "50px",
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       marginLeft: "13.76vw",
@@ -29,6 +33,10 @@ const useStyle = makeStyles((theme) => ({
     flexDirection: "column",
     width: "20.83vw",
     marginRight: "15.27vw",
+    "@media(min-width: 1440px)": {
+      width: "300px",
+      marginRight: "220px",
+    },
     "@media(max-width: 767px)": {
       marginRight: 0,
       marginBottom: "7.24vw",
@@ -39,6 +47,10 @@ const useStyle = makeStyles((theme) => ({
     width: "20.83vw",
     height: "20.83vw",
     borderRadius: 1000,
+    "@media(min-width: 1440px)": {
+      width: "300px",
+      height: "300px",
+    },
     "@media(max-width: 767px)": {
       width: "72.46vw",
       height: "72.46vw",
@@ -52,6 +64,10 @@ const useStyle = makeStyles((theme) => ({
     fontFamily: "'Exo 2'",
     fontSize: "2.5vw",
     marginTop: "1.73vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 36,
+      marginTop: "25px",  
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
       marginTop: "6.03vw",
@@ -62,6 +78,10 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "center",
     fontSize: "1.25vw",
     marginTop: "1.73vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 36,
+      marginTop: "25px",  
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
       marginTop: "6.03vw",
@@ -72,7 +92,11 @@ const useStyle = makeStyles((theme) => ({
     alignSelf: "center",
     justifyContent: "space-between",
     width: "13.68vw",
-    padding: "0.9375vw 0px 0.9375vw 0px",
+    padding: "0.9375vw 0px",
+      "@media(min-width: 1440px)": {
+        width: "197px",
+        padding: "13.5px 0px",
+      },
     "@media(max-width: 767px)": {
       width: "39.37vw",
       padding: "3.86vw 0px 3.86vw 0px",
@@ -81,12 +105,18 @@ const useStyle = makeStyles((theme) => ({
   moreText: {
     fontWeight: 500,
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },
   },
   arrowMore: {
     width: "2.7vw",
+    "@media(min-width: 1440px)": {
+      width: "39px",
+    },
     "@media(max-width: 767px)": {
       width: "8.93vw",
     },
@@ -111,6 +141,11 @@ const useStyle = makeStyles((theme) => ({
     boxShadow: "0px 4.83vw 16.9vw rgba(4, 22, 94, 0.44)",
     width: "74.3vw",
     height: "42.5vw",
+    "@media(min-width: 1440px)": {
+      boxShadow: "0px 70px 242.5px rgba(4, 22, 94, 0.44)",
+      width: "1070px",
+      height: "612px",
+    },
     "@media(max-width: 767px)": {
       maxHeight: "100%",
       margin: 0,
@@ -127,6 +162,12 @@ const useStyle = makeStyles((theme) => ({
     right: "0.48vw",
     width: "1.38vw",
     height: "1.38vw",
+    "@media(min-width: 1440px)": {
+      top: "7px",
+      right: "7px",
+      width: "20px",
+      height: "20px",
+    },
     "@media(max-width: 767px)": {
       width: "4.83vw",
       height: "4.83vw",
@@ -136,6 +177,10 @@ const useStyle = makeStyles((theme) => ({
     height: "100%",
     width: "30.13vw",
     marginRight: "4.16vw",
+    "@media(min-width: 1440px)": {
+      width: "434px",
+      marginRight: "60px",
+    },
     "@media(max-width: 767px)": {
       flexShrink: 0,
       width: "100%",
@@ -151,6 +196,10 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "center",
     fontSize: "4.44vw",
     marginBottom: "2.08vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 64,
+      marginBottom: "30px",
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
       marginBottom: "3.62vw",
@@ -160,6 +209,10 @@ const useStyle = makeStyles((theme) => ({
     color: theme.palette.color.lightBlue,
     fontSize: "1.11vw",
     maxHeight: "27.77vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 16,
+      maxHeight: "400px",
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
       overflowY: "auto",
@@ -175,6 +228,9 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "center",
     width: "36.52vw",
     height: "100%",
+    "@media(min-width: 1440px)": {
+      width: "527px",
+    },
     "@media(max-width: 767px)": {
       width: "100%",
       padding: "0px 6.03vw 7.24vw 6.03vw",

@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 
     width: "22.22%",
     padding: "3.12vw 1.73vw",
+    "@media(min-width: 1440px)": {
+      padding: "45px 25px",
+    },
     "@media(max-width: 767px)": {
       marginTop: (props) => (props.position === "центр" ? "2.41vw" : 0),
       width: (props) => (props.position === "центр" ? "100%" : "39.61%"),
@@ -33,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
 
     "& > *": {
       marginTop: "1.04vw",
+      "@media(min-width: 1440px)": {
+        marginTop: "15px",
+      },
       "@media(max-width: 767px)": {
         marginTop: "3.62vw",
       },
@@ -51,6 +57,10 @@ const useStyles = makeStyles((theme) => ({
 
     width: "99.86vw",
     height: "15.06vw",
+    "@media(min-width: 1440px)": {
+      width: "1438px",
+      height: "217px",
+    },
     "@media(max-width: 767px)": {
       width: "148.3vw",
       height: "19.85vw",
@@ -62,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.2,
 
     fontSize: "2.5vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 36,
+    },
     "@media(max-width: 767px)": {
       fontSize: "4.34vw",
     },
@@ -71,6 +84,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "2.89vw",
     },
@@ -80,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     padding: "0.93vw 0",
+    "@media(min-width: 1440px)": {
+      padding: "13.4px 0",
+    },
     "@media(max-width: 767px)": {
       padding: 0,
     },
@@ -89,6 +108,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },
@@ -97,6 +119,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1.04vw",
     width: "2.63vw",
     height: "1.04vw",
+    "@media(min-width: 1440px)": {
+      marginLeft: "15px",
+      width: "38px",
+      height: "15px",
+    },
 
     "& path": {
       fill: theme.palette.color.white,
@@ -105,6 +132,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "38.19%",
     height: "41.66vw",
+    "@media(min-width: 1440px)": {
+      height: "600px",
+    },
     "@media(max-width: 767px)": {
       width: (props) => (props.position === "центр" ? "100%" : "57.97%"),
       height: (props) => (props.position === "центр" ? "120.77vw" : "74.87vw"),

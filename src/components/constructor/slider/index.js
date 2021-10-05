@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
   },
   addPadding: {
     padding: "0 3.47vw",
+    "@media(min-width: 1440px)": {
+      padding: "0 50px",
+    },
     "@media(max-width: 767px)": {
       padding: 0,
     },
@@ -64,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1.73vw",
     marginRight: "3.47vw",
     paddingBottom: "1px",
+    "@media(min-width: 1440px)": {
+      marginTop: "25px",
+      marginRight: "50px",
+    },
   },
   nav_button: {
     display: "flex",
@@ -72,12 +79,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 2.74vw",
     border: `1px solid ${theme.palette.background.blue}`,
     borderRadius: "100px",
-    // "@media(min-width: 1440px)": {
-    //   width: 60,
-    //   height: 186,
-    //   padding: "66px 18px",
-    //   borderRadius: "25px 0px 0px 25px",
-    // },
+    "@media(min-width: 1440px)": {
+      height: "50px",
+      padding: "0 40px",
+      "&:first-child": {
+        marginRight: "8px",
+      },
+    },
 
     "&:first-child": {
       marginRight: "0.55vw",
@@ -93,10 +101,18 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
     color: theme.palette.color.black,
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+      marginRight: "10px",
+    },
   },
   nav_button_icon: {
     width: "2.63vw",
     height: "0.97vw",
+    "@media(min-width: 1440px)": {
+      width: "38px",
+      height: "14px",
+    },
   },
 
   pagination: {
@@ -105,6 +121,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexWrap: "wrap",
     marginTop: "6.03vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "87px",
+    },
 
     "& > *": {
       flexShrink: 0,
@@ -116,6 +135,14 @@ const useStyles = makeStyles((theme) => ({
     background: "#F3F6FF",
     borderRadius: "100px",
     marginRight: "4.83vw",
+    "@media(min-width: 1440px)": {
+      marginRight: "69.6px",
+      width: "27.8px",
+      height: "27.8px",
+      "&:nth-child(n + 16)": {
+        marginTop: "69.6px",
+      },
+    },
 
     "&:nth-child(15n)": {
       marginRight: 0,

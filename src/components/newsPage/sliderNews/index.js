@@ -6,6 +6,9 @@ import Card from "./card";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     marginTop: "4.16vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "60px",
+    },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
     },
@@ -19,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "3.47vw",
     marginBottom: "4.16vw",
     fontSize: "2.5vw",
+    "@media(min-width: 1440px)": {
+      marginLeft: "50px",
+      marginBottom: "60px",
+      fontSize: 36,
+    },
     "@media(max-width: 767px)": {
       marginLeft: "6.03vw",
       marginBottom: "4.83vw",

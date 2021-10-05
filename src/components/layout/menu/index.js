@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
     outline: "none",
 
     width: "26.65vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 427,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 427,
+    },
     "@media(max-width: 767px)": {
       width: "100%",
     },
@@ -44,10 +44,10 @@ const useStyles = makeStyles((theme) => ({
 
     borderRadius: "0 2.43vw 2.43vw 0",
     padding: "4.37vw 2.77vw 0",
-    // "@media(min-width: 1440px)": {
-    //   borderRadius: "0 35px 35px 0",
-    //   padding: "63px 40px 0",
-    // },
+    "@media(min-width: 1440px)": {
+      borderRadius: "0 35px 35px 0",
+      padding: "63px 40px 0",
+    },
     "@media(max-width: 767px)": {
       justifyContent: "space-between",
       borderRadius: 0,
@@ -62,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: "2.77vw",
     left: "2.77vw",
-    // "@media(min-width: 1440px)": {
-    //   top: 40,
-    //   left: 40,
-    // },
+    "@media(min-width: 1440px)": {
+      top: 40,
+      left: 40,
+    },
     "@media(max-width: 767px)": {
       position: "static",
     },
@@ -89,11 +89,11 @@ const useStyles = makeStyles((theme) => ({
     width: "0.79vw",
     height: "1.59vw",
     marginRight: "1.38vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 11.5,
-    //   height: 23,
-    //   marginRight: 20,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 11.5,
+      height: 23,
+      marginRight: 20,
+    },
     "@media(max-width: 767px)": {
       width: "2.89vw",
       height: "2.89vw",
@@ -106,9 +106,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.25vw",
-    // "@media(min-width: 1440px)": {
-    //   fontSize: 18,
-    // },
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "4.34vw",
     },
@@ -127,9 +127,9 @@ const useStyles = makeStyles((theme) => ({
 
     alignItems: "center",
     marginTop: "2.77vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 40,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 40,
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       alignItems: "flex-start",
@@ -146,10 +146,10 @@ const useStyles = makeStyles((theme) => ({
 
     height: "4.16vw",
     marginRight: "1.11vw",
-    // "@media(min-width: 1440px)": {
-    //   height: 60,
-    //   marginRight: 16,
-    // },
+    "@media(min-width: 1440px)": {
+      height: 60,
+      marginRight: 16,
+    },
     "@media(max-width: 767px)": {
       height: "9.66vw",
       marginRight: 0,
@@ -162,10 +162,10 @@ const useStyles = makeStyles((theme) => ({
 
     width: "14.44vw",
     fontSize: "1.66vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 208,
-    //   fontSize: 24,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 208,
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       width: "50.24vw",
       fontSize: "5.79vw",
@@ -173,9 +173,9 @@ const useStyles = makeStyles((theme) => ({
   },
   listLinks_wrapper: {
     marginTop: "1.38vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 20,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 20,
+    },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
     },
@@ -185,9 +185,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     marginTop: "0.55vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 8,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 8,
+    },
     "@media(max-width: 767px)": {
       marginTop: "1.93vw",
     },
@@ -202,11 +202,11 @@ const useStyles = makeStyles((theme) => ({
     width: "0.52vw",
     height: "0.93vw",
     marginRight: "0.55vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 7.5,
-    //   height: 13.5,
-    //   marginRight: 8,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 7.5,
+      height: 13.5,
+      marginRight: 8,
+    },
     "@media(max-width: 767px)": {
       width: "1.81vw",
       height: "3.26vw",
@@ -218,18 +218,18 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.25vw",
-    // "@media(min-width: 1440px)": {
-    //   fontSize: 18,
-    // },
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "4.34vw",
     },
   },
   separateLinks_wrapper: {
     marginTop: "2.77vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 40,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 40,
+    },
     "@media(max-width: 767px)": {
       marginTop: "9.17vw",
     },
@@ -239,9 +239,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
 
     marginTop: "1.38vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 20,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 20,
+    },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
     },
@@ -255,9 +255,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.66vw",
-    // "@media(min-width: 1440px)": {
-    //   fontSize: 24,
-    // },
+    "@media(min-width: 1440px)": {
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       fontSize: "5.79vw",
     },
@@ -267,9 +267,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
 
     marginTop: "1.38vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 20,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 20,
+    },
     "@media(max-width: 767px)": {
       marginTop: "4.83vw",
       flexDirection: "row",
@@ -291,11 +291,11 @@ const useStyles = makeStyles((theme) => ({
     width: "2.91vw",
     height: "2.91vw",
     marginRight: "1.18vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 42,
-    //   height: 42,
-    //   marginRight: 17,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 42,
+      height: 42,
+      marginRight: 17,
+    },
     "@media(max-width: 767px)": {
       width: "10.14vw",
       height: "10.14vw",
@@ -307,9 +307,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.28,
 
     fontSize: "1.66vw",
-    // "@media(min-width: 1440px)": {
-    //   fontSize: 24,
-    // },
+    "@media(min-width: 1440px)": {
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       fontSize: "5.79vw",
     },
@@ -318,9 +318,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
 
     marginTop: "1.18vw",
-    // "@media(min-width: 1440px)": {
-    //   marginTop: 17,
-    // },
+    "@media(min-width: 1440px)": {
+      marginTop: 17,
+    },
     "@media(max-width: 767px)": {
       marginTop: 0,
     },
@@ -329,9 +329,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
 
     marginRight: "0.83vw",
-    // "@media(min-width: 1440px)": {
-    //   marginRight: 12,
-    // },
+    "@media(min-width: 1440px)": {
+      marginRight: 12,
+    },
     "@media(max-width: 767px)": {
       marginRight: "2.89vw",
     },
@@ -345,10 +345,10 @@ const useStyles = makeStyles((theme) => ({
 
     width: "2.91vw",
     height: "2.91vw",
-    // "@media(min-width: 1440px)": {
-    //   width: 42,
-    //   height: 42,
-    // },
+    "@media(min-width: 1440px)": {
+      width: 42,
+      height: 42,
+    },
     "@media(max-width: 767px)": {
       width: "10.14vw",
       height: "10.14vw",

@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     padding: "0 3.47vw",
+    "@media(min-width: 1440px)": {
+      padding: "0 50px",
+    },
     "@media(max-width: 767px)": {
       padding: 0,
     },
@@ -35,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
 
     "& > *": {
       marginTop: "1.73vw",
+      "@media(min-width: 1440px)": {
+        marginTop: "25px",
+      },
       "@media(max-width: 767px)": {
         marginTop: "4.83vw",
       },
@@ -45,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
     width: "auto",
 
     height: "10.41vw",
+    "@media(min-width: 1440px)": {
+      height: "150px",
+    },
     "@media(max-width: 767px)": {
       height: "24.15vw",
     },
@@ -52,6 +61,10 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     width: "17.98vw",
     height: "4.31vw",
+    "@media(min-width: 1440px)": {
+      width: "259px",
+      height: "62px",
+    },
     "@media(max-width: 767px)": {
       width: "43.96vw",
       height: "10.55vw",
@@ -79,6 +92,10 @@ const useStyles = makeStyles((theme) => ({
 
     padding: "0.48vw 0.76vw",
     fontSize: "1.66vw",
+    "@media(min-width: 1440px)": {
+      padding: "7px 11px",
+      fontSize: 24,
+    },
     "@media(max-width: 767px)": {
       padding: "1.2vw 2.41vw",
       fontSize: "4.34vw",
@@ -86,6 +103,9 @@ const useStyles = makeStyles((theme) => ({
 
     "&:nth-child(2)": {
       marginLeft: "1.73vw",
+      "@media(min-width: 1440px)": {
+        marginLeft: "25px",
+      },
       "@media(max-width: 767px)": {
         marginLeft: 0,
         marginTop: "4.83vw",
@@ -100,6 +120,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "4.44vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 64,
+    },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
     },
@@ -111,6 +134,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },
@@ -120,6 +146,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     padding: "0.93vw 0",
+    "@media(min-width: 1440px)": {
+      padding: "13.4px 0",
+    },
     "@media(max-width: 767px)": {
       padding: "3.86vw 0",
     },
@@ -131,6 +160,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "1.25vw",
+    "@media(min-width: 1440px)": {
+      fontSize: 18,
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
     },
@@ -139,6 +171,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1.04vw",
     width: "2.63vw",
     height: "1.04vw",
+    "@media(min-width: 1440px)": {
+      marginLeft: "15px",
+      width: "38px",
+      height: "15px",
+    },
     "@media(max-width: 767px)": {
       marginLeft: "3.62vw",
       width: "8.69vw",
@@ -150,6 +187,9 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.background.orange,
 
     padding: "1.04vw 5.55vw",
+    "@media(min-width: 1440px)": {
+      padding: "15px 80px",
+    },
     "@media(max-width: 767px)": {
       padding: "2.41vw 10.86vw",
     },
@@ -161,6 +201,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     fontSize: "1.66vw",
+    "@media(min-width: 1440px)": {
+      fontSize: "24px",
+    },
     "@media(max-width: 767px)": {
       fontSize: "3.86vw",
     },
@@ -172,6 +215,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
 
     marginTop: "1.73vw",
+    "@media(min-width: 1440px)": {
+      marginTop: "25px",
+    },
     "@media(max-width: 767px)": {
       flexDirection: "column",
       marginTop: "4.83vw",
@@ -180,6 +226,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "48.13%",
     height: "39.3vw",
+    "@media(min-width: 1440px)": {
+      height: "566px",
+    },
     "@media(max-width: 767px)": {
       width: "100%",
       height: "120.77vw",
