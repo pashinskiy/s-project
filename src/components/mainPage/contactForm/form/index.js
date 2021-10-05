@@ -152,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   select_active: {
-    borderBottom: "none",
+    borderBottom: "transparent",
 
     borderRadius: "2.01vw 2.01vw 0 0",
     "@media(max-width: 767px)": {
@@ -402,15 +402,28 @@ export default function Form() {
           </Typography>
         )),
       ]);
+      openModal();
     } else {
       setMessage([
         <Typography align="center" className={classes.modalContentText}>
           Отправка данных...
         </Typography>,
       ]);
-    }
+      openModal();
 
-    openModal();
+      localStorage.setItem(
+        "user_data",
+        JSON.stringify({
+          name,
+          phone,
+          email,
+          direction,
+        })
+      );
+      const url = new URL(window.location.href);
+      url.pathname = "/send-data";
+      window.location.href = url.origin + url.pathname;
+    }
   }
 
   return (
@@ -429,7 +442,7 @@ export default function Form() {
           >
             <img
               src={network.network_icon.localFile.publicURL}
-              alt={network.network_icon.alt}
+              alt={network.network_icon.alt ?? "social"}
               width={1}
               height={1}
               className={classes.buttonLink_icon}
@@ -438,7 +451,7 @@ export default function Form() {
         ))}
 
         <button
-          aria-label={data.prismicContactForm.data.network_link}
+          aria-label="phone"
           onClick={() =>
             goLink(`tel:${data.prismicContactForm.data.network_link}`)
           }
@@ -446,7 +459,7 @@ export default function Form() {
         >
           <img
             src={data.prismicContactForm.data.phone_icon.localFile.publicURL}
-            alt={data.prismicContactForm.data.phone_icon.alt}
+            alt={data.prismicContactForm.data.phone_icon.alt ?? "phone"}
             width={1}
             height={1}
             className={classes.buttonLink_icon}
