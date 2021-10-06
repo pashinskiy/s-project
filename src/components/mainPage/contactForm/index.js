@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0 1.73vw 0 0",
     padding: "8.22vw 3.47vw",
     "@media(min-width: 1440px)": {
-      borderRadius: "0 25px 0 0",
+      borderRadius: "25px",
       padding: "118.4px 50px",
     },
     "@media(max-width: 767px)": {
