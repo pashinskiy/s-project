@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
   content: {
     position: "relative",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
 
     display: "flex",
     flexDirection: "column",

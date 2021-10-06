@@ -245,6 +245,10 @@ const useStyles = makeStyles((theme) => ({
   yandexMap_wraper: {
     width: "100%",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
 
     height: "34.09vw",
     borderRadius: "2.43vw",

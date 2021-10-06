@@ -79,6 +79,10 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.color.blue}`,
     borderRadius: "100px",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
     background: theme.palette.background.main,
 
     padding: "1.04vw 1.38vw",
@@ -96,6 +100,10 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.color.blue}`,
     borderRadius: "100px",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
     background: theme.palette.background.main,
 
     padding: "1.04vw 1.38vw",

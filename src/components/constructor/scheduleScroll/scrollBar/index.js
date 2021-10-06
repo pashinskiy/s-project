@@ -24,6 +24,10 @@ const useStyle = makeStyles((theme) => ({
     cursor: "pointer",
     position: "relative",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
   },
   wrapperTrack: {
     scrollbarWidth: "none",

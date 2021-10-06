@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: "relative",
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
 
     display: "flex",
     justifyContent: "flex-end",

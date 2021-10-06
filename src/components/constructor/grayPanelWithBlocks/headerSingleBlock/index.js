@@ -20,6 +20,10 @@ const useStyle = makeStyles((theme) => ({
 
   waveSVG: {
     overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
     borderRadius: "1000px", 
     width: "4.3vw", //62px на 1440 view px
     marginBottom: "1.73vw",

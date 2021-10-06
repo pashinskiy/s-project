@@ -24,6 +24,10 @@ export default function ClientOnly({ children, ...delegated }) {
           height: "100vh",
           width: "100vw",
           overflow: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    MozBackfaceVisibility: "hidden",
+    WebkitTransform: "translate3d(0, 0, 0)",
+    MozTransform: "translate3d(0, 0, 0)",
         }}
       >
         <Logo />
