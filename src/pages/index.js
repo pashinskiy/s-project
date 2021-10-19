@@ -517,6 +517,13 @@ export const query = graphql`
               timer_text
             }
           }
+          ... on PrismicMainPageDataBodyHeader {
+            id
+            slice_type
+            primary {
+              header
+            }
+          }
         }
         body1 {
           ... on PrismicMainPageDataBody1Schedule {
@@ -990,6 +997,13 @@ export const query = graphql`
               timer_date
               timer_bg_color
               timer_text
+            }
+          }
+          ... on PrismicMainPageDataBody1Header {
+            id
+            slice_type
+            primary {
+              header
             }
           }
         }

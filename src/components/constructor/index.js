@@ -18,6 +18,7 @@ import SliderWithTitleAndDescription from "./sliderWithTitleAndDescription";
 import Ticker from "./ticker";
 import Timer from "./timer";
 import Gallery from "./gallery";
+import Header from "./header";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -97,6 +98,8 @@ export default function Constructor({ slices }) {
             return <Ticker slice={slice} key={slice.id} />;
           case "timer":
             return <Timer slice={slice} key={slice.id} />;
+          case "header":
+            return <Header slice={slice} key={slice.id} />;
           default:
             return null;
         }

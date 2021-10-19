@@ -514,6 +514,13 @@ export const query = graphql`
               timer_text
             }
           }
+          ... on PrismicPageConstructorDataBodyHeader {
+            id
+            slice_type
+            primary {
+              header
+            }
+          }
         }
       }
     }

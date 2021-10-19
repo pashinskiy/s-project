@@ -536,6 +536,13 @@ export const query = graphql`
               timer_text
             }
           }
+          ... on PrismicNewsPageDataBodyHeader {
+            id
+            slice_type
+            primary {
+              header
+            }
+          }
         }
       }
     }

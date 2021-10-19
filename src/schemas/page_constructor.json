@@ -1761,6 +1761,23 @@
               }
             },
             "repeat": {}
+          },
+          "header": {
+            "type": "Slice",
+            "fieldset": "header",
+            "description": "заголовок",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Заголовок",
+                  "placeholder": "Заголовок"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
