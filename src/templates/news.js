@@ -145,7 +145,7 @@ export const query = graphql`
                     id
                     data {
                       description {
-                        text
+                        html
                       }
                       first_name {
                         text
@@ -523,6 +523,26 @@ export const query = graphql`
               color_text
               color_bg
               time
+            }
+          }
+          ... on PrismicNewsPageDataBodySliderWithTitleAndDescription {
+            id
+            slice_type
+            primary {
+              title_block
+            }
+            items {
+              title_item
+              subtitle_item
+              text_item
+              image_item {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
             }
           }
           ... on PrismicNewsPageDataBodyTimer {

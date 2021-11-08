@@ -490,6 +490,7 @@ export default function Form() {
                 rel: "noreferrer",
               })
             }
+            key={network.network_link}
             className={classes.buttonLink}
           >
             <img
@@ -580,6 +581,7 @@ export default function Form() {
             {data.prismicContactForm.data.directions.map((item) => (
               <button
                 onClick={() => setDirection(item.direction)}
+                key={item.direction}
                 className={classes.option}
               >
                 {item.direction}

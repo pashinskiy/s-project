@@ -32,18 +32,22 @@ const useStyles = makeStyles((theme) => ({
 export default function SliderWithTitleAndDescription({ slice }) {
   const classes = useStyles();
 
-  const title_block = slice.primary.title_block;
+  const title_block = slice.primary?.title_block;
 
   const [activeIndex, setActiveIndex] = React.useState(1);
-  const subtitle = slice.items[activeIndex].subtitle_item;
-  const title = slice.items[activeIndex].title_item;
-  const text = slice.items[activeIndex].text_item;
+  const subtitle = slice.items[activeIndex]?.subtitle_item;
+  const title = slice.items[activeIndex]?.title_item;
+  const text = slice.items[activeIndex]?.text_item;
 
-  return (
+  const show = subtitle && title && text;
+
+  return show ? (
     <div className={classes.wrapper}>
-      <div className={classes.wrapperTitle}>
-        <BlockHeaderText text={title_block} />
-      </div>
+      {title_block ? (
+        <div className={classes.wrapperTitle}>
+          <BlockHeaderText text={title_block} />
+        </div>
+      ) : null}
 
       <div className={classes.wrapperSlider}>
         <Slider
@@ -74,5 +78,5 @@ export default function SliderWithTitleAndDescription({ slice }) {
         </Slider>
       </div>
     </div>
-  );
+  ) : null;
 }

@@ -7,7 +7,6 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
     flexWrap: "nowrap",
     backgroundColor: "#F3F6FF",
     padding: "3.47vw",
@@ -25,6 +24,16 @@ const useStyle = makeStyles((theme) => ({
     },
     "& :last-child": {
       margin: 0,
+    },
+
+    "& > *": {
+      width: "27.08vw",
+      "@media(min-width: 1440px)": {
+        width: 390,
+      },
+      "@media(max-width: 767px)": {
+        width: "100%",
+      },
     },
   },
 }));

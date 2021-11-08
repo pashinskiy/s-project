@@ -66,7 +66,7 @@ const useStyle = makeStyles((theme) => ({
     marginTop: "1.73vw",
     "@media(min-width: 1440px)": {
       fontSize: 36,
-      marginTop: "25px",  
+      marginTop: "25px",
     },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
@@ -80,7 +80,7 @@ const useStyle = makeStyles((theme) => ({
     marginTop: "1.73vw",
     "@media(min-width: 1440px)": {
       fontSize: 18,
-      marginTop: 25,  
+      marginTop: 25,
     },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
@@ -93,10 +93,10 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "13.68vw",
     padding: "0.9375vw 0px",
-      "@media(min-width: 1440px)": {
-        width: "197px",
-        padding: "13.5px 0px",
-      },
+    "@media(min-width: 1440px)": {
+      width: "197px",
+      padding: "13.5px 0px",
+    },
     "@media(max-width: 767px)": {
       width: "39.37vw",
       padding: "3.86vw 0px 3.86vw 0px",
@@ -150,7 +150,7 @@ const useStyle = makeStyles((theme) => ({
       maxHeight: "100%",
       margin: 0,
       width: "100%",
-      height: "unset",
+      height: "100%",
       maxWidth: "unset",
     },
   },
@@ -193,7 +193,7 @@ const useStyle = makeStyles((theme) => ({
     color: theme.palette.color.blue,
     lineHeight: "112.7%",
     fontWeight: 700,
-    textAlign: "center",
+    textAlign: "left",
     fontSize: "4.44vw",
     marginBottom: "2.08vw",
     "@media(min-width: 1440px)": {
@@ -202,20 +202,21 @@ const useStyle = makeStyles((theme) => ({
     },
     "@media(max-width: 767px)": {
       fontSize: "8.69vw",
+      margin: "0px 6.03vw 7.24vw 6.03vw",
       marginBottom: "3.62vw",
     },
   },
   dialogDescription: {
     color: theme.palette.color.lightBlue,
     fontSize: "1.11vw",
-    maxHeight: "27.77vw",
+    maxHeight: "25vw",
+    overflowY: "auto",
     "@media(min-width: 1440px)": {
       fontSize: 16,
-      maxHeight: "400px",
+      maxHeight: "360px",
     },
     "@media(max-width: 767px)": {
       fontSize: "3.38vw",
-      overflowY: "auto",
       maxHeight: "unset",
       flexGrow: 1,
       margin: "0px 6.03vw 7.24vw 6.03vw",
@@ -250,6 +251,9 @@ export default function OurTeam({ slice }) {
   const data = slice.items.map((coach) => coach);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [coachData, setCoachData] = useState(data[0]);
+
+  const descriptionCoach =
+    coachData.coach.document.data.description.html.slice(3, -4)
 
   const mobile = useMediaQuery("(max-width: 767px)");
 
@@ -352,9 +356,12 @@ export default function OurTeam({ slice }) {
                       " " +
                       coachData.coach.document.data.second_name.text}
                   </Typography>
-                  <Typography className={classes.dialogDescription}>
-                    {coachData.coach.document.data.description.text}
-                  </Typography>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: descriptionCoach,
+                    }}
+                    className={classes.dialogDescription}
+                  />
                 </>
               ) : (
                 <div className={classes.dialogTextContainer}>
@@ -363,9 +370,12 @@ export default function OurTeam({ slice }) {
                       " " +
                       coachData.coach.document.data.second_name.text}
                   </Typography>
-                  <Typography className={classes.dialogDescription}>
-                    {coachData.coach.document.data.description.text}
-                  </Typography>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: descriptionCoach,
+                    }}
+                    className={classes.dialogDescription}
+                  />
                 </div>
               )}
             </div>

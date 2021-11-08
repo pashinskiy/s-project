@@ -351,7 +351,7 @@ export default function Slider({
           </div>
         ) : null}
 
-        {mobile && title === null && title === null ? null : (
+        {mobile && title ? null : (
           <div className={classes.content}>
             {title ?? false ? (
               <Typography className={classes.title}>{title}</Typography>

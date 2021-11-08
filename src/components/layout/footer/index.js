@@ -215,6 +215,7 @@ const useStyles = makeStyles((theme) => ({
     "@media(max-width: 767px)": {
       marginBottom: "1.2vw",
       fontSize: "4.34vw",
+      textAlign: "center",
     },
   },
   address_textNormal: {
@@ -685,6 +686,17 @@ export default function Footer({ data }) {
     dispatch({ type: "SET_VERSION_SITE", payload: "fitnes" });
   }
   function toogleVersionSite() {
+    const switchBlock = document.querySelector("#switch_block");
+
+    const options = { behavior: "smooth" };
+    if (mobile) {
+      const menuHeight = document.querySelector("header").offsetHeight;
+      options.top = switchBlock.offsetTop - menuHeight;
+    } else {
+      options.top = switchBlock.offsetTop;
+    }
+
+    window.scrollTo(options);
     state.versionSite === "sport" ? goFitnesVersion() : goSportVersion();
   }
 
@@ -786,12 +798,16 @@ export default function Footer({ data }) {
                 {prismicContact.data.address}
               </Typography>
 
-              <Typography className={classes.address_textNormal}>
-                {`Метро: “${prismicContact.data.metro}”`}
-              </Typography>
-              <Typography className={classes.address_textNormal}>
-                {`Автобус: “${prismicContact.data.bus}”`}
-              </Typography>
+              {prismicContact.data.metro ? (
+                <Typography className={classes.address_textNormal}>
+                  {`Метро: “${prismicContact.data.metro}”`}
+                </Typography>
+              ) : null}
+              {prismicContact.data.bus ? (
+                <Typography className={classes.address_textNormal}>
+                  {`Автобус: “${prismicContact.data.bus}”`}
+                </Typography>
+              ) : null}
             </div>
           </div>
 
@@ -931,7 +947,7 @@ export default function Footer({ data }) {
 
           <div className={classes.documents_wrapper}>
             {data.prismicLayout.data.documents.map((item) => {
-              const url = item.document?.url;
+              const url = item.document?.localFile.publicURL;
               return (
                 <a
                   href={url}

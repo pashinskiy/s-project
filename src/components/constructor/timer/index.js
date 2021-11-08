@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     height: "12.36vw",
     "@media(min-width: 1440px)": {
       width: "1438px",
-      height: "178px",  
+      height: "178px",
     },
     "@media(max-width: 767px)": {
       width: "148.3vw",
@@ -203,7 +203,8 @@ export default function Timer({ slice }) {
     };
   }, []);
 
-  return (
+  const delta = new Date(slice.primary.timer_date) - Date.now();
+  return delta > 0 ? (
     <div className={classes.wrapper}>
       {title ? (
         <Typography
@@ -259,5 +260,5 @@ export default function Timer({ slice }) {
 
       {text ? <Typography className={classes.text}>{text}</Typography> : null}
     </div>
-  );
+  ) : null;
 }

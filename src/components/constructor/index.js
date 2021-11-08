@@ -57,49 +57,49 @@ export default function Constructor({ slices }) {
 
   return slices !== null ? (
     <div className={classes.wrapper}>
-      {slices.map((slice) => {
+      {slices.map((slice, i) => {
         if (slice === null) return null;
         switch (slice.slice_type) {
           case "text_on_image":
-            return <TextOnImage slice={slice} key={slice.id} />;
+            return <TextOnImage slice={slice} key={slice.id + i} />;
           case "image_side_text":
-            return <ImageSideText slice={slice} key={slice.id} />;
+            return <ImageSideText slice={slice} key={slice.id + i} />;
           case "image_under_text":
-            return <ImageUnderText slice={slice} key={slice.id} />;
+            return <ImageUnderText slice={slice} key={slice.id + i} />;
           case "two_images_under_text":
-            return <TwoImagesUnderText slice={slice} key={slice.id} />;
+            return <TwoImagesUnderText slice={slice} key={slice.id + i} />;
           case "two_images_and_text_in_row":
-            return <TwoImagesAndTextInRow slice={slice} key={slice.id} />;
+            return <TwoImagesAndTextInRow slice={slice} key={slice.id + i} />;
           case "image_and_text_4_1":
-            return <ImageAndText41 slice={slice} key={slice.id} />;
+            return <ImageAndText41 slice={slice} key={slice.id + i} />;
           case "text_on_image_blue_bg":
-            return <TextOnImageBlueBg slice={slice} key={slice.id} />;
+            return <TextOnImageBlueBg slice={slice} key={slice.id + i} />;
           case "text":
-            return <Text slice={slice} key={slice.id} />;
+            return <Text slice={slice} key={slice.id + i} />;
           case "small_slider":
-            return <SmallSliderNormalCard slice={slice} key={slice.id} />;
+            return <SmallSliderNormalCard slice={slice} key={slice.id + i} />;
           case "small_slider_big_photo":
-            return <SmallSliderBigCard slice={slice} key={slice.id} />;
+            return <SmallSliderBigCard slice={slice} key={slice.id + i} />;
           case "big_slider":
-            return <BigSlider slice={slice} key={slice.id} />;
+            return <BigSlider slice={slice} key={slice.id + i} />;
           case "slider_with_title_and_description":
             return (
-              <SliderWithTitleAndDescription slice={slice} key={slice.id} />
+              <SliderWithTitleAndDescription slice={slice} key={slice.id + i} />
             );
           case "schedule":
-            return <ScheduleScroll slice={slice} key={slice.id} />;
+            return <ScheduleScroll slice={slice} key={slice.id + i} />;
           case "gray_panel_with_blocks_text":
-            return <GrayPanelWithBlocks slice={slice} key={slice.id} />;
+            return <GrayPanelWithBlocks slice={slice} key={slice.id + i} />;
           case "galery":
-            return <Gallery slice={slice} key={slice.id} />;
+            return <Gallery slice={slice} key={slice.id + i} />;
           case "our_team":
-            return <OurTeam slice={slice} key={slice.id} />;
+            return <OurTeam slice={slice} key={slice.id + i} />;
           case "ticker":
-            return <Ticker slice={slice} key={slice.id} />;
+            return <Ticker slice={slice} key={slice.id + i} />;
           case "timer":
-            return <Timer slice={slice} key={slice.id} />;
+            return <Timer slice={slice} key={slice.id + i} />;
           case "header":
-            return <Header slice={slice} key={slice.id} />;
+            return <Header slice={slice} key={slice.id + i} />;
           default:
             return null;
         }

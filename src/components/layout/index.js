@@ -88,7 +88,9 @@ export default function Layout({ children }) {
           documents {
             name
             document {
-              url
+              localFile {
+                publicURL
+              }
             }
           }
         }

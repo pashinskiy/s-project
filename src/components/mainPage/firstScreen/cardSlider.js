@@ -40,14 +40,18 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     lineHeight: 1.2,
     color: theme.palette.color.white,
-    whiteSpace: "nowrap",
+    textAlign: "left",
+    // whiteSpace: "nowrap",
 
+    width: "49.3vw",
     fontSize: "5vw",
     "@media(min-width: 1440px)": {
+      width: 710,
       fontSize: 72,
     },
     "@media(max-width: 767px)": {
-      whiteSpace: "break-spaces",
+      // whiteSpace: "break-spaces",
+      width: "100%",
       fontSize: "8.69vw",
     },
   },

@@ -133,7 +133,7 @@ export default function SwitchingBlock() {
       : data.prismicMainPage.data.main_title_sport;
 
   return (
-    <div className={classes.wrapper}>
+    <div id="switch_block" className={classes.wrapper}>
       <ToggleButtons />
 
       <div className={classes.content}>

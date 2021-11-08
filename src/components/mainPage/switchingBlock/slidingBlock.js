@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     "@media(min-width: 1440px)": {
       width: "60px",
       height: "186",
-      borderRadius: "0px 25px 25px 0px",  
+      borderRadius: "0px 25px 25px 0px",
     },
     "@media(max-width: 767px)": {
       width: "9.17vw",
@@ -121,6 +121,8 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 18,
     },
     "@media(max-width: 767px)": {
+      maxHeight: "91.78vw",
+      overflow: "auto",
       fontSize: "3.38vw",
     },
 
