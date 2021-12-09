@@ -6,7 +6,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "fit-content",
+    // height: "fit-content",
     boxShadow: "none",
     borderRadius: 0,
     backgroundColor: "#F3F6FF",
@@ -64,6 +64,9 @@ const useStyle = makeStyles((theme) => ({
   },
 
   groupContainer: {
+    display: "flex",
+    flexDirection: "column",
+
     alignSelf: "center",
     width: "12.56vw",
     marginTop: "1.73vw",
@@ -78,6 +81,9 @@ const useStyle = makeStyles((theme) => ({
   },
 
   groupName: {
+    minWidth: "100%",
+    alignSelf: "center",
+
     fontWeight: 700,
     color: theme.palette.color.blue,
     fontFamily: "'Exo 2'",
@@ -117,15 +123,21 @@ export default function ScheduleCard({ schedule }) {
   const weekDayName = schedule.primary.week_day.text.toLowerCase();
   const groups = schedule.items.map((item, i) => (
     <div key={"group-" + i} className={classes.groupContainer}>
-      <Typography className={classes.groupName}>{item.group.text}</Typography>
+      {!item.group.text ? null : (
+        <Typography className={classes.groupName}>{item.group.text}</Typography>
+      )}
 
-      <Typography className={classes.timeAndCoach}>
-        {item.time_from + " — " + item.time_to}
-      </Typography>
+      {!item.time_from && !item.time_to ? null : (
+        <Typography className={classes.timeAndCoach}>
+          {item.time_from + " — " + item.time_to}
+        </Typography>
+      )}
 
-      <Typography className={classes.timeAndCoach}>
-        {"Тренер: " + item.coach.text}
-      </Typography>
+      {!item.coach.text ? null : (
+        <Typography className={classes.timeAndCoach}>
+          {"Тренер: " + item.coach.text}
+        </Typography>
+      )}
     </div>
   ));
 

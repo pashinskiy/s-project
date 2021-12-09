@@ -138,7 +138,7 @@ export default function SwitchingBlock() {
 
       <div className={classes.content}>
         <GatsbyImage
-          image={image.localFile.childImageSharp.gatsbyImageData}
+          image={image.localFile.childImageSharp?.gatsbyImageData}
           alt={image.alt ?? "fon"}
           className={classes.content_fon}
           imgStyle={{ width: "100%", height: "100%", ojectFit: "cover" }}

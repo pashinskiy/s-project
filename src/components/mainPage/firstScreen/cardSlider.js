@@ -121,7 +121,7 @@ export default function CardSlider({
       className={classes.wrapper}
     >
       <GatsbyImage
-        image={image.localFile.childImageSharp.gatsbyImageData}
+        image={image.localFile.childImageSharp?.gatsbyImageData}
         alt={image.alt ?? "photo"}
         className={classes.img}
         imgStyle={{

@@ -294,7 +294,7 @@ export default function OurTeam({ slice }) {
                     : "coach-" + i
                 }
                 className={classes.image}
-                imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
+                imgStyle={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top"  }}
               />
               <Typography className={classes.coachName}>
                 {block.coach.document.data.first_name.text +
@@ -347,7 +347,7 @@ export default function OurTeam({ slice }) {
                     : "coach-active"
                 }
                 className={classes.dialogImage}
-                imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
+                imgStyle={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top"  }}
               />
               {mobile ? (
                 <>
