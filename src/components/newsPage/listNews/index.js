@@ -124,7 +124,11 @@ export default function ListNews({ news }) {
 
   const itemsOnPage = 6;
   const [page, setPage] = React.useState(1);
-  window.scrollTo(0, 0);
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const numberOfPages = Math.ceil(news.length / itemsOnPage);
 
   const showItems = news.slice(itemsOnPage * (page - 1), itemsOnPage * page);

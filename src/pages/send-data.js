@@ -22,8 +22,11 @@ const useStyles = makeStyles((theme) => ({
 const DataSend = () => {
   const classes = useStyles();
 
-  const userData = JSON.parse(localStorage.getItem("user_data"));
-  localStorage.removeItem("user_data");
+  let userData = null;
+  React.useEffect(() => {
+    userData = JSON.parse(window.localStorage.getItem("user_data"));
+    window.localStorage.removeItem("user_data");
+  }, []);
 
   const initComand = () => `
     ;(function (_, r, e, t, a, i, l) {
