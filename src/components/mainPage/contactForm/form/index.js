@@ -229,7 +229,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "1.04vw 1.38vw",
     "@media(min-width: 1440px)": {
       borderRadius: "0 0 29px 29px",
-      padding: "15px 20px", 
+      padding: "15px 20px",
     },
     "@media(max-width: 767px)": {
       borderRadius: "0 0 7vw 7vw",
@@ -404,8 +404,12 @@ export default function Form() {
   function validForm() {
     const errors = [];
 
-    if (!/^[a-zа-я]+$/i.test(name)) errors.push("некорректное имя");
-    if (!/^\s*(\+?[78]-?\(?\d{3}\)?-?)?\d{3}-?\d{2}-?\d{2}\s*$/.test(phone))
+    if (!/^[a-zа-я\s]+$/i.test(name)) errors.push("некорректное имя");
+    if (
+      !/^\s*(\+?[78]-?\(?\d{3}\)?-?)?\d{3}-?\d{2}-?\d{2}\s*$/.test(
+        phone.replace(/\s/g, "")
+      )
+    )
       errors.push("некорректый номер телефона");
     if (!/@/.test(email)) errors.push("некорректный E-mail");
 
@@ -484,12 +488,13 @@ export default function Form() {
         {data.prismicContactForm.data.networks.map((network) => (
           <button
             aria-label={network.network_link}
-            onClick={() =>
+            onClick={(e) => {
+              e.preventDefault();
               goLink(network.network_link, {
                 target: "_blank",
                 rel: "noreferrer",
-              })
-            }
+              });
+            }}
             key={network.network_link}
             className={classes.buttonLink}
           >
@@ -505,9 +510,10 @@ export default function Form() {
 
         <button
           aria-label="phone"
-          onClick={() =>
-            goLink(`tel:${data.prismicContactForm.data.network_link}`)
-          }
+          onClick={(e) => {
+            e.preventDefault();
+            goLink(`tel:${data.prismicContactForm.data.network_link}`);
+          }}
           className={classes.buttonLink}
         >
           <img
